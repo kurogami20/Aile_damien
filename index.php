@@ -1,6 +1,6 @@
+<?php session_start();?>
 <?php 
-
-require_once 'layout/header.php';
+require 'layout/header.php';
 
 if(isset($_GET['page'])) {
     $page = $_GET['page'];
@@ -27,11 +27,15 @@ if(isset($_GET['page'])) {
             require_once './views/connexion.php';
             break; 
             
+        case 'accueil':
+            require_once './views/home.php';
+            break;
+
         default:
             require_once './views/home.php';
     }
 } else {
-    require_once 'views/home.php';
+    require 'views/home.php';
 }
 
 ?>

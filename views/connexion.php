@@ -9,7 +9,7 @@ connect($_POST['user'], $_POST['password']);
 
 if (isset($_SESSION['login'])) {
     require_once './views/home.php';
-
+  
     exit();
 }
 }
@@ -46,7 +46,3 @@ if (isset($_SESSION['login'])) {
 
 </section>
 
-<script>
-   let password = "<?php echo $_SESSION;?>"
-   console.log(password);
-</script>
