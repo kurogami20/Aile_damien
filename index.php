@@ -1,4 +1,5 @@
 <?php 
+
 require_once 'layout/header.php';
 
 if(isset($_GET['page'])) {
@@ -24,10 +25,13 @@ if(isset($_GET['page'])) {
             break;
         case 'connexion':
             require_once './views/connexion.php';
-            break;       
+            break; 
+            
+        default:
+            require_once './views/home.php';
     }
 } else {
-    require_once './views/home.php';
+    require_once 'views/home.php';
 }
 
 ?>
