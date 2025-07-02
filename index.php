@@ -31,6 +31,10 @@ if(isset($_GET['page'])) {
             require_once './views/home.php';
             break;
 
+        case 'adherer':
+            require_once './views/adherer.php';
+            break;    
+
         default:
             require_once './views/home.php';
     }
@@ -39,3 +43,4 @@ if(isset($_GET['page'])) {
 }
 
 ?>
+<?php require 'layout/footer.php'?>
