@@ -1,4 +1,8 @@
 <IfDefine Free>
 php56 1
 ErrorDocument 404 /404.php
-# SET CSP HEADER
+# SET CSP HEADER  
+
+SetEnv MEMBER_LOGIN  Adhe20!25
+SetEnv MEMBER_PASSWD  Aile//2025
+

@@ -60,25 +60,31 @@
                 <li><a href="#" class="capitalize text-black! text-lg hover:underline! hover:text-[#fb8cdf]!" >jeux de société</a></li>
             </ul>
         </li>  
-        <?php (isset($_SESSION['login']))?  print('<li id="logout" class="capitalize text-black! text-2xl hover:underline! hover:text-[#fb8cdf]! cursor-pointer">déconnexion</li> ') :  print('<li ><a href="index.php?page=connexion" class="capitalize text-black! text-2xl hover:underline! hover:text-[#fb8cdf]!">connexion</a></li> ') ?>
+        <?php
+        
+            if (isset($_SESSION['login'])) {
+                echo '<li id="logout" class="capitalize text-black! text-2xl hover:underline! hover:text-[#fb8cdf]! cursor-pointer">déconnexion</li>';
+               
+            }
+            else{
+        echo'<li ><a href="index.php?page=connexion" class="capitalize text-black! text-2xl hover:underline! hover:text-[#fb8cdf]!">connexion</a></li> '; 
+    }
+    
+        ?>
       
     </ul>
 </nav>
-</header>
+</header> 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const logout = document.getElementById('logout');
+    if (logout) {
+    logout.addEventListener('click', function() {
+    fetch('../logout.php', { method: 'POST' })
+    .then(() => window.location.href = 'index.php?page=connexion');
+    });
+    }
+    });
+</script>
 <body>
 <div class="h-full m-15 ">
-
-<script>
-// Handle logout
-document.getElementById('logout').addEventListener('click', function() {
-    // Clear session data
-    <?php
-    session_unset();
-    session_destroy();
-    ?>
-    // Redirect to home page
-    window.location.href = '/index.php';
-});
-
-
-</script>

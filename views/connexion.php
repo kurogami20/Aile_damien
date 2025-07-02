@@ -1,24 +1,35 @@
 <?php 
 
+// si l'utilisateur a renseigné  un email (animateur)
+if (preg_match("/@/",$_POST['user'])){
+session_unset();
+    require_once './backend/models/dataMapper.php';
 
-require_once './backend/models/dataMapper.php';
-if(!isset($_POST['user']) || !isset($_POST['password'])) {
+    if(isset($_POST['user']) || isset($_POST['password'])) {
+    connect($_POST['user'], $_POST['password']);
+    if (isset($_SESSION['login'])) {
+        // Si la connexion est réussie, on redirige vers la page d'accueil
+        require_once './views/home.php';
 
-}else{
-connect($_POST['user'], $_POST['password']);
-
-if (isset($_SESSION['login'])) {
+        exit();
+    }
+    }
+} 
+elseif($_POST['user'] == getenv('MEMBER_LOGIN') && $_POST['password'] == getenv('MEMBER_PASSWD')) {
+    session_unset();
+    // Si l'utilisateur est un membre, on le connecte
+    $_SESSION['login'] = "LOGIN6";
     require_once './views/home.php';
-  
     exit();
-}
+} else {
+    // Si l'utilisateur n'est pas un membre, on affiche un message d'erreur
+    $_SESSION['login'] = null;
 }
 
-// Si la connexion est réussie, on redirige vers la page d'accueil
 
 ?>
 
-<section>
+<section class="flex flex-col gap-10 items-center justify-center ">
     <h2 class="text-5xl text-center capitalize font-bold">Connexion adhérent</h2>
 <?php if(isset($_POST['user']) || isset($_POST['password'])) { if (!isset($_SESSION['login'])) {
     
