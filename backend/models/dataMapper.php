@@ -5,7 +5,7 @@
 require 'dataBase.php';
 
 
-
+// fonction pour se connecter à la base de données
 function connect($login, $password ){
     global $connexion;
 
@@ -51,5 +51,46 @@ function connect($login, $password ){
 
 
 }
+
+// recuperation des membres du bureau
+
+
+
+function getAnimNameBoard(){
+// fonction de récupération des info des animateurs du bureau
+function getAnimInfo($fullName){
+    global $connexion;
+    $req = "SELECT * FROM animateur WHERE anim_nomprenom = '$fullName'";
+    $res = mysqli_query($connexion, $req);
+    if (!$res) {
+        throw new Exception("Database query failed: " . mysqli_error($connexion));}else{
+        $row = mysqli_fetch_assoc($res);
+        return $row;
+    }
+}
+// fonction de récuperation des nom et prenom des animateurs du bureau de la table activite
+function getAnimFromActivity(){
+    global $connexion;
+    $req = "SELECT * FROM activite WHERE activite_nom = 'Bureau'";
+    $res = mysqli_query($connexion, $req);
+    if (!$res) {
+        throw new Exception("Database query failed: " . mysqli_error($connexion));
+    } else {
+        $tableName = [];
+        $row = mysqli_fetch_assoc($res);
+         
+            foreach ($row as $fullname) {
+                if ($fullname !== '') {
+                    $tableName[] = getAnimInfo($fullname);
+                }
+            }
+        
+        return $tableName;
+    }
+}
+return getAnimFromActivity();
+}
+
+
 
 ?>
