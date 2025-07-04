@@ -53,44 +53,114 @@ function connect($login, $password ){
 }
 
 // recuperation des membres du bureau
-
-
-
 function getAnimNameBoard(){
-// fonction de récupération des info des animateurs du bureau
-function getAnimInfo($fullName){
-    global $connexion;
-    $req = "SELECT * FROM animateur WHERE anim_nomprenom = '$fullName'";
-    $res = mysqli_query($connexion, $req);
-    if (!$res) {
-        throw new Exception("Database query failed: " . mysqli_error($connexion));}else{
-        $row = mysqli_fetch_assoc($res);
-        return $row;
+    // fonction de récupération des info des animateurs du bureau
+    function getAnimInfoBoard($fullName){
+        global $connexion;
+        $req = "SELECT * FROM animateur WHERE anim_nomprenom = '$fullName'";
+        $res = mysqli_query($connexion, $req);
+        if (!$res) {
+            throw new Exception("Database query failed: " . mysqli_error($connexion));}else{
+            $row = mysqli_fetch_assoc($res);
+            return $row;
+        }
     }
-}
-// fonction de récuperation des nom et prenom des animateurs du bureau de la table activite
-function getAnimFromActivity(){
-    global $connexion;
-    $req = "SELECT * FROM activite WHERE activite_nom = 'Bureau'";
-    $res = mysqli_query($connexion, $req);
-    if (!$res) {
-        throw new Exception("Database query failed: " . mysqli_error($connexion));
-    } else {
-        $tableName = [];
-        $row = mysqli_fetch_assoc($res);
-         
-            foreach ($row as $fullname) {
-                if ($fullname !== '') {
-                    $tableName[] = getAnimInfo($fullname);
+    // fonction de récuperation des nom et prenom des animateurs du bureau de la table activite
+    function getAnimFromActivityForBoard(){
+        global $connexion;
+        $req = "SELECT * FROM activite WHERE activite_nom = 'Bureau'";
+        $res = mysqli_query($connexion, $req);
+        if (!$res) {
+            throw new Exception("Database query failed: " . mysqli_error($connexion));
+        } else {
+            $tableName = [];
+            $row = mysqli_fetch_assoc($res);
+            
+                foreach ($row as $fullname) {
+                    if ($fullname !== '') {
+                        $tableName[] = getAnimInfoBoard($fullname);
+                    }
                 }
-            }
-        
-        return $tableName;
+            
+            return $tableName;
+        }
     }
-}
-return getAnimFromActivity();
+    return getAnimFromActivityForBoard();
 }
 
+// fonction de récupération des membres du CA
+function getAnimNameCA(){
+    // fonction de récupération des info des animateurs du CA
+    function getAnimInfoCA($fullName){
+        global $connexion;
+        $req = "SELECT * FROM animateur WHERE anim_nomprenom = '$fullName'";
+        $res = mysqli_query($connexion, $req);
+        if (!$res) {
+            throw new Exception("Database query failed: " . mysqli_error($connexion));}else{
+            $row = mysqli_fetch_assoc($res);
+            return $row;
+        }
+    }
+    // fonction de récuperation des nom et prenom des animateurs du bureau de la table activite
+    function getAnimFromActivityForCA(){
+        global $connexion;
+        $req = "SELECT * FROM activite WHERE activite_nom = 'CA'";
+        $res = mysqli_query($connexion, $req);
+        if (!$res) {
+            throw new Exception("Database query failed: " . mysqli_error($connexion));
+        } else {
+            $tableName = [];
+            $row = mysqli_fetch_assoc($res);
+             
+                foreach ($row as $fullname) {
+                    if ($fullname !== '') {
+                        $tableName[] = getAnimInfoCA($fullname);
+                    }
+                }
+            
+            return $tableName;
+        }
+    }
+    return getAnimFromActivityForCA();
+    }
+    
+    
+// fonction de récupération des membres du CD
+function getAnimNameCD(){
+    // fonction de récupération des info des animateurs du CD
+    function getAnimInfoCD($fullName){
+        global $connexion;
+        $req = "SELECT * FROM animateur WHERE anim_nomprenom = '$fullName'";
+        $res = mysqli_query($connexion, $req);
+        if (!$res) {
+            throw new Exception("Database query failed: " . mysqli_error($connexion));}else{
+            $row = mysqli_fetch_assoc($res);
+            return $row;
+        }
+    }
+    // fonction de récuperation des nom et prenom des animateurs du bureau de la table activite
+    function getAnimFromActivityForCD(){
+        global $connexion;
+        $req = "SELECT * FROM activite WHERE activite_nom = 'Conseil de conciliation'";
+        $res = mysqli_query($connexion, $req);
+        if (!$res) {
+            throw new Exception("Database query failed: " . mysqli_error($connexion));
+        } else {
+            $tableName = [];
+            $row = mysqli_fetch_assoc($res);
+             
+                foreach ($row as $fullname) {
+                    if ($fullname !== '') {
+                        $tableName[] = getAnimInfoCD($fullname);
+                    }
+                }
+            
+            return $tableName;
+        }
+    }
+    return getAnimFromActivityForCD();
+    }
+    
 
 
 ?>
