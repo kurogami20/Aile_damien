@@ -11,21 +11,15 @@ require 'layout/header.php';
                 case 'qui_sommes_nous':
                     require_once './views/association/quiSommesNous.php';
                     break;
-                case 'art':
-                    require_once './views/art.php';
+
+                case 'poles_d_activites':
+                    require_once './views/association/poles.php';
                     break;
-                case 'sport':
-                    require_once './views/sport.php';
+
+                case 'tableau_d_activite':
+                    require_once './views/association/tableauxDActivite.php'; 
                     break;
-                case 'ensemble':
-                    require_once './views/ensemble.php';
-                    break;
-                case 'apprendre':
-                    require_once './views/apprendre.php';
-                    break;
-                case 'detente':
-                    require_once './views/detente.php';
-                    break;
+                    
                 case 'connexion':
                     require_once './views/connexion.php';
                     break; 
@@ -36,7 +30,30 @@ require 'layout/header.php';
 
                 case 'adherer':
                     require_once './views/adherer.php';
-                    break;    
+                    break;
+
+                case 'art':
+                    require_once './utils/routerCategorie.php';
+                    break;
+
+                case 'sport':
+                    require_once './utils/routerCategorie.php';
+                    break;
+
+                case 'ensemble':
+                    require_once './utils/routerCategorie.php';
+
+                    break;
+
+                case 'apprendre':
+                    require_once './utils/routerCategorie.php';
+
+                    break;
+
+                case 'detente':
+                    require_once './utils/routerCategorie.php';
+                    break;
+
 
                 default:
                     require_once './views/home.php';
@@ -44,6 +61,7 @@ require 'layout/header.php';
         } else {
             require 'views/home.php';
         }
+       
         ?>
     </div>
 </body>

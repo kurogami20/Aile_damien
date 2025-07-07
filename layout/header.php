@@ -22,45 +22,50 @@
 <a href="index.php?page=accueil" class="flex items-center gap-5"><img src="../assets/img/logo.webp" alt="" class="w-30 h-30 object-cover rounded-full">  <h1 class="text-4xl capitalize w-max">A.I.L.E.</h1></a>
 <nav class=" flex! items-center! relative">
     <ul class="flex gap-10">
-        <li class="group capitalize text-black  text-2xl d hover:underline! hover:text-[#9E6600]!">l'association
-            <ul class="flex flex-col gap-6  pl-5 shadow-lg rounded-lg p-10  bg-white absolute  hidden group-hover:flex   "                
-                <li><a href="index.php?page=qui_sommes_nous" class="  capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!" >Qui sommes nous</a></li>
-                <li><a href="#" class="  capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!" >Pôle d'activités</a></li>
-                <li><a href="#" class="  capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!" >Tableau d'activités</a></li>
-            </ul>
-        </li> 
-        <li class="group"><a href="index.php?page=art" class="capitalize text-black  text-2xl d hover:underline! hover:text-[#9E6600]!">Art</a>
-            <ul class="flex flex-col gap-6  pl-5 shadow-lg rounded-lg p-10  bg-white absolute  hidden group-hover:flex   "> 
-                <li><a href="#" class="  capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!" >Art manuel</a></li>
-                <li><a href="#" class="  capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!" >Art performatifs</a></li>
+        <li class="group capitalize text-black text-2xl d hover:underline! hover:text-[#9E6600]!">
+            l'association
+            <ul class="flex flex-col gap-6 pl-5 shadow-lg rounded-lg p-10 bg-white absolute hidden group-hover:flex">
+                <li><a href="index.php?page=qui_sommes_nous" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">Qui sommes nous</a></li>
+                <li><a href="index.php?page=poles_d_activites" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">Pôle d'activités</a></li>
+                <li><a href="index.php?page=tableau_d_activite" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">Tableau d'activités</a></li>
             </ul>
         </li>
-        <li class="group"><a href="index.php?page=sport" class="capitalize text-black  text-2xl d hover:underline! hover:text-[#9E6600]!">sport</a>
-            <ul class="flex flex-col gap-6  pl-5 shadow-lg rounded-lg p-10  bg-white absolute  hidden group-hover:flex   "> 
-                <li><a href="#" class="  capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!" >rando et marche</a></li>
-                <li><a href="#" class="  capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!" >vélo</a></li>
-                <li><a href="#" class="  capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!" >ski de fond</a></li>
+        <li class="group capitalize text-black text-2xl d hover:underline! hover:text-[#9E6600]!">
+            Art
+            <ul class="flex flex-col gap-6 pl-5 shadow-lg rounded-lg p-10 bg-white absolute hidden group-hover:flex">
+                <li><a href="index.php?page=art&categorie=art_manuel" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">Art manuel</a></li>
+                <li><a href="index.php?page=art&categorie=art_performatifs" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">Art performatifs</a></li>
             </ul>
         </li>
-        <li class="group"><a href="index.php?page=ensemble" class="capitalize text-black  text-2xl d hover:underline! hover:text-[#9E6600]!">ensemble</a>
-            <ul class="flex flex-col gap-6  pl-5 shadow-lg rounded-lg p-10  bg-white absolute  hidden group-hover:flex   "> 
-                <li><a href="#" class="  capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!" >Tourisme</a></li>
-                <li><a href="#" class="  capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!" >Festivités</a></li>
-            </ul>
-        </li> 
-        <li class="group"><a href="index.php?page=apprendre" class="capitalize text-black  text-2xl d hover:underline! hover:text-[#9E6600]!">Apprendre</a>
-            <ul class="flex flex-col gap-6  pl-5 shadow-lg rounded-lg p-10  bg-white absolute  hidden group-hover:flex   "> 
-                <li><a href="#" class="  capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!" >Numérique</a></li>
-                <li><a href="#" class="  capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!" >Langues</a></li>
+        <li class="group capitalize text-black text-2xl d hover:underline! hover:text-[#9E6600]!">
+            sport
+            <ul class="flex flex-col gap-6 pl-5 shadow-lg rounded-lg p-10 bg-white absolute hidden group-hover:flex">
+                <li><a href="index.php?page=sport&categorie=rando" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">rando et marche</a></li>
+                <li><a href="index.php?page=sport&categorie=velo" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">vélo</a></li>
+                <li><a href="index.php?page=sport&categorie=ski" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">ski de fond</a></li>
             </ul>
         </li>
-        <li class="group"><a href="index.php?page=detente" class="capitalize text-black  text-2xl d hover:underline! hover:text-[#9E6600]!">détente</a>
-            <ul class="flex flex-col gap-6  pl-5 shadow-lg rounded-lg p-10  bg-white absolute  hidden group-hover:flex   "> 
-                <li><a href="#" class="  capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!" >Bien-être</a></li>
-                <li><a href="#" class="  capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!" >jeux de société</a></li>
+        <li class="group capitalize text-black text-2xl d hover:underline! hover:text-[#9E6600]!">
+            ensemble
+            <ul class="flex flex-col gap-6 pl-5 shadow-lg rounded-lg p-10 bg-white absolute hidden group-hover:flex">
+                <li><a href="index.php?page=ensemble&categorie=tourisme" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">Tourisme</a></li>
+                <li><a href="index.php?page=ensemble&categorie=festivites" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">Festivités</a></li>
             </ul>
-        </li>  
-        
+        </li>
+        <li class="group capitalize text-black text-2xl d hover:underline! hover:text-[#9E6600]!">
+            Apprendre
+            <ul class="flex flex-col gap-6 pl-5 shadow-lg rounded-lg p-10 bg-white absolute hidden group-hover:flex">
+                <li><a href="index.php?page=apprendre&categorie=numerique" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">Numérique</a></li>
+                <li><a href="index.php?page=apprendre&categorie=langues" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">Langues</a></li>
+            </ul>
+        </li>
+        <li class="group capitalize text-black text-2xl d hover:underline! hover:text-[#9E6600]!">
+            détente
+            <ul class="flex flex-col gap-6 pl-5 shadow-lg rounded-lg p-10 bg-white absolute hidden group-hover:flex">
+                <li><a href="index.php?page=detente&categorie=bien_etre" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">Bien-être</a></li>
+                <li><a href="index.php?page=detente&categorie=jeux" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">jeux de société</a></li>
+            </ul>
+        </li>    
         
         <?php
         
