@@ -45,9 +45,10 @@ if (isset($_GET['categorie'])) {
                 case 'jeux':
                     require_once './views/detente/jeuxDeSociete.php';
                     break;
-                    
+                
                 default:
-                    // Handle unknown categories if necessary
+                    require_once './404.php';
+                  
             }
         }
 

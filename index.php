@@ -3,7 +3,8 @@
 require 'layout/header.php';
 ?>
 <body >
-    <div class="h-full m-15 ">
+
+    <div class="h-full m-15 relative">
         <?php
         if(isset($_GET['page'])) {
             $page = $_GET['page'];
@@ -54,15 +55,20 @@ require 'layout/header.php';
                     require_once './utils/routerCategorie.php';
                     break;
 
+                    case 'activites':
+                    require_once './views/indexActivites.php';
+                    break;
 
                 default:
-                    require_once './views/home.php';
+                    require_once './404.php';
             }
         } else {
             require 'views/home.php';
         }
        
         ?>
+        
     </div>
+
 </body>
 <?php require 'layout/footer.php'?>

@@ -61,7 +61,7 @@
         </li>
         <li class="group capitalize text-black text-2xl d hover:underline! hover:text-[#9E6600]!">
             détente
-            <ul class="flex flex-col gap-6 pl-5 shadow-lg rounded-lg p-10 bg-white absolute hidden group-hover:flex">
+            <ul class="flex flex-col gap-6 pl-5 shadow-lg rounded-lg p-10 bg-white absolute hidden group-hover:flex ">
                 <li><a href="index.php?page=detente&categorie=bien_etre" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">Bien-être</a></li>
                 <li><a href="index.php?page=detente&categorie=jeux" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">jeux de société</a></li>
             </ul>
