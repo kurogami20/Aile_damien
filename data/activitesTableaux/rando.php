@@ -1,5 +1,20 @@
 <?php
-$randoMarcheTypes= [
+// require_once './backend/models/dataMapper.php';
+
+$titrePage= "Randonnée et Marche";
+
+$activiteNom=[
+    'Marche à la Ramée',
+    'Marche Nordique',
+    'Marche Promenade',
+    'Randonnées',
+    'Randos Montagne',
+    'Randos Raquettes'
+];
+
+// $animateurs= getAnimFromActivity($activiteNom);
+
+$activiteTypes= [
     [
     "type"=> "marche",
     "activites"=> [
@@ -17,26 +32,38 @@ $randoMarcheTypes= [
             "Randos Raquettes"
         ]
     ]
-        ];  
-$randoMarcheInfo = [
+   
+];  
+
+$activiteInfo = [
     [
       "titre" => "marche",
       "activites" => [ 
         [
             "titre" => "Marche à la Ramée",
-            "description" => "Marche à la Ramée les mardi et vendredi par Maïté Siau, de mi-septembre à mi-juin à 9h et de mi-juin à mi-septembre à 8h30. Rassemblement côté manège."
+            "description" => "Marche à la Ramée les mardi et vendredi par Maïté Siau, de mi-septembre à mi-juin à 9h et de mi-juin à mi-septembre à 8h30. Rassemblement côté manège.",
+            "animateur" => ''
         ],
         [
             "titre" => "Marche Nordique",
-            "description" => "Tous les mardis à 8h, site de Bidot, parking du centre aéré de Frouzins, chemin Sauveur ; animateur Ignacio Lujan. Mardi et vendredi à 9h et 8h30 à partir du mardi 17 juin autour du lac de la Ramée, parking principal (manège) ; animateur Jean-Claude Perez. Tous les jeudis à 8h, départ salle Paucheville à Frouzins ; animateur Brice Ledos."
+            "description" => "Tous les mardis à 8h, site de Bidot, parking du centre aéré de Frouzins, chemin Sauveur ; animateur Ignacio Lujan. Mardi et vendredi à 9h et 8h30 à partir du mardi 17 juin autour du lac de la Ramée, parking principal (manège) ; animateur Jean-Claude Perez. Tous les jeudis à 8h, départ salle Paucheville à Frouzins ; animateur Brice Ledos.",
+            "animateur" => ''
         ],
         [
             "titre" => "Marche Promenade",
-            "description" => "Marche promenade le jeudi matin à 9h (prévenir de votre présence). Bord du canal St Martory et parc Rachety ; RdV devant le parking rue du Couserans (au Vivier) à Cugnaux."
+            "description" => "Marche promenade le jeudi matin à 9h (prévenir de votre présence). Bord du canal St Martory et parc Rachety ; RdV devant le parking rue du Couserans (au Vivier) à Cugnaux.",
+            "animateur" => ''
         ],
         [
             "titre" => "Marche Rapide",
-            "description" => "Marche rapide, le jeudi à 9h au parc de La Ramée à Toulouse. RdV parking du manège."
+            "description" => "Marche rapide, le jeudi à 9h au parc de La Ramée à Toulouse. RdV parking du manège.",
+            "animateur" => [[
+                            "anim_nom"=> "Boyer",
+                            "anim_prenom" => "Joêlle",
+                            "anim_telfixe"=> "",
+                            "anim_telmob"=> "06 81 07 90 21",
+                            "anim_boitemail"=> "joelle-boyer47@orange.fr",
+                            ]]
         ],
                     ]
     ],
@@ -61,5 +88,7 @@ $randoMarcheInfo = [
 
     ]
 ];
+
+
 
 ?>

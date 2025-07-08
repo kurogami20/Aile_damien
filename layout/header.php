@@ -33,7 +33,7 @@
         <li class="group capitalize text-black text-2xl d hover:underline! hover:text-[#9E6600]!">
             Art
             <ul class="flex flex-col gap-6 pl-5 shadow-lg rounded-lg p-10 bg-white absolute hidden group-hover:flex">
-                <li><a href="index.php?page=art&categorie=art_manuel" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">Art manuel</a></li>
+                <li><a href="index.php?page=art&categorie=art_plastique" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">Art plastique</a></li>
                 <li><a href="index.php?page=art&categorie=art_performatifs" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">Art performatifs</a></li>
             </ul>
         </li>

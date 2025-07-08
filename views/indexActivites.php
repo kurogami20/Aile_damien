@@ -1,5 +1,8 @@
 <?php 
-require './data/rando_marche/rando.php';
+require_once './utils/routerActiviteIndex.php';
+require_once './backend/models/dataMapper.php';
+
+// $animateurs = getAnimFromActivity($activiteNom);
 ?>
 
 <!-- drawer init and show -->
@@ -18,9 +21,9 @@ require './data/rando_marche/rando.php';
         </button>
     <div class="py-4 overflow-y-auto">
         <ul class="space-y-2 font-medium">
-    <?php foreach ($randoMarcheTypes as $type) : ?>
+    <?php foreach ($activiteTypes as $type) : ?>
             <li class="group" data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation">
-                <?php if ( htmlspecialchars($type['type'])!== $randoMarcheTypes[0]['type'] ){?>
+                <?php if ( htmlspecialchars($type['type'])!== $activiteTypes[0]['type'] ){?>
                 <a href="#<?= htmlspecialchars($type['type']) ?>" class="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-[#FFBE45]/40  ">
                 <?php } else { ?>
                     <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-[#FFBE45]/40  ">   
@@ -43,9 +46,9 @@ require './data/rando_marche/rando.php';
 </div>
 <section class="flex flex-col p-4 px-40 h-[100%] gap-20 items-center">
 
-<h2 class="text-5xl text-center capitalize font-bold">Randonnée et Marche</h2>
+<h2 class="text-5xl text-center capitalize font-bold"><?= $titrePage?></h2>
   
-        <?php foreach ($randoMarcheInfo as $info) : ?>
+        <?php foreach ($activiteInfo as $info) : ?>
             <section class="flex flex-col gap-15  w-full">
                 <h3 class="text-3xl capitalize font-bold " id="<?= htmlspecialchars($info['titre']) ?>"><?= htmlspecialchars($info['titre']) ?></h3>
                 <div class="flex flex-col gap-10">
@@ -54,12 +57,20 @@ require './data/rando_marche/rando.php';
                         <h2 class="title text-2xl font-bold"id="<?= htmlspecialchars($activite['titre']) ?>" class="text-xl font-semibold mb-2"><?= htmlspecialchars($activite['titre']) ?></h2>
                         <div class="card-content flex flex-col items-center gap-3">
                             <p class="text-lg "><?= htmlspecialchars($activite['description']) ?></p>
+                           
+                                </div>
+                            </article>
+                        <?php endforeach; ?>
                         </div>
-                    </article>
-                    <?php endforeach; ?>
-                    </div>
-                </section>
+                    </section>
                 <?php endforeach; ?>
-   
+ 
    
 </section>
+
+<script>
+    const arrayAnim = <?= json_encode(getAnimFromActivity($activiteNom)) ?>;
+    const activiteNom = <?= json_encode($activiteNom) ?>;
+    console.log(arrayAnim);
+    console.log(activiteNom);
+</script>
