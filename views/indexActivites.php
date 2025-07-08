@@ -1,8 +1,8 @@
 <?php 
 require_once './utils/routerActiviteIndex.php';
 require_once './backend/models/dataMapper.php';
-
-// $animateurs = getAnimFromActivity($activiteNom);
+$animateur = getAnimFromActivity($activiteId);
+$globalIndex = 0;
 ?>
 
 <!-- drawer init and show -->
@@ -48,7 +48,7 @@ require_once './backend/models/dataMapper.php';
 
 <h2 class="text-5xl text-center capitalize font-bold"><?= $titrePage?></h2>
   
-        <?php foreach ($activiteInfo as $info) : ?>
+        <?php ; foreach ($activiteInfo as $info) : ;?>
             <section class="flex flex-col gap-15  w-full">
                 <h3 class="text-3xl capitalize font-bold " id="<?= htmlspecialchars($info['titre']) ?>"><?= htmlspecialchars($info['titre']) ?></h3>
                 <div class="flex flex-col gap-10">
@@ -57,20 +57,45 @@ require_once './backend/models/dataMapper.php';
                         <h2 class="title text-2xl font-bold"id="<?= htmlspecialchars($activite['titre']) ?>" class="text-xl font-semibold mb-2"><?= htmlspecialchars($activite['titre']) ?></h2>
                         <div class="card-content flex flex-col items-center gap-3">
                             <p class="text-lg "><?= htmlspecialchars($activite['description']) ?></p>
-                           
-                                </div>
-                            </article>
+                            <?php  if( is_array($activite['animateur'])){?>
+                            <div class="animateur flex flex-col items-center gap-2">
+                                <h3 class="text-xl font-semibold">Animateur(s) :</h3>
+                                <?php foreach ($activite['animateur'] as $anim) : ?>
+                                    <div class="animateur-info flex flex-col items-center">
+                                        <p class="text-lg"><?= htmlspecialchars($anim['anim_nom']) ?> <?= htmlspecialchars($anim['anim_prenom']) ?></p>
+                                        <p class="text-sm">Tél : <?= htmlspecialchars($anim['anim_telmob']) ?></p>
+                                        <p class="text-sm">Email : <?= htmlspecialchars($anim['anim_boitemail']) ?></p>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                                    <?php } else { 
+                                        $animateur 
+                                         ?>
+                                        <div class="animateur flex flex-col items-center gap-2">
+                                            <h3 class="text-xl font-semibold">Animateur(s) :</h3>
+                                            <?php if(isset($animateur[$globalIndex]) && !empty($animateur[$globalIndex])){ ?>
+                                            <?php foreach ($animateur[$globalIndex] as $anim) : ?>
+                                                <div class="animateur-info flex flex-col items-center">
+                                                    <p class="text-lg"><?= htmlspecialchars($anim['anim_nom']) ?> <?= htmlspecialchars($anim['anim_prenom']) ?></p>
+                                                    <p class="text-sm">Tél : <?= htmlspecialchars($anim['anim_telmob']) ?></p>
+                                                    <p class="text-sm">Email : <?= htmlspecialchars($anim['anim_boitemail']) ?></p>
+                                                </div>
+                                            <?php endforeach; ?>
+                                            <?php $globalIndex++; ?>
+                                            <?php } ?>
+                                        </div>
+                                    <?php } ?>
+                        </div>
+                    </article>
+                         
                         <?php endforeach; ?>
                         </div>
                     </section>
-                <?php endforeach; ?>
+        <?php endforeach; ?>
  
    
 </section>
 
 <script>
-    const arrayAnim = <?= json_encode(getAnimFromActivity($activiteNom)) ?>;
-    const activiteNom = <?= json_encode($activiteNom) ?>;
-    console.log(arrayAnim);
-    console.log(activiteNom);
+   
 </script>

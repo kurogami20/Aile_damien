@@ -3,15 +3,8 @@
 
 $titrePage= "Randonnée et Marche";
 
-$activiteNom=[
-    'Marche à la Ramée',
-    'Marche Nordique',
-    'Marche Promenade',
-    'Randonnées',
-    'Randos Montagne',
-    'Randos Raquettes'
-];
-
+$activiteId=[42,41,44,40,51,];
+    
 // $animateurs= getAnimFromActivity($activiteNom);
 
 $activiteTypes= [
@@ -81,8 +74,52 @@ $activiteInfo = [
             ],
             [
                 "titre" => "Randos Raquettes",
-                "description" => "Les randonnées raquettes nécessitent une licence FFRS pour des raisons d'assurance. Activité encadrée par des animateurs brevetés, généralement proposée le vendredi selon l'enneigement. Consulter le calendrier des randonnées."
-            ]
+                "description" => "Les randonnées raquettes nécessitent une licence FFRS pour des raisons d'assurance. Activité encadrée par des animateurs brevetés, généralement proposée le vendredi selon l'enneigement. Consulter le calendrier des randonnées.",
+                "animateur" => [
+                        [
+                            "anim_nom" => "Rigot",
+                            "anim_prenom" => "Pascal",
+                            "anim_telfixe" => "05 61 06 57 13",
+                            "anim_telmob" => "06 85 45 28 00",
+                            "anim_boitemail" => "pascal.rigot@gmail.com"
+                        ],
+                        [
+                            "anim_nom" => "Edin",
+                            "anim_prenom" => "Alain",
+                            "anim_telfixe" => "",
+                            "anim_telmob" => "06 32 84 71 96",
+                            "anim_boitemail" => "alain.edin@wanadoo.fr"
+                        ],
+                        [
+                            "anim_nom" => "Jollivet",
+                            "anim_prenom" => "Claude",
+                            "anim_telfixe" => "05 61 07 41 75",
+                            "anim_telmob" => "06 17 64 63 31",
+                            "anim_boitemail" => "mc.jollivet@hotmail.fr"
+                        ],
+                        [
+                            "anim_nom" => "Le Gall",
+                            "anim_prenom" => "Daniel",
+                            "anim_telfixe" => "05 61 92 75 66",
+                            "anim_telmob" => "06 28 06 89 93",
+                            "anim_boitemail" => "daniel31.legall@free.fr"
+                        ],
+                        [
+                            "anim_nom" => "Roulland",
+                            "anim_prenom" => "Francis",
+                            "anim_telfixe" => "05 61 07 54 54",
+                            "anim_telmob" => "06 85 78 75 43",
+                            "anim_boitemail" => "francis.roulland@orange.fr"
+                        ],
+                        [
+                            "anim_nom" => "Sigur",
+                            "anim_prenom" => "Daniel",
+                            "anim_telfixe" => "",
+                            "anim_telmob" => "06 70 79 80 21",
+                            "anim_boitemail" => "sigur.daniel@orange.fr"
+                        ]
+                    ]
+                ]
         
                      ]
 

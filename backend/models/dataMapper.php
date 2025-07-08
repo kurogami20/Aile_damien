@@ -169,7 +169,7 @@ require 'dataBase.php';
 
         // * page activités
     //  fonction de récuperation des animateurs
-    function getAnimFromActivity($activiteName){
+    function getAnimFromActivity($activiteId){
        
         // fonction de récupération des info des animateurs de l'activité
         function getAnimInfoActivity($fullName){
@@ -184,19 +184,19 @@ require 'dataBase.php';
         }
        
         // fonction de récuperation des nom et prenom des animateurs du bureau de la table activite
-        function getAnimFromActivityForActivity($names){
+        function getAnimFromActivityForActivity($ids){
             $result=[];
-            foreach ($names as $name) {
+            foreach ($ids as $id) {
                 global $connexion;
                 
-                $req = "SELECT * FROM activite WHERE activite_nom = ?";
+                $req = "SELECT * FROM activite WHERE id = ?";
                 
                 // on prépare la fonction pour éviter les injections SQL
                 $stmt = mysqli_prepare($connexion, $req);
                 if ($stmt === false) {
                     throw new Exception("Failed to prepare SQL statement.");
                 }
-                mysqli_stmt_bind_param($stmt, "s", $name);
+                mysqli_stmt_bind_param($stmt, "i", $id);
                 mysqli_stmt_execute($stmt);
                 $res = mysqli_stmt_get_result($stmt);
             
@@ -227,7 +227,7 @@ require 'dataBase.php';
                 mysqli_stmt_close($stmt);            }
           return $result; 
         }
-        $result = getAnimFromActivityForActivity($activiteName);
+        $result = getAnimFromActivityForActivity($activiteId);
         return $result ? $result : ["vide"];
 
         }
