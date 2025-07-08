@@ -1,11 +1,11 @@
 <?php
-// require_once './backend/models/dataMapper.php';
+
 
 $titrePage= "Randonnée et Marche";
 
 $activiteId=[42,41,44,40,51,];
     
-// $animateurs= getAnimFromActivity($activiteNom);
+$illustrationActivite = 'assets\img\activites\undraw_hiking_9zta.svg';
 
 $activiteTypes= [
     [

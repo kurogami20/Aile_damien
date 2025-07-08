@@ -47,44 +47,102 @@ $globalIndex = 0;
 <section class="flex flex-col p-4 px-40 h-[100%] gap-20 items-center">
 
 <h2 class="text-5xl text-center capitalize font-bold"><?= $titrePage?></h2>
-  
+<img class="w-[40%]" src="<?= $illustrationActivite ?>" alt="">
         <?php ; foreach ($activiteInfo as $info) : ;?>
             <section class="flex flex-col gap-15  w-full">
                 <h3 class="text-3xl capitalize font-bold " id="<?= htmlspecialchars($info['titre']) ?>"><?= htmlspecialchars($info['titre']) ?></h3>
+                
                 <div class="flex flex-col gap-10">
                 <?php foreach ($info['activites'] as $activite) : ?>
-                    <article class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3  justify-center w-[800px] odd:items-start even:items-end odd:self-start even:self-end"> 
+                    <article class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3  justify-center w-[800px] odd:items-start even:items-end odd:self-start even:self-end odd:text-left even:text-right"> 
                         <h2 class="title text-2xl font-bold"id="<?= htmlspecialchars($activite['titre']) ?>" class="text-xl font-semibold mb-2"><?= htmlspecialchars($activite['titre']) ?></h2>
-                        <div class="card-content flex flex-col items-center gap-3">
+                        <div class="card-content flex flex-col items-stretch gap-4 ">
                             <p class="text-lg "><?= htmlspecialchars($activite['description']) ?></p>
-                            <?php  if( is_array($activite['animateur'])){?>
-                            <div class="animateur flex flex-col items-center gap-2">
-                                <h3 class="text-xl font-semibold">Animateur(s) :</h3>
-                                <?php foreach ($activite['animateur'] as $anim) : ?>
-                                    <div class="animateur-info flex flex-col items-center">
-                                        <p class="text-lg"><?= htmlspecialchars($anim['anim_nom']) ?> <?= htmlspecialchars($anim['anim_prenom']) ?></p>
-                                        <p class="text-sm">Tél : <?= htmlspecialchars($anim['anim_telmob']) ?></p>
-                                        <p class="text-sm">Email : <?= htmlspecialchars($anim['anim_boitemail']) ?></p>
-                                    </div>
-                                <?php endforeach; ?>
-                            </div>
+                            <?php if(isset($_SESSION['login'])) {?>
+                            <div class=" flex flex-col gap-3">
+                              <details>
+                                   <summary><h3 class="text-xl font-semibold">Les animateurs/rices</h3></summary>
+                                    <?php  if( is_array($activite['animateur'])){?>
+                                    <table class="text-sm  text-gray-500 w-full">
+                                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
+                                    <tr>
+                                    <th scope="col" class="px-6 py-3">
+                                    Nom 
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                    Prénom
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                    Contact
+                                    </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php foreach ($activite['animateur'] as $anim) : ?>
+                                    <?php if (!empty($anim['anim_nom']) && !empty($anim['anim_prenom']) && (!empty($anim['anim_telmob']) || !empty($anim['anim_telfixe']))) : ?>
+                                    <tr class="bg-white border-b border-gray-200">
+                                    <td class="px-6 py-4">
+                                    <?= htmlspecialchars($anim['anim_nom']) ?>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                    <?= htmlspecialchars($anim['anim_prenom']) ?>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                    <?= !empty($anim['anim_telmob']) ? htmlspecialchars($anim['anim_telmob']) : htmlspecialchars($anim['anim_telfixe']) ?>
+                                    </td>
+                                    </tr>
+                                    <?php endif; ?>
+                                    <?php endforeach; ?>
+                                    </tbody>
+                                    </table>
+
+
                                     <?php } else { 
-                                        $animateur 
-                                         ?>
-                                        <div class="animateur flex flex-col items-center gap-2">
-                                            <h3 class="text-xl font-semibold">Animateur(s) :</h3>
-                                            <?php if(isset($animateur[$globalIndex]) && !empty($animateur[$globalIndex])){ ?>
-                                            <?php foreach ($animateur[$globalIndex] as $anim) : ?>
-                                                <div class="animateur-info flex flex-col items-center">
-                                                    <p class="text-lg"><?= htmlspecialchars($anim['anim_nom']) ?> <?= htmlspecialchars($anim['anim_prenom']) ?></p>
-                                                    <p class="text-sm">Tél : <?= htmlspecialchars($anim['anim_telmob']) ?></p>
-                                                    <p class="text-sm">Email : <?= htmlspecialchars($anim['anim_boitemail']) ?></p>
-                                                </div>
-                                            <?php endforeach; ?>
-                                            <?php $globalIndex++; ?>
-                                            <?php } ?>
-                                        </div>
+                                    $animateur 
+                                    ?>
+
+                                    <?php if(isset($animateur[$globalIndex]) && !empty($animateur[$globalIndex])){ ?>
+
+                                    <table class="text-sm  text-gray-500 w-full">
+                                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
+                                    <tr>
+                                    <th scope="col" class="px-6 py-3">
+                                    Nom 
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                    Prénom
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                    Contact
+                                    </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php foreach ($animateur[$globalIndex] as $anim) : ?>
+                                    <?php if (!empty($anim['anim_nom']) && !empty($anim['anim_prenom']) && (!empty($anim['anim_telmob']) || !empty($anim['anim_telfixe']))) : ?>
+                                    <tr class="bg-white border-b border-gray-200">
+                                    <td class="px-6 py-4">
+                                    <?= htmlspecialchars($anim['anim_nom']) ?>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                    <?= htmlspecialchars($anim['anim_prenom']) ?>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                    <?= !empty($anim['anim_telmob']) ? htmlspecialchars($anim['anim_telmob']) : htmlspecialchars($anim['anim_telfixe']) ?>
+                                    </td>
+                                    </tr>
+                                    <?php endif; ?>
+                                    <?php endforeach; ?>
+                                    </tbody>
+                                    </table>
+
+                                    <?php $globalIndex++; ?>
                                     <?php } ?>
+
+                                    <?php } ?> 
+                             </details>   
+                            </div> 
+                            <?php } ?>
                         </div>
                     </article>
                          
