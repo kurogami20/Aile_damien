@@ -8,15 +8,14 @@ $activiteId=[45];
 $illustrationActivite = 'assets\img\activites\undraw_biking_m4mb.svg';
 
 $activiteTypes= [
-    [
-    "type"=> "vélo",
-    "activites"=> [
-        "Rando Vélo",
-        "Séjour Vélo",
-    ]
-    ],
+                    [
+                    "type"=> "Rando Vélo",
+                    ],
+                    [
+                    "type"=>"Séjour Vélo"
+                    ]
     
-];  
+                ];  
 
 $activiteInfo = [
     [
