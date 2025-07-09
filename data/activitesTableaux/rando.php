@@ -1,15 +1,21 @@
+
 <?php
-
-
+// 
+// titre de la page
 $titrePage= "Randonnée et Marche";
 
+// id des activités de la page envoyé au data mapper pour récupérer les animateur et les plannings 
 $activiteId=[42,41,44,40,51,];
-    
+
+// illustration de la page
 $illustrationActivite = 'assets\img\activites\undraw_hiking_9zta.svg';
 
+// tableau pour le menu secondaire pour naviguer sur la page
 $activiteTypes= [
     [
+     //item pricipal du menu secondaire 
     "type"=> "marche",
+    // sous-menu 
     "activites"=> [
         "Marche à la Ramée",
         "Marche Nordique",
@@ -28,9 +34,13 @@ $activiteTypes= [
    
 ];  
 
+// tableau contenant les informations des activités 
 $activiteInfo = [
+    // correspond à une section
     [
+        // titre de la section/activité
       "titre" => "marche",
+        // tableau des activités de la section
       "activites" => [ 
         [
             "titre" => "Marche à la Ramée",
@@ -50,6 +60,7 @@ $activiteInfo = [
         [
             "titre" => "Marche Rapide",
             "description" => "Marche rapide, le jeudi à 9h au parc de La Ramée à Toulouse. RdV parking du manège.",
+            // tableau des animateurs dans le cas où ils ne sont pas définis dans la base de données
             "animateur" => [[
                             "anim_nom"=> "Boyer",
                             "anim_prenom" => "Joêlle",
