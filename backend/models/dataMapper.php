@@ -230,7 +230,56 @@ require 'dataBase.php';
         $result = getAnimFromActivityForActivity($activiteId);
         return $result ? $result : ["vide"];
 
+    }
+    function getHourAndRoomForActivity($activiteId){
+        $activityInfo = [];
+        $subInfo = [];   
+        // fonction de récupération des heures et salles de l'activité
+        foreach ($activiteId as $id) {
+            if(is_array($id)){
+                    foreach ($id as $subId) {
+                        global $connexion; 
+                $req = "SELECT a.activite_jour, a.activite_horaire, s.salle_nom FROM activite a JOIN salle s ON a.id_salle = s.id WHERE a.id = ?";
+                
+                // on prépare la fonction pour éviter les injections SQL
+                $stmt = mysqli_prepare($connexion, $req);
+                if ($stmt === false) {
+                    throw new Exception("Failed to prepare SQL statement.");
+                }
+                mysqli_stmt_bind_param($stmt, "i", $subId);
+                mysqli_stmt_execute($stmt);
+                $res = mysqli_stmt_get_result($stmt);
+
+                if (!$res) {
+                    throw new Exception("Database query failed: " . mysqli_error($connexion));
+                } else {
+                    $row = mysqli_fetch_assoc($res);
+                    $subInfo[] = $row;
+                }
+                    }
+                    $activityInfo[] = $subInfo;
+            }
+            global $connexion; 
+            $req = "SELECT a.activite_jour, a.activite_horaire, s.salle_nom FROM activite a JOIN salle s ON a.id_salle = s.id WHERE a.id = ?";
+            
+            // on prépare la fonction pour éviter les injections SQL
+            $stmt = mysqli_prepare($connexion, $req);
+            if ($stmt === false) {
+                throw new Exception("Failed to prepare SQL statement.");
+            }
+            mysqli_stmt_bind_param($stmt, "i", $id);
+            mysqli_stmt_execute($stmt);
+            $res = mysqli_stmt_get_result($stmt);
+
+            if (!$res) {
+                throw new Exception("Database query failed: " . mysqli_error($connexion));
+            } else {
+                $row = mysqli_fetch_assoc($res);
+                $activityInfo[] = $row;
+            }
         }
+        return $activityInfo;
+    }
     
     
     

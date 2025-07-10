@@ -13,6 +13,12 @@ Pour cela j'ai commenté le fichier rando.php.
         // id des activités de la page envoyé au data mapper pour récupérer les animateur et les plannings
         $activiteId=[42,41,44,40,51,];
 
+        // variable pour savoir si on affiche les salles et heures
+        $salleEtHeure = false;
+
+        //à écrire si salleEtHeure est 'true' cela génerera les salles/jour/heure de l'activité
+        // $activiteIdForPlanning=[42,41,44,40,51,];
+
         // illustration de la page
         $illustrationActivite = 'assets\img\activites\undraw_hiking_9zta.svg';
 

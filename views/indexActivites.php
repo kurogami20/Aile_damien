@@ -11,6 +11,7 @@
 
     // on défini un index global pour parcourir $animateur
     $globalIndex = 0;
+    $planningIndex = 0;
 
 ?>
 
@@ -34,11 +35,7 @@
             <!-- on boucle sur les types d'activités pour créer le menu, les types d'activités sont récupérés depuis un fichier de données php, le fichier est défini par './utils/routerActiviteIndex.php' -->
         <?php foreach ($activiteTypes as $type) : ?>
                 <li class="group" data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation">
-                    <?php if ( htmlspecialchars($type['type'])!== $activiteTypes[0]['type'] ){?>
                     <a href="#<?= htmlspecialchars($type['type']) ?>" class="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-[#FFBE45]/40  ">
-                    <?php } else { ?>
-                        <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-[#FFBE45]/40  ">   
-                    <?php } ?>
                     <span class="ms-3 capitalize"><?= htmlspecialchars($type['type']) ?> </span>
                     </a>
                     <!-- on vérifie si un type a plusieurs activité -->
@@ -86,13 +83,61 @@
                             </h1>
                             <div class="card-content flex flex-col items-stretch gap-4">
                                 <!-- on affiche la description de l'activité -->
-                                <p class="text-lg"><?= htmlspecialchars($activite['description']) ?></p>
+                                <p class="text-lg flex flex-col gap-1"><?= html_entity_decode($activite['description']) ?></p>
                                 <!-- on vérifie si un utilisateur est connecté, si oui on affiche la div suivante -->
                                 <?php if (isset($_SESSION['login'])) : ?>
-                                    <div class="flex flex-col gap-3">
-                                        <details>
-                                            <summary>
-                                                <h3 class="text-xl font-semibold">Les animateurs/rices</h3>
+                                    <div class="flex flex-col gap-5">
+                                        <?php if($salleEtHeure) {?>
+                                        <?php $horaireSalle = getHourAndRoomForActivity($activiteIdForPlanning) ?>    
+                                        <div>
+                                            <h3 class="text-xl font-semibold">Planning</h3>
+                                            <table class="text-sm text-gray-500 w-full">
+                                                <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                                                    <tr>
+                                                        <th scope="col" class="px-6 py-3">Jour</th>
+                                                        <th scope="col" class="px-6 py-3">Heure</th>
+                                                        <th scope="col" class="px-6 py-3">Salle</th>
+                                                    </tr>
+                                                </thead>
+                                                <?php if(is_array($activite['planning'])){?>
+                                                <tbody>
+                                                    <?php foreach ($activite['planning'] as $horaire) : ?>
+                                                        <tr class="bg-white border-b border-gray-200">
+                                                            <td class="px-6 py-4"><?= htmlspecialchars($horaire['activite_jour']) ?></td>
+                                                            <td class="px-6 py-4"><?= htmlspecialchars($horaire['activite_horaire']) ?></td>
+                                                            <td class="px-6 py-4"><?= htmlspecialchars($horaire['salle_nom']) ?></td>
+                                                        </tr>
+                                                    <?php endforeach; ?>
+                                                </tbody>
+                                                <?php } else { ?>
+                                                <tbody>
+                                                  
+                                                    <?php if (is_array($horaireSalle[$planningIndex]) && isset($horaireSalle[$planningIndex][0]) && is_array($horaireSalle[$planningIndex][0])) { ?>
+                                                    <?php foreach ($horaireSalle[$planningIndex] as $horaire) : ?>
+                                                        <?php if(!empty($horaire['activite_jour']) && !empty($horaire['activite_horaire']) && !empty($horaire['salle_nom'])) { ?>
+                                                            <tr class="bg-white border-b border-gray-200">
+                                                                <td class="px-6 py-4"><?= htmlspecialchars($horaire['activite_jour']) ?></td>
+                                                                <td class="px-6 py-4"><?= htmlspecialchars($horaire['activite_horaire']) ?></td>
+                                                                <td class="px-6 py-4"><?= htmlspecialchars($horaire['salle_nom']) ?></td>
+                                                            </tr>
+                                                        <?php } ?>
+                                                    <?php endforeach; ?>
+                                                        <?php } else {?>
+                                                        <tr class="bg-white border-b border-gray-200">
+                                                            <td class="px-6 py-4"><?= htmlspecialchars($horaireSalle[$planningIndex]['activite_jour']) ?></td>
+                                                            <td class="px-6 py-4"><?= htmlspecialchars($horaireSalle[$planningIndex]['activite_horaire']) ?></td>
+                                                            <td class="px-6 py-4"><?= htmlspecialchars($horaireSalle[$planningIndex]['salle_nom']) ?></td>
+                                                        </tr>
+                                                            <?php } ?>
+                                                    <?php $planningIndex++; ?>
+                                                </tbody>
+                                                <?php } ?>
+                                            </table>
+                                        </div>
+                                        <?php } ?>
+                                        <details >
+                                            <summary class="cursor-pointer list-none">
+                                                <h3 class="text-xl font-semibold"><i class="fa-solid fa-angle-down"></i> Les animateurs/rices</h3>
                                             </summary>
                                             <!-- on vérifie si des animateurs sont défini dans un tableau du fichier d'information php des activité-->
                                             <?php if (is_array($activite['animateur'])) : ?>
@@ -126,6 +171,7 @@
                                             <?php else : ?>
                                                 <!-- on vérifie si des données existent -->
                                                 <?php if (isset($animateur[$globalIndex]) && !empty($animateur[$globalIndex])) : ?>
+                                                   
                                                     <table class="text-sm text-gray-500 w-full">
                                                         <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                                                             <tr>
@@ -169,7 +215,7 @@
 
 <!-- script pour mettre les éléments appelé par le menu secondaire au millieu de la page-->
 <script>
- document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
       const rawHash = this.getAttribute('href');
@@ -184,5 +230,11 @@
         });
       }
     });
+});
+    document.addEventListener("DOMContentLoaded", function () {
+  const redElements = document.querySelectorAll(".red");
+  redElements.forEach(function (element) {
+    element.style.color = "red";
   });
+});
 </script>
