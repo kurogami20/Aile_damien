@@ -1,0 +1,5 @@
+animateur:ref animateur,anim_nomprenom,	anim_nom,	anim_prenom,	anim_telfixe,	anim_okfixe,	anim_telmob,	anim_okmob,	anim_boitemail,	anim_okmail,	anim_login,	anim_mdp,	anim_clair,	div4
+contient, 01 animateur, 01 new_EVEN
+new_EVEN:ref new_EVEN, titre,sous_titre, date_EVEN, texte,lieu,horaires, image1, image2,mod_participation,date_inscription,lieu_inscription, id_animateur,
+affiche, 0N new_EVEN, 01 new_accueil_choix
+new_accueil_choix:ref new_accueil_choix, id_EVEN

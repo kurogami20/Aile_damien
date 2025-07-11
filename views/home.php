@@ -3,15 +3,50 @@
 if($_SESSION['login']) {
   
 ?>
-<!-- html -->
-<div class="container">
-    <h1>Bienvenue, <?php echo $_SESSION['login']; ?>!</h1>
-    <p>Vous êtes connecté en tant que membre.</p>
+<!-- html pour adhérents -->
+<section class="flex flex-col gap-4 p-4 px-40">
+<h2 class="text-5xl text-center capitalize font-bold z-3">à la une</h2>
+<section class="flex flex-col gap-15 w-full ">
+    <?php require_once './backend/models/dataMapper.php'?>
+    <?php $array = getHomePageEvent();?>
+    <?php if($array): ?>
+        <?php foreach ($array as $event): ?>
+         <article class="flex flex-col  gap-5  ">
+            <?php
+            // Tableau de traduction des jours et mois en français
+            $jours = array('Sunday'=>'Dimanche','Monday'=>'Lundi','Tuesday'=>'Mardi','Wednesday'=>'Mercredi','Thursday'=>'Jeudi','Friday'=>'Vendredi','Saturday'=>'Samedi');
+            $mois = array('January'=>'janvier','February'=>'février','March'=>'mars','April'=>'avril','May'=>'mai','June'=>'juin','July'=>'juillet','August'=>'août','September'=>'septembre','October'=>'octobre','November'=>'novembre','December'=>'décembre');
+
+            // Création de la date
+            $date = date_create(htmlspecialchars($event["date_EVEN"], ENT_QUOTES | ENT_SUBSTITUTE));
+            $jour_en = date_format($date, 'l');
+            $mois_en = date_format($date, 'F');
+            $jour_fr = isset($jours[$jour_en]) ? $jours[$jour_en] : $jour_en;
+            $mois_fr = isset($mois[$mois_en]) ? $mois[$mois_en] : $mois_en;
+            $date_fr = $jour_fr . ' ' . date_format($date, 'd') . ' ' . $mois_fr;
+            ?>
+            <h1 class="title text-2xl font-bold">
+                <?= utf8_decode(htmlspecialchars($event["titre"], ENT_QUOTES | ENT_SUBSTITUTE,"ISO-8859-15")) ?>
+                <?= $date_fr ?>
+            </h1>
+            <div class="content flex gap-5 border-t border-[#ffbe46] ">
+                <img src=<?=htmlspecialchars($event["image1"])?> alt="" class="w-[600px] h-96 object-cover rounded-lg">
+                <p class="text-lg"><?=utf8_decode( htmlspecialchars($event["texte"], ENT_QUOTES | ENT_SUBSTITUTE)) ?></p>
+            </div>
+         </article>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <p class="text-lg text-center">Aucun événement à afficher pour le moment.</p>
+    <?php endif; ?>
+</section>
+
+</section>
+
    
 <?php } else {
     
     ?>
-    <!-- html -->
+    <!-- html pour visiteur -->
 
     <section class="flex flex-col p-4 px-40">
 <section class=" p-10 flex flex-col items-center justify-center gap-10 border border-[#ffbe46] rounded-lg shadow-sm   bg-white  ">

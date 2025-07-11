@@ -1,9 +1,11 @@
 
 
 <!DOCTYPE html>
-<html lang="en" class=" bg-[#fff6ed] ">
+<html lang="fr" class=" bg-[#fff6ed] ">
 <head>
-    <meta charset="UTF-8">
+<meta content="text/plain"> 
+
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A.I.L.E.</title>
     <meta name="description" content="L'association AILE a pour objet d'aider à l'organisation de loisirs collectifs pour les adhérents.">

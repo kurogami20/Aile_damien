@@ -55,7 +55,8 @@ require 'dataBase.php';
 
 
 
-    // * association
+//*
+// * association
     // recuperation des membres du bureau
     function getAnimNameBoard(){
         // fonction de récupération des info des animateurs du bureau
@@ -164,10 +165,8 @@ require 'dataBase.php';
         return getAnimFromActivityForCD();
         }
         
-
-
-
-        // * page activités
+//*
+// * page activités
     //  fonction de récuperation des animateurs
     function getAnimFromActivity($activiteId){
        
@@ -280,8 +279,27 @@ require 'dataBase.php';
         }
         return $activityInfo;
     }
-    
-    
+//*    
+
+//*à la une
+
+function getHomePageEvent(){
+    global $connexion;
+    $req = "SELECT n.* , e.* FROM New_accueil_choix n JOIN new_EVEN e ON e.id = n.id_EVEN WHERE e.date_EVEN >= CURDATE() ";
+    $res = mysqli_query($connexion, $req);
+    if (!$res) {
+        throw new Exception("Database query failed: " . mysqli_error($connexion));
+    } else {
+        $events = [];
+        while ($row = mysqli_fetch_assoc($res)) {
+            $events[] = $row;
+        }
+        return $events;
+    }
+}
+
+
+//*    
     
     
     

@@ -1,0 +1,25 @@
+{
+  "width": 652,
+  "height": 290,
+  "cx": [
+    [ "ANIMATEUR", 70 ],
+    [ "CONTIENT", 195 ],
+    [ "NEW_EVEN", 319 ],
+    [ "AFFICHE", 439 ],
+    [ "NEW_ACCUEIL_CHOIX", 571 ]
+  ],
+  "cy": [
+    [ "ANIMATEUR", 145 ],
+    [ "CONTIENT", 145 ],
+    [ "NEW_EVEN", 145 ],
+    [ "AFFICHE", 145 ],
+    [ "NEW_ACCUEIL_CHOIX", 145 ]
+  ],
+  "shift": [
+    [ "CONTIENT,ANIMATEUR,0", 0 ],
+    [ "CONTIENT,NEW_EVEN,0", 0 ],
+    [ "AFFICHE,NEW_EVEN,0", 0 ],
+    [ "AFFICHE,NEW_ACCUEIL_CHOIX,0", 0 ]
+  ],
+  "ratio": []
+}
