@@ -283,23 +283,45 @@ require 'dataBase.php';
 
 //*à la une
 
-function getHomePageEvent(){
-    global $connexion;
-    $req = "SELECT n.* , e.* FROM New_accueil_choix n JOIN new_EVEN e ON e.id = n.id_EVEN WHERE e.date_EVEN >= CURDATE() ";
-    $res = mysqli_query($connexion, $req);
-    if (!$res) {
-        throw new Exception("Database query failed: " . mysqli_error($connexion));
-    } else {
-        $events = [];
-        while ($row = mysqli_fetch_assoc($res)) {
-            $events[] = $row;
+    function getHomePageEvent(){
+        global $connexion;
+        $connexion->set_charset("utf8");
+        $req = "SELECT n.* , e.* FROM New_accueil_choix n JOIN new_EVEN e ON e.id = n.id_EVEN WHERE e.date_EVEN >= CURDATE() ";
+        $res = mysqli_query($connexion, $req);
+        if (!$res) {
+            throw new Exception("Database query failed: " . mysqli_error($connexion));
+        } else {
+            $events = [];
+            while ($row = mysqli_fetch_assoc($res)) {
+                $events[] = $row;
+            }
+            return $events;
         }
-        return $events;
     }
-}
 
 
 //*    
+
+// *Pôles d'activités
+
+    function getPoles(){
+        global $connexion;
+        $req =  "SELECT * FROM activite_pole";
+        $res = mysqli_query($connexion, $req);
+        if (!$res) {
+            throw new Exception("Database query failed: " . mysqli_error($connexion));
+        } else {
+            $poles = [];
+            while ($row = mysqli_fetch_assoc($res)) {
+                $poles[] = $row;
+            }
+            return $poles;
+        }
+    }
+
+
+
+//*
     
     
     

@@ -64,3 +64,13 @@ elseif($_POST['user'] == getenv('MEMBER_LOGIN') && $_POST['password'] == getenv(
 </div>
 </section>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const submitButton = document.getElementById('submit');
+   
+
+    submitButton.addEventListener('click', function(event) {
+        event.currentTarget.classList.add('cursor-progress');
+    });
+});
+</script>
