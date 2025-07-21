@@ -11,22 +11,18 @@ $illustrationActivite = 'assets\img\activites\undraw_meditation_vje0.svg';
 
 // tableau pour le menu secondaire pour naviguer sur la page
 $activiteTypes= [
-    [
-        "type"=> "bien-être",
-        "activites"=> [
-            "Atelier Mémoire",
-            "Massages Bien-Etre",
-            "Relaxation",
-            "Séance Multi Seniors",
-            "Sophrologie"
-        ]
-    ]
-];  
+    
+       [ "type"=> "Atelier Mémoire"],
+       [ "type"=> "Massages Bien-Etre"],
+       [ "type"=> "Relaxation"],
+       [ "type"=> "Séance Multi Seniors"],
+       [ "type"=> "Sophrologie"],
+    ];  
 
 // tableau contenant les informations des activités 
 $activiteInfo = [
     [
-        "titre" => "bien-être",
+        "titre" => "",
         "activites" => [
             [
             "titre" => "Atelier Mémoire",

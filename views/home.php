@@ -40,7 +40,9 @@ if($_SESSION['login']) {
                         <img src=<?=htmlspecialchars($event["image1"])?> alt="" class="w-[600px] h-70 object-cover rounded-lg rounded-r-none ">
                         <p class="text-lg"><?=htmlspecialchars($event["texte"], ENT_QUOTES | ENT_SUBSTITUTE,"UTF-8") ?></p>
                     </div>
-                    <button type="button" class=" self-end w-fit h-fit text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">En savoir plus</button>
+                   <?php if($event["plusInfo"]){?> 
+                <a href="http://dam31270.free.fr/index.php?page=detailEvenement&id=<?= $event['id'] ?>" class="self-end w-fit h-fit text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">En savoir plus</a>
+                    <?php } ?>
                 </div>
                 
             </article>
@@ -51,7 +53,9 @@ if($_SESSION['login']) {
     </section>
 
 </section>
-
+<script>
+    console.log(<?= json_encode($array) ?>);
+</script>
    
 <?php } else {
     

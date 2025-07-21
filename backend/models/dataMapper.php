@@ -188,6 +188,44 @@ require 'dataBase.php';
             foreach ($ids as $id) {
                 global $connexion;
                 
+                if(is_array($id)){
+                    foreach ($id as $subId) {
+                        $req = "SELECT * FROM activite WHERE id = ?";
+                
+                        // on prépare la fonction pour éviter les injections SQL
+                        $stmt = mysqli_prepare($connexion, $req);
+                        if ($stmt === false) {
+                            throw new Exception("Failed to prepare SQL statement.");
+                        }
+                        mysqli_stmt_bind_param($stmt, "i", $subId);
+                        mysqli_stmt_execute($stmt);
+                        $res = mysqli_stmt_get_result($stmt);
+            
+        
+                        if (!$res) {
+                            throw new Exception("Database query failed: " . mysqli_error($connexion));
+                        } else {
+                            $row = mysqli_fetch_assoc($res);
+                            if($row){
+                                foreach ($row as $fullname) {
+                                    if ($fullname !== '') {
+                                        if (getAnimInfoActivity($fullname)){
+                                        $multiAnim[] = getAnimInfoActivity($fullname);
+                                    }
+                                    }
+                                }
+                            } else {
+                                // Activity not found, but continue processing other activities
+                                continue;
+                            }
+                            
+                        }
+                    }
+
+                     $result[] = $multiAnim;
+                }
+
+
                 $req = "SELECT * FROM activite WHERE id = ?";
                 
                 // on prépare la fonction pour éviter les injections SQL
@@ -274,7 +312,13 @@ require 'dataBase.php';
                 throw new Exception("Database query failed: " . mysqli_error($connexion));
             } else {
                 $row = mysqli_fetch_assoc($res);
-                $activityInfo[] = $row;
+                if($row){
+                    $activityInfo[] = $row;
+                } else {
+                    // Activity not found, but continue processing other activities
+                    continue;
+                }
+                
             }
         }
         return $activityInfo;
@@ -286,7 +330,7 @@ require 'dataBase.php';
     function getHomePageEvent(){
         global $connexion;
         $connexion->set_charset("utf8");
-        $req = "SELECT n.* , e.* FROM New_accueil_choix n JOIN new_EVEN e ON e.id = n.id_EVEN WHERE e.date_EVEN >= CURDATE() ";
+        $req = "SELECT n.* , e.*, g.* FROM New_accueil_choix n JOIN new_EVEN e  ON e.id = n.id_EVEN JOIN GAP_actucalend g  ON g.id = n.id_GAP WHERE e.date_EVEN >= CURDATE() ";
         $res = mysqli_query($connexion, $req);
         if (!$res) {
             throw new Exception("Database query failed: " . mysqli_error($connexion));
@@ -301,6 +345,26 @@ require 'dataBase.php';
 
 
 //*    
+
+// *page pour détail évènement
+
+    function getEventDetails($eventId) {
+        global $connexion;
+        $req = "SELECT * FROM new_EVEN WHERE id = ?";
+        $stmt = mysqli_prepare($connexion, $req);
+        if ($stmt === false) {
+            throw new Exception("Failed to prepare SQL statement.");
+        }
+        mysqli_stmt_bind_param($stmt, "i", $eventId);
+        mysqli_stmt_execute($stmt);
+        $res = mysqli_stmt_get_result($stmt);
+        if (!$res) {
+            throw new Exception("Database query failed: " . mysqli_error($connexion));
+        } else {
+            return mysqli_fetch_assoc($res);
+        }
+    }
+//*
 
 // *Pôles d'activités
 
@@ -322,8 +386,3 @@ require 'dataBase.php';
 
 
 //*
-    
-    
-    
-    ?>
-

@@ -34,6 +34,10 @@ require 'layout/header.php';
                     require_once './views/adherer.php';
                     break;
 
+                case 'detailEvenement':
+                    require_once './views/detailEvenement.php'; 
+                    break;
+                    
                 case 'art':
                     require_once './utils/routerCategorie.php';
                     break;
@@ -56,7 +60,7 @@ require 'layout/header.php';
                     require_once './utils/routerCategorie.php';
                     break;
 
-                    case 'activites':
+                case 'activites':
                     require_once './views/indexActivites.php';
                     break;
 

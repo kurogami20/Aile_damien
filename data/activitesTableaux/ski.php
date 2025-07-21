@@ -13,9 +13,7 @@ $illustrationActivite = 'assets\img\activites\undraw_skiing.svg';
 $activiteTypes = [
     [
         "type" => "ski de fond",
-        "activites" => [
-            "Ski de fond"
-        ]
+       
     ]
 ];
 

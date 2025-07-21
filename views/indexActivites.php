@@ -81,7 +81,7 @@
                             <h1 class="title text-2xl font-bold" id="<?= htmlspecialchars($activite['titre']) ?>">
                                 <?= htmlspecialchars($activite['titre']) ?>
                             </h1>
-                            <div class="card-content flex flex-col items-stretch gap-4">
+                            <div class="card-content flex flex-col items-stretch gap-4 w-full">
                                 <!-- on affiche la description de l'activité -->
                                 <p class="text-lg flex flex-col gap-1"><?= html_entity_decode($activite['description']) ?></p>
                                 <!-- on vérifie si un utilisateur est connecté, si oui on affiche la div suivante -->
@@ -194,6 +194,20 @@
                                                                         <td class="px-6 py-4"><?= htmlspecialchars($anim['anim_boitemail']) ?></td>
                                                                     </tr>
                                                                 <?php endif; ?>
+                                                                <?php if (is_array($anim)){?>
+                                                                    <?php foreach ($anim as $anim2) : ?>
+                                                                <!-- on vérifie si les informations de l'animateur sont définies et non vides -->
+                                                                <?php if (!empty($anim2['anim_nom']) && !empty($anim2['anim_prenom']) && (!empty($anim2['anim_telmob']) || !empty($anim2['anim_telfixe']))) : ?>
+                                                                    <tr class="bg-white border-b border-gray-200">
+                                                                        <td class="px-6 py-4"><?= htmlspecialchars($anim2['anim_nom']) ?></td>
+                                                                        <td class="px-6 py-4"><?= htmlspecialchars($anim2['anim_prenom']) ?></td>
+                                                                        <!-- on vérifie si le numéro de téléphone mobile est défini, sinon on affiche le numéro de téléphone fixe -->
+                                                                        <td class="px-6 py-4"><?= !empty($anim2['anim_telmob']) ? htmlspecialchars($anim2['anim_telmob']) : htmlspecialchars($anim2['anim_telfixe']) ?></td>
+                                                                        <td class="px-6 py-4"><?= htmlspecialchars($anim2['anim_boitemail']) ?></td>
+                                                                    </tr>
+                                                                <?php endif; ?>
+                                                                    <?php endforeach; ?>
+                                                                <?php }?>    
                                                             <?php endforeach; ?>
                                                         </tbody>
                                                     </table>
@@ -237,4 +251,6 @@
     element.style.color = "red";
   });
 });
+
+console.log(<?= json_encode($horaireSalle) ?>);
 </script>

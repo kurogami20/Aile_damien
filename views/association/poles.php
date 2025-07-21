@@ -59,9 +59,9 @@
                             </h1>
                             <div class="card-content flex flex-col items-stretch gap-4">
                                 <!-- on affiche la description du pôle -->
-                                <p class="text-lg flex flex-col gap-1"><?= html_entity_decode($pole['texte1']) ?></p>
+                                <div class="text-lg flex flex-col gap-3"><?= html_entity_decode($pole['texte1']) ?></div>
                                 <?php if (!empty($pole['texte2'])) : ?>
-                                    <p class="text-lg flex flex-col gap-1"><?= html_entity_decode($pole['texte2']) ?></p>
+                                    <div class="text-lg flex flex-col gap-1"><?= html_entity_decode($pole['texte2']) ?></div>
                                 <?php endif; ?>
                                 <!-- on vérifie si un utilisateur est connecté, si oui on affiche la div suivante -->
                               <?php if (isset($pole['libelle_lien1'])){?>
@@ -124,10 +124,8 @@
     });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    const listDiskElements = document.querySelectorAll('.list-disk');
-    listDiskElements.forEach(element => {
-        element.style.list='circle'})
-});
+
+
+
    
 </script>
