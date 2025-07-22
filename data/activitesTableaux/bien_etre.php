@@ -26,13 +26,13 @@ $activiteInfo = [
         "activites" => [
             [
             "titre" => "Atelier Mémoire",
-            "description" => '<span>Dans une ambiance amicale et décontractée, venez nous rejoindre pour jouer et entretenir votre mémoire par des jeux aux thèmes très variés.</span> <span>Vous avez envie de solliciter vos neurones autrement que par mots fléchés, croisés, sudoku, lecture et autres...</span> <span>Voulez-vous réviser votre géographie, histoire de France et autres en jouant et vous amusant, alors rejoignez-moi :- Atelier limité à 20 participants- Se munir de papier, stylo, gomme</span>',
+            "description" => '<p class="text-lg">Dans une ambiance amicale et décontractée, venez nous rejoindre pour jouer et entretenir votre mémoire par des jeux aux thèmes très variés.</p> <p class="text-lg">Vous avez envie de solliciter vos neurones autrement que par mots fléchés, croisés, sudoku, lecture et autres...</p> <p class="text-lg">Voulez-vous réviser votre géographie, histoire de France et autres en jouant et vous amusant, alors rejoignez-moi :- Atelier limité à 20 participants- Se munir de papier, stylo, gomme</p>',
             "animateur" => '',
             "planning" =>""
             ],
             [
             "titre" => "Massages Bien-Etre",
-            "description" => '<span>L\'atelier pour les « Massages Amma Assis » prend son envol.</span> <span>Ils se pratiquent, habillés et assis sur une chaise prévue à cet effet.</span> <span>C\'est une approche énergétique, faite pour détendre le corps et l\'esprit afin de parvenir à un lâcher prise.</span> <span>Afin d\'avoir un peu plus de temps pour chaque personne, désormais les horaires seront de 9h à 14h (sur RDV) toujours au Cast\'aile le dernier samedi de chaque mois.</span> <span>Si vous êtes intéressés, n\'hésitez pas à m\'appeler.</span>',
+            "description" => '<p class="text-lg">L\'atelier pour les « Massages Amma Assis » prend son envol.</p> <p class="text-lg">Ils se pratiquent, habillés et assis sur une chaise prévue à cet effet.</p> <p class="text-lg">C\'est une approche énergétique, faite pour détendre le corps et l\'esprit afin de parvenir à un lâcher prise.</p> <p class="text-lg">Afin d\'avoir un peu plus de temps pour chaque personne, désormais les horaires seront de 9h à 14h (sur RDV) toujours au Cast\'aile le dernier samedi de chaque mois.</p> <p class="text-lg">Si vous êtes intéressés, n\'hésitez pas à m\'appeler.</p>',
             "animateur" => [[
                 "anim_nom"=> "Boyer",
                     "anim_prenom" => "Joêlle",
@@ -49,7 +49,7 @@ $activiteInfo = [
             ],
             [
             "titre" => "Relaxation",
-            "description" => '<span>"Et si vous relâchiez les tensions qui bloquent votre corps et votre mental, pour retrouver la joie d\'être simplement là..."</span><span>Par des exercices variés, utilisant entre autres les postures corporelles, la respiration, l\'écoute de sons, de récits, le corps s\'installe dans un état de bien-être et de détente qui amène vers le lâcher-prise du mental.</span><span>Prévoir un tapis de yoga pour les postures allongées et une couverture polaire pour ne pas avoir froid lors des détentes.</span>',
+            "description" => '<p class="text-lg">"Et si vous relâchiez les tensions qui bloquent votre corps et votre mental, pour retrouver la joie d\'être simplement là..."</p><p class="text-lg">Par des exercices variés, utilisant entre autres les postures corporelles, la respiration, l\'écoute de sons, de récits, le corps s\'installe dans un état de bien-être et de détente qui amène vers le lâcher-prise du mental.</p><p class="text-lg">Prévoir un tapis de yoga pour les postures allongées et une couverture polaire pour ne pas avoir froid lors des détentes.</p>',
             "animateur" => [[
                 "anim_nom"=> "Boyer",
                     "anim_prenom" => "Joêlle",
@@ -72,13 +72,13 @@ $activiteInfo = [
             ],
             [
             "titre" => "Séance Multi Seniors",
-            "description" => '<span>Cette activité concerne ceux et celles qui souhaitent reprendre une activité physique.</span> <span>Le « sport sur ordonnance » : c\'est une nouvelle formule concrétisée en mars 2016.</span> <span>Nous sommes labellisés depuis Juillet 2016 par la commission médicale et la direction technique de la FFRS et ce label nous permet de communiquer auprès des acteurs locaux de santé.</span> <span>Le label a été renouvelé en Fèvrier 2022.</span><span>Après une séance d\'échauffement, des exercices ludiques font travailler les participants au niveau physique mais aussi mental, adresse, équilibre et mémoire.</span> <span>Sous une attention bienveillante, chacun fait de son mieux, à son rythme et selon ses possibilités.</span> <span>Un atelier de retour au calme vient cloturer la séance qui dure environ 1h30.</span>',
+            "description" => '<p class="text-lg">Cette activité concerne ceux et celles qui souhaitent reprendre une activité physique.</p> <p class="text-lg">Le « sport sur ordonnance » : c\'est une nouvelle formule concrétisée en mars 2016.</p> <p class="text-lg">Nous sommes labellisés depuis Juillet 2016 par la commission médicale et la direction technique de la FFRS et ce label nous permet de communiquer auprès des acteurs locaux de santé.</p> <p class="text-lg">Le label a été renouvelé en Fèvrier 2022.</p><p class="text-lg">Après une séance d\'échauffement, des exercices ludiques font travailler les participants au niveau physique mais aussi mental, adresse, équilibre et mémoire.</p> <p class="text-lg">Sous une attention bienveillante, chacun fait de son mieux, à son rythme et selon ses possibilités.</p> <p class="text-lg">Un atelier de retour au calme vient cloturer la séance qui dure environ 1h30.</p>',
             "animateur" => '',
             "planning" =>""
             ],
             [
             "titre" => "Sophrologie",
-            "description" => '<span>La sophrologie est une méthode psychocorporelle.</span> <span>Le terme sophrologie signifie l\'harmonie de la conscience.</span> <span>Elle a été conçue par le neuropsychiatre Alfonso Caycedo et est inspirée de techniques occidentales comme orientales.</span><span>Méthode exclusivement verbale et non tactile, la sophrologie utilise un ensemble de techniques qui vont à la foi agir sur le corps et sur le mental.</span> <span>Un tapis de gym peut-être utilisé suivant le programme de la séance.</span>',
+            "description" => '<p class="text-lg">La sophrologie est une méthode psychocorporelle.</p> <p class="text-lg">Le terme sophrologie signifie l\'harmonie de la conscience.</p> <p class="text-lg">Elle a été conçue par le neuropsychiatre Alfonso Caycedo et est inspirée de techniques occidentales comme orientales.</p><p class="text-lg">Méthode exclusivement verbale et non tactile, la sophrologie utilise un ensemble de techniques qui vont à la foi agir sur le corps et sur le mental.</p> <p class="text-lg">Un tapis de gym peut-être utilisé suivant le programme de la séance.</p>',
             "animateur" => '',
             "planning" =>""
             ]

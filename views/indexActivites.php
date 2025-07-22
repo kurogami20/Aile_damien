@@ -64,7 +64,7 @@
         <!-- affichage du titre de la page -->
         <h2 class="text-5xl text-center capitalize font-bold z-3"><?= $titrePage ?></h2>
         <!-- affichage de l'illustration de la page -->
-        <img class="w-[40%] fixed z-1" src="<?= $illustrationActivite ?>" alt="">
+        <img class="w-[30rem] top-[50vh]  fixed z-1" src="<?= $illustrationActivite ?>" alt="">
         <!-- on boucle sur les informations des activités pour afficher chaque section -->
         <?php foreach ($activiteInfo as $info) : ?>
             <section class="flex flex-col gap-15 w-full z-3">
@@ -83,7 +83,7 @@
                             </h1>
                             <div class="card-content flex flex-col items-stretch gap-4 w-full">
                                 <!-- on affiche la description de l'activité -->
-                                <p class="text-lg flex flex-col gap-1"><?= html_entity_decode($activite['description']) ?></p>
+                                <div class="text-lg flex flex-col gap-1"><?= html_entity_decode($activite['description']) ?></div>
                                 <!-- on vérifie si un utilisateur est connecté, si oui on affiche la div suivante -->
                                 <?php if (isset($_SESSION['login'])) : ?>
                                     <div class="flex flex-col gap-5">

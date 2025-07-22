@@ -24,9 +24,9 @@ $activiteInfo = [
         "activites" => [
             [
                 "titre" => "Ski de fond",
-                "description" => ' <span class="red">Il faut être licencié FFRS pour participer à cette activité.</span>
-                                    <span>  Le ski de fond pratiqué est le ski alternatif dit “ski de fond classique”, dans des domaines classés pour celui-ci. Le ski “skating” peut être pratiqué à titre personnel.</span>
-                                    <span> Exceptionnellement, des sorties de fond nordique pourront être organisées avec des skieurs expérimentés sur des pistes forestières et autres domaines publics non tracés mais sécurisants. Un message collectif précisant le RV et la destination est adressé aux personnes inscrites dans cette discipline.</span>',
+                "description" => ' <p class="text-lg" class="red">Il faut être licencié FFRS pour participer à cette activité.</span>
+                                    <p class="text-lg">  Le ski de fond pratiqué est le ski alternatif dit “ski de fond classique”, dans des domaines classés pour celui-ci. Le ski “skating” peut être pratiqué à titre personnel.</span>
+                                    <p class="text-lg"> Exceptionnellement, des sorties de fond nordique pourront être organisées avec des skieurs expérimentés sur des pistes forestières et autres domaines publics non tracés mais sécurisants. Un message collectif précisant le RV et la destination est adressé aux personnes inscrites dans cette discipline.</span>',
                 "animateur" => [
                     [
                         "anim_nom" => "Lujan",

@@ -7,7 +7,6 @@ if (isset($_GET['categorie'])) {
                     case 'rando':
                     case 'velo':
                     case 'ski':
-                    case 'tourisme':
                     case 'festivites':
                     case 'numerique':
                     case 'langues':
@@ -15,7 +14,9 @@ if (isset($_GET['categorie'])) {
                     case 'jeux':
                         require_once './views/indexActivites.php';
                         break;
-               
+                    case 'tourisme':
+                        require_once './views/gap_gav.php';
+                        break;
                 default:
                     require_once './404.php';
                   

@@ -10,7 +10,7 @@ $activiteIdForPlanning=[28,29,30,[26,27],25,33];
 
 $salleEtHeure = true; // variable pour savoir si on affiche les salles et heures
 // illustration de la page
-$illustrationActivite = 'assets/img/activites/undraw_art_re.svg';
+$illustrationActivite = 'assets/img/activites/undraw_making-art_o1is.svg';
 
 // tableau pour le menu secondaire pour naviguer sur la page
 $activiteTypes = [
@@ -50,7 +50,7 @@ $activiteInfo = [
         "activites" => [
             [
                 "titre" => "Aquarelle",
-                "description" => "<span>Aquarelle</span>",
+                "description" => "<p class='text-lg'>Aquarelle</p>",
                 "animateur" => ""
             ]
         ]
@@ -60,9 +60,9 @@ $activiteInfo = [
         "activites" => [
             [
                 "titre" => "Atelier créatif",
-                "description" => "<span>Un groupe sympathique qui ne se prend pas au sérieux tout en réalisant de très belles choses.</span>
-                <span>Nos animateurs sont là pour vous initier et vous conseiller. Vous voulez plus d'informations ? n'hésitez pas à les appeler.</span>
-                <span>Nous recherchons une animatrice... Si personne ne se propose, l'activité ne pourra pas reprendre en octobre.</span>",
+                "description" => "<p class='text-lg'>Un groupe sympathique qui ne se prend pas au sérieux tout en réalisant de très belles choses.</p>
+                <p class='text-lg'>Nos animateurs sont là pour vous initier et vous conseiller. Vous voulez plus d'informations ? n'hésitez pas à les appeler.</p>
+                <p class='text-lg'>Nous recherchons une animatrice... Si personne ne se propose, l'activité ne pourra pas reprendre en octobre.</p>",
                 "animateur" => ""
             ]
         ]
@@ -72,10 +72,10 @@ $activiteInfo = [
         "activites" => [
             [
                 "titre" => "Couture",
-                "description" => "<span>Marie, couturière de métier et retraitée depuis peu reprend l'activité couture.</span>
-                <span>Elle sera là pour vous guider, pour vous apprendre et surtout passer un bon moment ensemble.</span>
-                <span>Pensez à amener votre machine à coudre si besoin, vos retouches perso, du tissu si vous voulez vous lancer dans la création ou simplement pour apprendre à piquer à la machine, votre nécessaire de couture (ciseaux, fils, aiguilles, mètre à ruban etc...)</span>
-                <span>A vos ciseaux, aiguilles et fils.</span>",
+                "description" => "<p class='text-lg'>Marie, couturière de métier et retraitée depuis peu reprend l'activité couture.</p>
+                <p class='text-lg'>Elle sera là pour vous guider, pour vous apprendre et surtout passer un bon moment ensemble.</p>
+                <p class='text-lg'>Pensez à amener votre machine à coudre si besoin, vos retouches perso, du tissu si vous voulez vous lancer dans la création ou simplement pour apprendre à piquer à la machine, votre nécessaire de couture (ciseaux, fils, aiguilles, mètre à ruban etc...)</p>
+                <p class='text-lg'>A vos ciseaux, aiguilles et fils.</p>",
                 "animateur" => [[
                     "anim_nom"=> "Chaudon",
                         "anim_prenom" => "Marie",
@@ -98,7 +98,7 @@ $activiteInfo = [
         "activites" => [
             [
                 "titre" => "Encadrement",
-                "description" => "<span>Initiation à l'encadrement</span>",
+                "description" => "<p class='text-lg'>Initiation à l'encadrement</p>",
                 "animateur" => ""
             ]
         ]
@@ -108,12 +108,12 @@ $activiteInfo = [
         "activites" => [
             [
                 "titre" => "Peinture sur toile",
-                "description" => "<span>On jette sur la toile Des couleurs, des fleurs d'eau. Des paysages levant le voile. Étonnez-vous, prenez un pinceau !</span>",
+                "description" => "<p class='text-lg'>On jette sur la toile Des couleurs, des fleurs d'eau. Des paysages levant le voile. Étonnez-vous, prenez un pinceau !</p>",
                 "animateur" => ""
             ],
             [
                 "titre" => "Dessin-peinture",
-                "description" => "<span>On dessine un monde plus beau. La mer bleu-rouge et les bateaux. Le soleil parmi les étoiles ! </span>",
+                "description" => "<p class='text-lg'>On dessine un monde plus beau. La mer bleu-rouge et les bateaux. Le soleil parmi les étoiles ! </p>",
                 "animateur" => ""
             ]
         ]
@@ -123,9 +123,9 @@ $activiteInfo = [
         "activites" => [
             [
                 "titre" => "Tricot",
-                "description" => "<span>Si vous souhaitez apprendre, améliorer votre technique ou tout simplement tricoter en passant une agréable après-midi, venez nous rejoindre à l'atelier tricot.</span>
-                <span>Tricot, Crochet, Broderie, Canevas, et petite Couture.</span>
-                <span>Nous nous retrouverons toujours dans la convivialité et la bonne humeur.</span>",
+                "description" => "<p class='text-lg'>Si vous souhaitez apprendre, améliorer votre technique ou tout simplement tricoter en passant une agréable après-midi, venez nous rejoindre à l'atelier tricot.</p>
+                <p class='text-lg'>Tricot, Crochet, Broderie, Canevas, et petite Couture.</p>
+                <p class='text-lg'>Nous nous retrouverons toujours dans la convivialité et la bonne humeur.</p>",
                 "animateur" => ""
             ]
         ]

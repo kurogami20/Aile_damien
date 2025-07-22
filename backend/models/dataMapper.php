@@ -386,3 +386,21 @@ require 'dataBase.php';
 
 
 //*
+
+//* info GAP
+    // fonction pour récupérer les GAP à venir
+    function getGapInfo(){
+        global $connexion;
+        $req = "SELECT * FROM GAP_actucalend WHERE datefininfo_us >= DATE_FORMAT(CURDATE(), '%y%m%d') ORDER BY datefininfo_us ASC";
+        $res = mysqli_query($connexion, $req);
+        if (!$res) {
+            throw new Exception("Database query failed: " . mysqli_error($connexion));
+        } else {
+            $gapInfo = [];
+            while ($row = mysqli_fetch_assoc($res)) {
+                $gapInfo[] = $row;
+            }
+            return $gapInfo;
+        }
+    }
+//*
