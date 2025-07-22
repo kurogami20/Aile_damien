@@ -120,7 +120,7 @@
                                                                 <?php } elseif ($gap['activite']==="conf"){?>
                                                                 Conférences
                                                                 <?php }?></td>
-                                                            <td class="px-6 py-4"> <a class="underline " href="http://dam31270.free.fr/index.php?page=gav&id=<?= htmlspecialchars($gap['id']) ?>">En savoir plus</a></td>
+                                                            <td class="px-6 py-4"> <a class="underline " href="http://dam31270.free.fr/index.php?page=detailsTourisme&id=<?= htmlspecialchars($gap['id']) ?>">En savoir plus</a></td>
                                                         </tr>
                                          
                                                     <?php endforeach; ?>
@@ -142,7 +142,7 @@
                                                             <td class="px-6 py-4"><?= htmlspecialchars($gap['titreinformation']) ?>-<?= htmlspecialchars($gap['soustitreinformation']) ?></td>
                                                             <td class="px-6 py-4"><?= htmlspecialchars($gap['contactinformation']) ?></td>
                                                             
-                                                            <td class="px-6 py-4"> <a class="underline " href="http://dam31270.free.fr/index.php?page=gav&id=<?= htmlspecialchars($gap['id']) ?>">En savoir plus</a></td>
+                                                            <td class="px-6 py-4"> <a class="underline " href="http://dam31270.free.fr/index.php?page=detailsTourisme&id=<?= htmlspecialchars($gap['id']) ?>">En savoir plus</a></td>
                                                         </tr>
                                                             
                                                         <?php endif; ?>
@@ -164,7 +164,7 @@
                                                         <td class="px-6 py-4"><?= htmlspecialchars($gap['titreinformation']) ?>-<?= htmlspecialchars($gap['soustitreinformation']) ?></td>
                                                         <td class="px-6 py-4"><?= htmlspecialchars($gap['contactinformation']) ?></td>
                                                        
-                                                        <td class="px-6 py-4"> <a class="underline " href="http://dam31270.free.fr/index.php?page=gav&id=<?= htmlspecialchars($gap['id']) ?>">En savoir plus</a></td>
+                                                        <td class="px-6 py-4"> <a class="underline " href="http://dam31270.free.fr/index.php?page=detailsTourisme&id=<?= htmlspecialchars($gap['id']) ?>">En savoir plus</a></td>
                                                     </tr>
                                                   
                                                         
@@ -187,7 +187,7 @@
                                                         <td class="px-6 py-4"><?= htmlspecialchars($gap['titreinformation']) ?>-<?= htmlspecialchars($gap['soustitreinformation']) ?></td>
                                                         <td class="px-6 py-4"><?= htmlspecialchars($gap['contactinformation']) ?></td>
                                                        
-                                                        <td class="px-6 py-4"> <a class="underline " href="http://dam31270.free.fr/index.php?page=gav&id=<?= htmlspecialchars($gap['id']) ?>">En savoir plus</a></td>
+                                                        <td class="px-6 py-4"> <a class="underline " href="http://dam31270.free.fr/index.php?page=detailsTourisme&id=<?= htmlspecialchars($gap['id']) ?>">En savoir plus</a></td>
                                                     </tr>
                                                   
                                                         
@@ -209,7 +209,7 @@
                                                             <td class="px-6 py-4"><?= htmlspecialchars($gap['dateinformation']) ?> </td>
                                                             <td class="px-6 py-4"><?= htmlspecialchars($gap['titreinformation']) ?>-<?= htmlspecialchars($gap['soustitreinformation']) ?></td>
                                                             <td class="px-6 py-4"><?= htmlspecialchars($gap['contactinformation']) ?></td>
-                                                            <td class="px-6 py-4"> <a class="underline " href="http://dam31270.free.fr/index.php?page=gav&id=<?= htmlspecialchars($gap['id']) ?>">En savoir plus</a></td>
+                                                            <td class="px-6 py-4"> <a class="underline " href="http://dam31270.free.fr/index.php?page=detailsTourisme&id=<?= htmlspecialchars($gap['id']) ?>">En savoir plus</a></td>
                                                         </tr>
                                                     <?php endif; ?>
                                                 <?php endforeach; ?>
@@ -232,7 +232,7 @@
                                                         <td class="px-6 py-4"><?= htmlspecialchars($gap['titreinformation']) ?>-<?= htmlspecialchars($gap['soustitreinformation']) ?></td>
                                                         <td class="px-6 py-4"><?= htmlspecialchars($gap['contactinformation']) ?></td>
                                                        
-                                                        <td class="px-6 py-4"> <a class="underline " href="http://dam31270.free.fr/index.php?page=gav&id=<?= htmlspecialchars($gap['id']) ?>">En savoir plus</a></td>
+                                                        <td class="px-6 py-4"> <a class="underline " href="http://dam31270.free.fr/index.php?page=detailsTourisme&id=<?= htmlspecialchars($gap['id']) ?>">En savoir plus</a></td>
                                                     </tr>
                                                     
                                                         
@@ -255,7 +255,7 @@
                                                         <td class="px-6 py-4"><?= htmlspecialchars($gap['titreinformation']) ?>-<?= htmlspecialchars($gap['soustitreinformation']) ?></td>
                                                         <td class="px-6 py-4"><?= htmlspecialchars($gap['contactinformation']) ?></td>
                                                        
-                                                        <td class="px-6 py-4"> <a class="underline " href="http://dam31270.free.fr/index.php?page=gav&id=<?= htmlspecialchars($gap['id']) ?>">En savoir plus</a></td>
+                                                        <td class="px-6 py-4"> <a class="underline " href="http://dam31270.free.fr/index.php?page=detailsTourisme&id=<?= htmlspecialchars($gap['id']) ?>">En savoir plus</a></td>
                                                     </tr>
                                                     
                                                         

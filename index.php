@@ -64,6 +64,10 @@ require 'layout/header.php';
                     require_once './views/indexActivites.php';
                     break;
 
+                case 'detailsTourisme':
+                    require_once './views/detailsGapGav.php';
+                    break;
+
                 default:
                     require_once './404.php';
             }

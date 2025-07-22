@@ -388,7 +388,7 @@ require 'dataBase.php';
 //*
 
 //* info GAP
-    // fonction pour récupérer les GAP à venir
+    // fonction pour récupérer les GAP/GAV à venir
     function getGapInfo(){
         global $connexion;
         $req = "SELECT * FROM GAP_actucalend WHERE datefininfo_us >= DATE_FORMAT(CURDATE(), '%y%m%d') ORDER BY datefininfo_us ASC";
@@ -403,4 +403,22 @@ require 'dataBase.php';
             return $gapInfo;
         }
     }
+    // fonction pour récupérer un GAP/GAV spcécifique avec son id
+    function getGapInfoById($gapId){
+        global $connexion;
+        $req = "SELECT * FROM GAP_actucalend WHERE id = ?";
+        $stmt = mysqli_prepare($connexion, $req);
+        if ($stmt === false) {
+            throw new Exception("Failed to prepare SQL statement.");
+        }
+        mysqli_stmt_bind_param($stmt, "i", $gapId);
+        mysqli_stmt_execute($stmt);
+        $res = mysqli_stmt_get_result($stmt);
+        if (!$res) {
+            throw new Exception("Database query failed: " . mysqli_error($connexion));
+        } else {
+            return mysqli_fetch_assoc($res);
+        }
+    }
+
 //*
