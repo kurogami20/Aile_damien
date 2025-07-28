@@ -22,6 +22,10 @@ require 'layout/header.php';
                     require_once './views/association/tableauxDActivite.php'; 
                     break;
                     
+                case 'evenements':
+                    require_once './views/evenementList.php';
+                    break;
+
                 case 'connexion':
                     require_once './views/connexion.php';
                     break; 

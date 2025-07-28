@@ -40,16 +40,16 @@
                     </a>
                     <!-- on vérifie si un type a plusieurs activité -->
                     <?php if (isset($type['activites']) && !empty($type['activites']))  {?>
-                    <ul class="hidden group-hover:block border-l-2 border-[#ffbe45] ">
-                        <!-- si un type a plusieurs activité, on boucle sur les activités de chaque type pour créer le sous-menu -->
-                        <?php foreach ($type['activites'] as $activite) : ?>
-                        <li>
-                            <a href="#<?= htmlspecialchars($activite) ?>" class="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-[#FFBE45]/40  group">
-                                <span class="ms-5"><?= htmlspecialchars($activite) ?></span>
-                            </a>
-                        </li>
-                        <?php endforeach; ?>
-                    </ul>
+                        <ul class="max-h-0 opacity-0 scale-y-75 overflow-hidden transform transition-all duration-[2000ms] ease-in-out origin-top group-hover:max-h-[1000px] group-hover:opacity-100 group-hover:scale-y-100 border-l-2 border-[#ffbe45]">
+                            <?php foreach ($type['activites'] as $activite) : ?>
+                            <li>
+                                <a href="#<?= htmlspecialchars($activite) ?>" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-[#FFBE45]/40 group">
+                                    <span class="ms-5"><?= htmlspecialchars($activite) ?></span>
+                                </a>
+                            </li>
+                            <?php endforeach; ?>
+                        </ul>
+
                     <?php } ?>
                 </li>
                 <?php endforeach; ?>
@@ -133,6 +133,9 @@
                                                 </tbody>
                                                 <?php } ?>
                                             </table>
+                                            <?php if ($horaireSalle['date_reprise'] && $horaireSalle['date_fin'] > date('Y-m-d')) { ?>
+                                            <p class="text-sm text-gray-500 mt-2">Date de reprise : <?= htmlspecialchars($horaireSalle['date_reprise']) ?></p>
+                                            <?php } ?>
                                         </div>
                                         <?php } ?>
                                         <details >

@@ -276,7 +276,7 @@ require 'dataBase.php';
             if(is_array($id)){
                     foreach ($id as $subId) {
                         global $connexion; 
-                $req = "SELECT a.activite_jour, a.activite_horaire, s.salle_nom FROM activite a JOIN salle s ON a.id_salle = s.id WHERE a.id = ?";
+                $req = "SELECT a.activite_jour, a.activite_horaire, a.date_reprise, s.salle_nom FROM activite a JOIN salle s ON a.id_salle = s.id WHERE a.id = ?";
                 
                 // on prépare la fonction pour éviter les injections SQL
                 $stmt = mysqli_prepare($connexion, $req);
@@ -297,7 +297,7 @@ require 'dataBase.php';
                     $activityInfo[] = $subInfo;
             }
             global $connexion; 
-            $req = "SELECT a.activite_jour, a.activite_horaire, s.salle_nom FROM activite a JOIN salle s ON a.id_salle = s.id WHERE a.id = ?";
+            $req = "SELECT a.activite_jour, a.activite_horaire, a.date_reprise, s.salle_nom FROM activite a JOIN salle s ON a.id_salle = s.id WHERE a.id = ?";
             
             // on prépare la fonction pour éviter les injections SQL
             $stmt = mysqli_prepare($connexion, $req);
@@ -330,7 +330,52 @@ require 'dataBase.php';
     function getHomePageEvent(){
         global $connexion;
         $connexion->set_charset("utf8");
-        $req = "SELECT n.* , e.*, g.* FROM New_accueil_choix n JOIN new_EVEN e  ON e.id = n.id_EVEN JOIN GAP_actucalend g  ON g.id = n.id_GAP WHERE e.date_EVEN >= CURDATE() ";
+        $req = "SELECT n.id, n.id_EVEN, e.* 
+                FROM New_accueil_choix n 
+                JOIN new_EVEN e ON n.id_EVEN > 0 AND e.id = n.id_EVEN 
+                WHERE e.date_debut >= CURDATE()
+                ";
+               
+        $req2 = "SELECT n.id,  g.* 
+                 FROM New_accueil_choix n 
+                 JOIN new_GAP_GAV g ON n.id_GAP > 0 AND g.id = n.id_GAP
+                 WHERE g.date_debut >= CURDATE()"; 
+                 
+        $res = mysqli_query($connexion, $req);
+        if (!$res) {
+            throw new Exception("Database query failed: " . mysqli_error($connexion));
+        }
+        $res2 = mysqli_query($connexion, $req2);
+        if (!$res2) {
+            throw new Exception("Database query failed: " . mysqli_error($connexion));
+        }
+        if (!$res && !$res2) {
+            throw new Exception("Database query failed: " . mysqli_error($connexion));
+        } else {
+            $events = [];
+            while ($row = mysqli_fetch_assoc($res)) {
+                $events[] = $row;
+            }
+            while ($row2 = mysqli_fetch_assoc($res2)) {
+                $events[] = $row2;
+            }
+            // Tri des événements par date de début
+            usort($events, function($a, $b) {
+                return strtotime($a["date_debut"]) - strtotime($b["date_debut"]);
+            });
+            return $events;
+        }
+    }
+
+
+//*    
+
+//* evenement
+    // fonction pour récupérer les événements à venir
+    function getUpcomingEvents(){
+        global $connexion;
+        $connexion->set_charset("utf8");
+        $req = "SELECT * FROM new_EVEN WHERE date_debut >= CURDATE() ORDER BY date_debut ASC";
         $res = mysqli_query($connexion, $req);
         if (!$res) {
             throw new Exception("Database query failed: " . mysqli_error($connexion));
@@ -342,15 +387,14 @@ require 'dataBase.php';
             return $events;
         }
     }
-
-
-//*    
+//*     
 
 // *page pour détail évènement
 
     function getEventDetails($eventId) {
         global $connexion;
-        $req = "SELECT * FROM new_EVEN WHERE id = ?";
+        $connexion->set_charset("utf8");
+        $req = "SELECT n.*, a.* FROM new_EVEN n JOIN animateur a ON n.id_animateur = a.anim_id WHERE n.id = ?";
         $stmt = mysqli_prepare($connexion, $req);
         if ($stmt === false) {
             throw new Exception("Failed to prepare SQL statement.");
@@ -407,6 +451,25 @@ require 'dataBase.php';
     function getGapInfoById($gapId){
         global $connexion;
         $req = "SELECT * FROM GAP_actucalend WHERE id = ?";
+        $stmt = mysqli_prepare($connexion, $req);
+        if ($stmt === false) {
+            throw new Exception("Failed to prepare SQL statement.");
+        }
+        mysqli_stmt_bind_param($stmt, "i", $gapId);
+        mysqli_stmt_execute($stmt);
+        $res = mysqli_stmt_get_result($stmt);
+        if (!$res) {
+            throw new Exception("Database query failed: " . mysqli_error($connexion));
+        } else {
+            return mysqli_fetch_assoc($res);
+        }
+    }
+
+    // fonction pour récupérer un new_GAP/GAV spécifique avec son id
+    function getNewGapInfoById($gapId){
+        global $connexion;
+        $connexion->set_charset("utf8");
+        $req = "SELECT n.*, a.* FROM new_GAP_GAV n JOIN animateur a ON n.id_animateur = a.anim_id WHERE n.id = ?";
         $stmt = mysqli_prepare($connexion, $req);
         if ($stmt === false) {
             throw new Exception("Failed to prepare SQL statement.");

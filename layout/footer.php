@@ -1,5 +1,5 @@
 
-<footer>
+<footer class="bg-[#fff6ed] z-3 relative">
     <div class="container mx-auto text-center py-4">
         <p class="text-gray-600">© 2023 Association A.I.L.E. Tous droits réservés.</p>
         <p class="text-gray-600">Site développé par Damien.</p>

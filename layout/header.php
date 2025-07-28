@@ -26,22 +26,26 @@
     <ul class="flex gap-10">
         <li class="group capitalize text-black text-2xl d hover:underline! hover:text-[#9E6600]!">
             l'association
-            <ul class="flex flex-col gap-6 pl-5 shadow-lg rounded-lg p-10 bg-white absolute hidden group-hover:flex">
+            <ul class="flex flex-col gap-6 pl-5 shadow-lg rounded-lg p-10 bg-white absolute max-h-0 opacity-0 scale-y-75 overflow-hidden transform transition-all duration-[1000ms] ease-in-out origin-top group-hover:max-h-[1000px] group-hover:opacity-100 group-hover:scale-y-100">
                 <li><a href="index.php?page=qui_sommes_nous" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">Qui sommes nous</a></li>
                 <li><a href="index.php?page=poles_d_activites" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">Pôle d'activités</a></li>
                 <li><a href="index.php?page=tableau_d_activite" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">Tableau d'activités</a></li>
             </ul>
         </li>
+        <?php   if (isset($_SESSION['login'])) {
+                echo ' <li class="group capitalize text-black text-2xl d hover:underline! hover:text-[#9E6600]!"><a href="index.php?page=evenements" class="capitalize text-black  hover:underline! hover:text-[#9E6600]!">évènements</a></li>';
+               
+            }?>
         <li class="group capitalize text-black text-2xl d hover:underline! hover:text-[#9E6600]!">
             Art
-            <ul class="flex flex-col gap-6 pl-5 shadow-lg rounded-lg p-10 bg-white absolute hidden group-hover:flex">
+            <ul class="flex flex-col gap-6 pl-5 shadow-lg rounded-lg p-10 bg-white absolute max-h-0 opacity-0 scale-y-75 overflow-hidden transform transition-all duration-[1000ms] ease-in-out origin-top group-hover:max-h-[1000px] group-hover:opacity-100 group-hover:scale-y-100">
                 <li><a href="index.php?page=art&categorie=art_plastique" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">Art plastique</a></li>
                 <li><a href="index.php?page=art&categorie=art_performatifs" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">Art performatifs</a></li>
             </ul>
         </li>
         <li class="group capitalize text-black text-2xl d hover:underline! hover:text-[#9E6600]!">
             sport
-            <ul class="flex flex-col gap-6 pl-5 shadow-lg rounded-lg p-10 bg-white absolute hidden group-hover:flex">
+            <ul class="flex flex-col gap-6 pl-5 shadow-lg rounded-lg p-10 bg-white absolute max-h-0 opacity-0 scale-y-75 overflow-hidden transform transition-all duration-[1000ms] ease-in-out origin-top group-hover:max-h-[1000px] group-hover:opacity-100 group-hover:scale-y-100">
                 <li><a href="index.php?page=sport&categorie=rando" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">rando et marche</a></li>
                 <li><a href="index.php?page=sport&categorie=velo" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">vélo</a></li>
                 <li><a href="index.php?page=sport&categorie=ski" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">ski de fond</a></li>
@@ -49,21 +53,21 @@
         </li>
         <li class="group capitalize text-black text-2xl d hover:underline! hover:text-[#9E6600]!">
             ensemble
-            <ul class="flex flex-col gap-6 pl-5 shadow-lg rounded-lg p-10 bg-white absolute hidden group-hover:flex">
+            <ul class="flex flex-col gap-6 pl-5 shadow-lg rounded-lg p-10 bg-white absolute max-h-0 opacity-0 scale-y-75 overflow-hidden transform transition-all duration-[1000ms] ease-in-out origin-top group-hover:max-h-[1000px] group-hover:opacity-100 group-hover:scale-y-100">
                 <li><a href="index.php?page=ensemble&categorie=tourisme" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">Tourisme</a></li>
                 <li><a href="index.php?page=ensemble&categorie=festivites" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">Festivités</a></li>
             </ul>
         </li>
         <li class="group capitalize text-black text-2xl d hover:underline! hover:text-[#9E6600]!">
             Apprendre
-            <ul class="flex flex-col gap-6 pl-5 shadow-lg rounded-lg p-10 bg-white absolute hidden group-hover:flex">
+            <ul class="flex flex-col gap-6 pl-5 shadow-lg rounded-lg p-10 bg-white absolute max-h-0 opacity-0 scale-y-75 overflow-hidden transform transition-all duration-[1000ms] ease-in-out origin-top group-hover:max-h-[1000px] group-hover:opacity-100 group-hover:scale-y-100">
                 <li><a href="index.php?page=apprendre&categorie=numerique" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">Numérique</a></li>
                 <li><a href="index.php?page=apprendre&categorie=langues" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">Langues</a></li>
             </ul>
         </li>
         <li class="group capitalize text-black text-2xl d hover:underline! hover:text-[#9E6600]!">
             détente
-            <ul class="flex flex-col gap-6 pl-5 shadow-lg rounded-lg p-10 bg-white absolute hidden group-hover:flex ">
+            <ul class="flex flex-col gap-6 pl-5 shadow-lg rounded-lg p-10 bg-white absolute max-h-0 opacity-0 scale-y-75 overflow-hidden transform transition-all duration-[1000ms] ease-in-out origin-top group-hover:max-h-[1000px] group-hover:opacity-100 group-hover:scale-y-100 ">
                 <li><a href="index.php?page=detente&categorie=bien_etre" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">Bien-être</a></li>
                 <li><a href="index.php?page=detente&categorie=jeux" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">jeux de société</a></li>
             </ul>
