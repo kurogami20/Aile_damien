@@ -37,13 +37,13 @@ if($_SESSION['login']) {
                 <div class="content flex gap-5 border-t-3 border-[#ffbe46]  rounded-l-lg justify-between">
                     <div class="flex gap-5 ">
                         <img src=<?=htmlspecialchars($event["image1"])?> alt="" class="w-[600px] h-70 object-cover rounded-lg rounded-r-none ">
-                        <p class="text-lg"><?=htmlspecialchars($event["texte"], ENT_QUOTES | ENT_SUBSTITUTE,"UTF-8") ?></p>
+                        <p class="text-lg"><?=htmlspecialchars($event["texte"],  ENT_SUBSTITUTE,"UTF-8") ?></p>
                     </div>
                    <?php if($event["plusInfo"]){?> 
                     <?php if($event["id_EVEN"]): ?>
-                <a href="http://dam31270.free.fr/index.php?page=detailEvenement&id=<?= $event['id'] ?>" class="self-end w-fit h-fit text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">En savoir plus</a>
+                <a href="http://dam31270.free.fr/index.php?page=detailEvenement&id=<?= $event['id'] ?>" class="self-end w-fit h-fit text-black bg-white hover:underline border border-2 border-[#ffbe46] font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">En savoir plus</a>
                 <?php else: ?>
-                <a href="http://dam31270.free.fr/index.php?page=detailsTourisme&id=<?= htmlspecialchars($event['id']) ?>" class="self-end w-fit h-fit text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">En savoir plus</a>
+                <a href="http://dam31270.free.fr/index.php?page=detailsTourisme&id=<?= htmlspecialchars($event['id']) ?>" class="self-end w-fit h-fit text-black bg-white hover:underline border border-2 border-[#ffbe46] font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">En savoir plus</a>
                 <?php endif; ?>
                 <?php } ?>
                 </div>
@@ -71,7 +71,7 @@ if($_SESSION['login']) {
         <p class="text-lg text-center ">
         Bienvenue sur le site de l’association AILE. Depuis 2001, AILE réunit dans un esprit de bénévolat et de convivialité les habitants de Cugnaux, Frouzins, Seysses et Villeneuve-Tolosane autour d’activités de loisirs collectifs. La diversité de nos loisirs séduit petits et grands : sport, culture, détente ou ateliers créatifs, il y en a pour tous les goûts !
         </p>
-        <button type="button" class=" w-fit text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">En savoir plus
+        <button type="button" class=" cursor-pointer w-fit h-fit text-black bg-white hover:underline border border-2 border-[#ffbe46] font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">En savoir plus
         </button>
     </section>
 
@@ -88,7 +88,7 @@ if($_SESSION['login']) {
             <div class="flex flex-col justify-between p-4 leading-normal">
                 <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 "> <?= htmlspecialchars($activity['title'])?>  </h2>
                 <p class="mb-3 font-normal text-gray-700 "><?= htmlspecialchars($activity['description'])?></p>
-                <button type="button" class="self-end w-fit text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 ">En savoir plus</button>
+                <button type="button" class=" cursor-pointer self-end w-fit h-fit text-black bg-white hover:underline border border-2 border-[#ffbe46] font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">En savoir plus</button>
             </div>
 
             </article>    

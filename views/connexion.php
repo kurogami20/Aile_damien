@@ -53,14 +53,14 @@ elseif($_POST['user'] == getenv('MEMBER_LOGIN') && $_POST['password'] == getenv(
             <input type="password" id="password" name="password" class="input input-bordered w-full rounded-lg" required>
         </div>
         <div class="form-control flex  justify-end mt-5">
-                        <input type="submit" id="submit" name="submit" value='Valider' class="input input-bordered w-[25%] cursor-pointer border-black  border py-2 rounded-lg" required>
+                        <input type="submit" id="submit" name="submit" value='Valider' class="self-end w-[200px] h-fit text-black bg-white hover:underline border border-2 border-[#ffbe46] font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 cursor-pointer" required>
         </div>
     </form>
     <div class="flex flex-col items-center gap-5 ">
 <h3 class="text-3xl  mb-1">Vous n'êtes pas adhérents ?</h3>
     <p class="text-lg">Vous pouvez adhérer à l'association en remplissant le formulaire d'adhésion.</p>
 
-    <a href="/index.php?page=adherer" > <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2" >Adhérer</button></a>
+    <a href="/index.php?page=adherer" > <button type="button" class="self-end w-fit h-fit text-black bg-white hover:underline border border-2 border-[#ffbe46] font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 cursor-pointer" >Adhérer</button></a>
 </div>
 </section>
 

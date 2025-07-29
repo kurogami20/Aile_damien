@@ -45,6 +45,7 @@ require 'dataBase.php';
             $_SESSION['nom&prenom'] = $row['anim_nomprenom'];
             $_SESSION['mail'] = $row['anim_boitemail'];
             $_SESSION['login'] = $row['anim_login'];
+            $_SESSION['timeout'] = time();
             mysqli_stmt_close($stmt);
             return $row;
         }
@@ -375,7 +376,7 @@ require 'dataBase.php';
     function getUpcomingEvents(){
         global $connexion;
         $connexion->set_charset("utf8");
-        $req = "SELECT * FROM new_EVEN WHERE date_debut >= CURDATE() ORDER BY date_debut ASC";
+        $req = "SELECT * FROM new_EVEN WHERE date_inscription >= CURDATE() AND categorie = 'evenement' ORDER BY date_debut ASC";
         $res = mysqli_query($connexion, $req);
         if (!$res) {
             throw new Exception("Database query failed: " . mysqli_error($connexion));

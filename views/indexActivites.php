@@ -17,12 +17,13 @@
 
 <!-- partie menu secondaire (sur le côté) -->
     <!-- bouton d'ouverture -->
+     <?php if ($titrePage !== "Festivités"){?>
     <div class="text-center fixed z-9">
     <button class="text-xl border border-[#ffbe45] border-2 w-fit  p-2 rounded-full cursor-pointer " type="button" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
     <!-- <i class="fa-solid fa-bars text-[#ffbe45] "></i> --> Menu activités
     </button>
     </div>
-
+   
     <!-- menu sur le côté -->
     <div id="drawer-navigation" class=" fixed top-0 mt-[152px] h-screen   z-40 w-64 p-4  transition-transform -translate-x-full bg-white " tabindex="-1" aria-labelledby="drawer-navigation-label">
             <h5 id="drawer-navigation-label" class="text-base font-semibold text-black uppercase ">Activités</h5>
@@ -56,6 +57,7 @@
             </ul>
         </div>
     </div>
+    <?php } ?>
 <!-- fin de la partie menu secondaire (sur le côté) -->
 
 <!-- partie contenu de la page-->
@@ -75,7 +77,11 @@
                 <div class="flex flex-col gap-10">
                     <!-- on boucle sur les activités de chaque section pour afficher chaque activité dans un article -->
                     <?php foreach ($info['activites'] as $activite) : ?>
+                        <?php if ($titrePage !== "Festivités"){?>
                         <article class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 justify-center w-[800px] odd:items-start even:items-end odd:self-start even:self-end odd:text-left even:text-right">
+                        <?php } else { ?>
+                        <article class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 justify-center w-full ">
+                            <?php } ?>
                             <!-- on affiche le nom de l'activité -->
                              <!-- ici il est possible de mettre h1 car le contenu est dans un article -->
                             <h1 class="title text-2xl font-bold" id="<?= htmlspecialchars($activite['titre']) ?>">
@@ -138,6 +144,7 @@
                                             <?php } ?>
                                         </div>
                                         <?php } ?>
+                                        <?php if ($titrePage !== "Festivités"){?>
                                         <details >
                                             <summary class="cursor-pointer list-none">
                                                 <h3 class="text-xl font-semibold"><i class="fa-solid fa-angle-down"></i> Les animateurs/rices</h3>
@@ -219,6 +226,7 @@
                                                 <?php endif; ?>
                                             <?php endif; ?>
                                         </details>
+                                        <?php } ?>
                                     </div>
                                 <?php endif; ?>
                             </div>

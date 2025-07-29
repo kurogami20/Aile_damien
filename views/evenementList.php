@@ -40,11 +40,9 @@ if($_SESSION['login']) {
                         <p class="text-lg"><?=htmlspecialchars($event["texte"], ENT_QUOTES | ENT_SUBSTITUTE,"UTF-8") ?></p>
                     </div>
                    <?php if($event["plusInfo"]){?> 
-                    <?php if($event["id_EVEN"]): ?>
-                <a href="http://dam31270.free.fr/index.php?page=detailEvenement&id=<?= $event['id'] ?>" class="self-end w-fit h-fit text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">En savoir plus</a>
-                <?php else: ?>
-                <a href="http://dam31270.free.fr/index.php?page=detailsTourisme&id=<?= htmlspecialchars($event['id']) ?>" class="self-end w-fit h-fit text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">En savoir plus</a>
-                <?php endif; ?>
+                    
+                <a href="http://dam31270.free.fr/index.php?page=detailEvenement&id=<?= $event['id'] ?>" class="self-end w-fit h-fit text-black bg-white hover:underline border border-2 border-[#ffbe46] font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">En savoir plus</a>
+               
                 <?php } ?>
                 </div>
                 
