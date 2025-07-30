@@ -10,10 +10,11 @@ require 'layout/header.php';
         <div class="h-full m-15 relative">
         <?php 
 
-            if ($_SESSION['timeout'] + 10 * 60 < time()) {
+            if (isset($_SESSION['timeout']) && $_SESSION['timeout'] + 10 * 60 * 60 < time()) {
             session_unset();
             session_destroy();
             require_once './views/connexion.php';
+           
             exit();
             }
         ?>
@@ -54,23 +55,9 @@ require 'layout/header.php';
                         break;
                         
                     case 'art':
-                        require_once './utils/routerCategorie.php';
-                        break;
-
                     case 'sport':
-                        require_once './utils/routerCategorie.php';
-                        break;
-
                     case 'ensemble':
-                        require_once './utils/routerCategorie.php';
-
-                        break;
-
                     case 'apprendre':
-                        require_once './utils/routerCategorie.php';
-
-                        break;
-
                     case 'detente':
                         require_once './utils/routerCategorie.php';
                         break;

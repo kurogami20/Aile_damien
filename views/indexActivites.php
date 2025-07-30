@@ -62,7 +62,7 @@
 
 <!-- partie contenu de la page-->
     <!-- le contenu de chaque élément est généré via un fichier php de données, le fichier php est défini ici './utils/routerActiviteIndex.php' -->
-    <section class="flex flex-col p-4 px-40 h-[100%] gap-20 items-center relative">
+    <section class="flex flex-col sm:p-4 px-40 h-[100%] gap-20 items-center relative">
         <!-- affichage du titre de la page -->
         <h2 class="text-5xl text-center capitalize font-bold z-3"><?= $titrePage ?></h2>
         <!-- affichage de l'illustration de la page -->

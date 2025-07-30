@@ -3,7 +3,7 @@ require_once 'backend/models/dataMapper.php';
 
 ?>
 
-<section class="flex flex-col p-4 px-40 h-[100%] gap-20 items-center">
+<section class="flex flex-col sm:p-4 sm:px-40 h-[100%] gap-20 items-center">
 <h2 class="text-5xl text-center capitalize font-bold ">Qui sommes nous ?</h2>
     <section class=" p-10 flex flex-col items-center justify-center gap-10 border border-[#ffbe46] rounded-lg shadow-sm   bg-white  ">
         <p class="text-lg text-center ">
@@ -84,7 +84,7 @@ require_once 'backend/models/dataMapper.php';
                     
                 </div>
         </article>
-        <article class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 ">
+        <article class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 max-sm:w-full">
                 <h2 class="title text-2xl font-bold">Le conseil de discipline</h2>
                 <div class="card-content">
                 <div class="relative ">
