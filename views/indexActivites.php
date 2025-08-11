@@ -63,6 +63,7 @@
 <!-- partie contenu de la page-->
     <!-- le contenu de chaque élément est généré via un fichier php de données, le fichier php est défini ici './utils/routerActiviteIndex.php' -->
     <section class="flex flex-col sm:p-4 sm:px-40 h-[100%] gap-20 items-center relative">
+   
         <!-- affichage du titre de la page -->
         <h2 class="text-3xl sm:text-5xl text-center capitalize font-bold z-3"><?= $titrePage ?></h2>
         <!-- affichage de l'illustration de la page -->
@@ -78,9 +79,10 @@
                     <!-- on boucle sur les activités de chaque section pour afficher chaque activité dans un article -->
                     <?php foreach ($info['activites'] as $activite) : ?>
                         <?php if ($titrePage !== "Festivités"){?>
-                        <article class="card border border-[#ffbe46]  rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 justify-center w-fit sm:w-[800px]  sm:odd:items-start sm:even:items-end sm:odd:self-start sm:even:self-end sm:odd:text-left sm:even:text-right">
+                        <article class="card border border-[#ffbe46]  rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 justify-center w-full sm:w-[800px]  sm:odd:items-start sm:even:items-end sm:odd:self-start sm:even:self-end sm:odd:text-left sm:even:text-right">
                         <?php } else { ?>
-                        <article class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 justify-center w-fit sm:w-[800px] ">
+                        <article class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 justify-center w-full sm:w-[800px] ">
+                       
                             <?php } ?>
                             <!-- on affiche le nom de l'activité -->
                             <!-- ici il est possible de mettre h1 car le contenu est dans un article -->
@@ -97,48 +99,50 @@
                                         <?php $horaireSalle = getHourAndRoomForActivity($activiteIdForPlanning) ?>    
                                         <div>
                                             <h3 class=" text-lg sm:text-xl  font-semibold">Planning</h3>
-                                            <table class="text-sm text-gray-500 w-full">
-                                                <thead class="text-xs text-gray-700 uppercase bg-gray-50">
-                                                    <tr>
-                                                        <th scope="col" class="px-6 py-3">Jour</th>
-                                                        <th scope="col" class="px-6 py-3">Heure</th>
-                                                        <th scope="col" class="px-6 py-3">Salle</th>
-                                                    </tr>
-                                                </thead>
-                                                <?php if(is_array($activite['planning'])){?>
-                                                <tbody>
-                                                    <?php foreach ($activite['planning'] as $horaire) : ?>
-                                                        <tr class="bg-white border-b border-gray-200">
-                                                            <td class="px-6 py-4"><?= htmlspecialchars($horaire['activite_jour']) ?></td>
-                                                            <td class="px-6 py-4"><?= htmlspecialchars($horaire['activite_horaire']) ?></td>
-                                                            <td class="px-6 py-4"><?= htmlspecialchars($horaire['salle_nom']) ?></td>
+                                            <div class="relative overflow-x-auto">
+                                                <table class="text-sm text-gray-500 w-full">
+                                                    <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                                                        <tr>
+                                                            <th scope="col" class="sm:px-6 px-2 py-3">Jour</th>
+                                                            <th scope="col" class="sm:px-6 px-2 py-3">Heure</th>
+                                                            <th scope="col" class="sm:px-6 px-2 py-3">Salle</th>
                                                         </tr>
-                                                    <?php endforeach; ?>
-                                                </tbody>
-                                                <?php } else { ?>
-                                                <tbody>
-                                                  
-                                                    <?php if (is_array($horaireSalle[$planningIndex]) && isset($horaireSalle[$planningIndex][0]) && is_array($horaireSalle[$planningIndex][0])) { ?>
-                                                    <?php foreach ($horaireSalle[$planningIndex] as $horaire) : ?>
-                                                        <?php if(!empty($horaire['activite_jour']) && !empty($horaire['activite_horaire']) && !empty($horaire['salle_nom'])) { ?>
+                                                    </thead>
+                                                    <?php if(is_array($activite['planning'])){?>
+                                                    <tbody>
+                                                        <?php foreach ($activite['planning'] as $horaire) : ?>
                                                             <tr class="bg-white border-b border-gray-200">
-                                                                <td class="px-6 py-4"><?= htmlspecialchars($horaire['activite_jour']) ?></td>
-                                                                <td class="px-6 py-4"><?= htmlspecialchars($horaire['activite_horaire']) ?></td>
-                                                                <td class="px-6 py-4"><?= htmlspecialchars($horaire['salle_nom']) ?></td>
+                                                                <td class="sm:px-6 px-2 py-4"><?= htmlspecialchars($horaire['activite_jour']) ?></td>
+                                                                <td class="sm:px-6 px-2 py-4"><?= htmlspecialchars($horaire['activite_horaire']) ?></td>
+                                                                <td class="sm:px-6 px-2 py-4"><?= htmlspecialchars($horaire['salle_nom']) ?></td>
                                                             </tr>
-                                                        <?php } ?>
-                                                    <?php endforeach; ?>
-                                                        <?php } else {?>
-                                                        <tr class="bg-white border-b border-gray-200">
-                                                            <td class="px-6 py-4"><?= htmlspecialchars($horaireSalle[$planningIndex]['activite_jour']) ?></td>
-                                                            <td class="px-6 py-4"><?= htmlspecialchars($horaireSalle[$planningIndex]['activite_horaire']) ?></td>
-                                                            <td class="px-6 py-4"><?= htmlspecialchars($horaireSalle[$planningIndex]['salle_nom']) ?></td>
-                                                        </tr>
+                                                        <?php endforeach; ?>
+                                                    </tbody>
+                                                    <?php } else { ?>
+                                                    <tbody>
+                                                    
+                                                        <?php if (is_array($horaireSalle[$planningIndex]) && isset($horaireSalle[$planningIndex][0]) && is_array($horaireSalle[$planningIndex][0])) { ?>
+                                                        <?php foreach ($horaireSalle[$planningIndex] as $horaire) : ?>
+                                                            <?php if(!empty($horaire['activite_jour']) && !empty($horaire['activite_horaire']) && !empty($horaire['salle_nom'])) { ?>
+                                                                <tr class="bg-white border-b border-gray-200">
+                                                                    <td class="sm:px-6 px-2 py-4"><?= htmlspecialchars($horaire['activite_jour']) ?></td>
+                                                                    <td class="sm:px-6 px-2 py-4"><?= htmlspecialchars($horaire['activite_horaire']) ?></td>
+                                                                    <td class="sm:px-6 px-2 py-4"><?= htmlspecialchars($horaire['salle_nom']) ?></td>
+                                                                </tr>
                                                             <?php } ?>
-                                                    <?php $planningIndex++; ?>
-                                                </tbody>
-                                                <?php } ?>
-                                            </table>
+                                                        <?php endforeach; ?>
+                                                            <?php } else {?>
+                                                            <tr class="bg-white border-b border-gray-200">
+                                                                <td class="sm:px-6 px-2 py-4"><?= htmlspecialchars($horaireSalle[$planningIndex]['activite_jour']) ?></td>
+                                                                <td class="sm:px-6 px-2 py-4"><?= htmlspecialchars($horaireSalle[$planningIndex]['activite_horaire']) ?></td>
+                                                                <td class="sm:px-6 px-2 py-4"><?= htmlspecialchars($horaireSalle[$planningIndex]['salle_nom']) ?></td>
+                                                            </tr>
+                                                                <?php } ?>
+                                                        <?php $planningIndex++; ?>
+                                                    </tbody>
+                                                    <?php } ?>
+                                                </table>
+                                            </div>
                                             <?php if ($horaireSalle['date_reprise'] && $horaireSalle['date_fin'] > date('Y-m-d')) { ?>
                                             <p class="text-base sm:text-lg text-gray-500 mt-2">Date de reprise : <?= htmlspecialchars($horaireSalle['date_reprise']) ?></p>
                                             <?php } ?>
@@ -151,13 +155,14 @@
                                             </summary>
                                             <!-- on vérifie si des animateurs sont défini dans un tableau du fichier d'information php des activité-->
                                             <?php if (is_array($activite['animateur'])) : ?>
+                                                <div class="relative overflow-x-auto">
                                                 <table class="text-sm text-gray-500 w-full">
                                                     <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                                                         <tr>
-                                                            <th scope="col" class="px-6 py-3">Nom</th>
-                                                            <th scope="col" class="px-6 py-3">Prénom</th>
-                                                            <th scope="col" class="px-6 py-3">Téléphone</th>
-                                                            <th scope="col" class="px-6 py-3">Mail</th>
+                                                            <th scope="col" class="sm:px-6 px-2 py-3">Nom</th>
+                                                            <th scope="col" class="sm:px-6 px-2 py-3">Prénom</th>
+                                                            <th scope="col" class="sm:px-6 px-2 py-3">Téléphone</th>
+                                                            <th scope="col" class="sm:px-6 px-2 py-3">Mail</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -166,27 +171,28 @@
                                                             <!-- on vérifie si les informations de l'animateur sont définies et non vides -->
                                                             <?php if (!empty($anim['anim_nom']) && !empty($anim['anim_prenom']) && (!empty($anim['anim_telmob']) || !empty($anim['anim_telfixe']))) : ?>
                                                                 <tr class="bg-white border-b border-gray-200">
-                                                                    <td class="px-6 py-4"><?= htmlspecialchars($anim['anim_nom']) ?></td>
-                                                                    <td class="px-6 py-4"><?= htmlspecialchars($anim['anim_prenom']) ?></td>
+                                                                    <td class="sm:px-6 px-2 py-4"><?= htmlspecialchars($anim['anim_nom']) ?></td>
+                                                                    <td class="sm:px-6 px-2 py-4"><?= htmlspecialchars($anim['anim_prenom']) ?></td>
                                                                     <!-- on vérifie si le numéro de téléphone mobile est défini, sinon on affiche le numéro de téléphone fixe -->
-                                                                    <td class="px-6 py-4"><?= !empty($anim['anim_telmob']) ? htmlspecialchars($anim['anim_telmob']) : htmlspecialchars($anim['anim_telfixe']) ?></td>
-                                                                    <td class="px-6 py-4"><?= htmlspecialchars($anim['anim_boitemail']) ?></td>
+                                                                    <td class="sm:px-6 px-2 py-4"><?= !empty($anim['anim_telmob']) ? htmlspecialchars($anim['anim_telmob']) : htmlspecialchars($anim['anim_telfixe']) ?></td>
+                                                                    <td class="sm:px-6 px-2 py-4"><?= htmlspecialchars($anim['anim_boitemail']) ?></td>
                                                                 </tr>
                                                             <?php endif; ?>
                                                         <?php endforeach; ?>
                                                     </tbody>
                                                 </table>
+                                                </div>
                                             <!-- si il n'y a pas de tableau d'animateur défini on récupère les information de la base de données ($animateur) -->
                                             <?php else : ?>
                                                 <!-- on vérifie si des données existent -->
                                                 <?php if (isset($animateur[$globalIndex]) && !empty($animateur[$globalIndex])) : ?>
-                                                   
-                                                    <table class="text-sm text-gray-500 w-full">
-                                                        <thead class="text-xs text-gray-700 uppercase bg-gray-50">
-                                                            <tr>
-                                                                <th scope="col" class="px-6 py-3">Nom</th>
-                                                                <th scope="col" class="px-6 py-3">Prénom</th>
-                                                                <th scope="col" class="px-6 py-3">Téléphone</th>
+                                                    <div class="overflow-x-auto">
+                                                        <table class="text-sm text-gray-500 w-full">
+                                                            <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                                                                <tr>
+                                                                    <th scope="col" class="sm:px-6 px-2 py-3">Nom</th>
+                                                                    <th scope="col" class="sm:px-6 px-2 py-3">Prénom</th>
+                                                                <th scope="col" class="sm:px-6 px-2 py-3">Téléphone</th>
                                                                 <th scope="col" class="px-6 py-3">Mail</th>
                                                             </tr>
                                                         </thead>
@@ -220,6 +226,7 @@
                                                             <?php endforeach; ?>
                                                         </tbody>
                                                     </table>
+                                                    </div>
                                                     <!-- on augmente $globalIndex de 1 ce qui permet de passer à un nouvel animateur-->
                                                     <?php $globalIndex++; ?>
                                                 <?php endif; ?>

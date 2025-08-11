@@ -45,7 +45,7 @@ $activiteInfo = [
                 <b>Le programme</b><br>
                 Connaissances informatiques requises : Aucune<br>
                 Contenu :
-                <ul class='list-disc text-lg'>
+                <ul class='list-disc text-base sm:text-lg'>
                     <li>Maîtrise de la souris, du clavier, du bureau et des fenêtres.</li>
                     <li>Notion de création/gestion de fichier et dossier.</li>
                     <li>Utilisation d'un traitement de texte, d'un navigateur Web et du webmail.</li>
@@ -68,7 +68,7 @@ $activiteInfo = [
                 <p><b>Mise à jour le 4 juillet 2025</b><br>
                 <b>Le programme</b><br>
                 Sujets abordés :
-                <ul class='list-disc text-lg'>
+                <ul class='list-disc text-base sm:text-lg'>
                     <li>L'ordinateur : Les matériels - Les dispositifs de pointage - La saisie vocale - Le clavier - Les autres éléments</li>
                     <li>Le système : Démarrage de l'ordinateur - Les systèmes d'exploitation - Les environnements graphiques - Gérer les fenêtres</li>
                     <li>Les fichiers : Gestion des fichiers - Fichiers et applications</li>
@@ -100,7 +100,7 @@ $activiteInfo = [
             [
                 "titre" => "Photos",
                 "description" => "<p>Les cours de photographie se déroulent tout au long de la saison en plusieurs modules.</p>
-                <ul class='list-disc text-lg'>
+                <ul class='list-disc text-base sm:text-lg'>
                 <li> Le cadrage et la composition des images lors de la prise de vue.</li>
                 <li> Les notions de base de la technique photographique et de la technologie numérique (pour mieux comprendre la nature des fichiers photos issus des appareils de prise de vue).</li>
                 <li> Traitement numérique des images.</li>

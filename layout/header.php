@@ -25,7 +25,7 @@
 
 <nav class="  relative"> 
  <div class="flex flex-wrap justify-between items-center  "> 
-       <a href="index.php?page=accueil" class="flex items-center gap-5"><img src="../assets/img/logo.webp" alt="" class="w-30 h-30 object-cover rounded-full">  <h1 class="text-4xl capitalize w-max">A.I.L.E.</h1></a>
+       <a href="index.php?page=accueil" class="flex items-center gap-5"><img src="../assets/img/logo.webp" alt="" class=" w-17 h-17  sm:w-30 sm:h-30 object-cover rounded-full">  <h1 class="text-4xl capitalize w-max">A.I.L.E.</h1></a>
 
     <button data-collapse-toggle="mega-menu-full" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-black  sm:hidden transform transition-all duration-[1000ms] ease-in-out" aria-controls="mega-menu-full" aria-expanded="false" onclick="classList.toggle('rotate-90')">
         <span class="sr-only">Open main menu</span>
@@ -35,9 +35,9 @@
     </button>
     <div id="mega-menu-full" class="items-center justify-between hidden py-[2rem] w-full  sm:flex sm:w-auto sm:order-1">
         <ul class="flex flex-col sm:mt-4  sm:flex-row sm:mt-0 sm:space-x-8 rtl:space-x-reverse gap-5 sm:gap-10 ">
-            <li class="group capitalize text-black text-2xl d hover:underline! hover:text-[#9E6600]! max-sm:border-b-2 max-sm:border-[#ffbe45] max-sm:pb-5  max-sm:flex max-sm:justify-between" >
-                l'association <i class="fa-solid fa-angle-down text-black sm:hidden"></i>
-                <ul class="flex flex-col gap-6 pl-5 shadow-lg rounded-lg p-10 bg-white absolute max-h-0 opacity-0 scale-y-75 overflow-hidden transform transition-all duration-[1000ms] ease-in-out origin-top group-hover:max-h-[1000px] group-hover:opacity-100 group-hover:scale-y-100">
+            <li class="sm:group capitalize text-black text-2xl d sm:hover:underline! sm:hover:text-[#9E6600]! border-b-2 border-[#ffbe45] pb-5 flex justify-between flex-col gap-2" onclick="if (window.innerWidth < 640) { this.querySelector('ul').classList.toggle('flex!'); }">
+              <span class="flex justify-between">l'association <i class="fa-solid fa-angle-down text-black sm:hidden self-right"></i></span>  
+                <ul class=" hidden sm:flex flex-col gap-6 sm:pl-5 sm:shadow-lg sm:rounded-lg p-5 sm:p-10 bg-white sm:absolute sm:max-h-0 sm:opacity-0 sm:scale-y-75 sm:overflow-hidden transform transition-all duration-[1000ms] ease-in-out origin-top sm:group-hover:max-h-[1000px] sm:group-hover:opacity-100 sm:group-hover:scale-y-100">
                     <li><a href="index.php?page=qui_sommes_nous" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">Qui sommes nous</a></li>
                     <li><a href="index.php?page=poles_d_activites" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">Pôle d'activités</a></li>
                     <li><a href="index.php?page=tableau_d_activite" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">Tableau d'activités</a></li>
