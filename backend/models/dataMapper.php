@@ -426,10 +426,25 @@ function getHomePageEvent(){
 
 //* evenement
     // fonction pour récupérer les événements à venir
+    // function getUpcomingEvents(){
+    //     global $connexion;
+    //     $connexion->set_charset("utf8");
+    //     $req = "SELECT * FROM new_EVEN WHERE date_inscription >= CURDATE() AND categorie = 'evenement' ORDER BY date_debut ASC";
+    //     $res = mysqli_query($connexion, $req);
+    //     if (!$res) {
+    //         throw new Exception("Database query failed: " . mysqli_error($connexion));
+    //     } else {
+    //         $events = [];
+    //         while ($row = mysqli_fetch_assoc($res)) {
+    //             $events[] = $row;
+    //         }
+    //         return $events;
+    //     }
+    // }
     function getUpcomingEvents(){
         global $connexion;
-        $connexion->set_charset("utf8");
-        $req = "SELECT * FROM new_EVEN WHERE date_inscription >= CURDATE() AND categorie = 'evenement' ORDER BY date_debut ASC";
+
+        $req = "SELECT * FROM EVEN_actucalend WHERE datedebinfo_us >= DATE_FORMAT(CURDATE(), '%y%m%d') ORDER BY datedebinfo_us DESC";
         $res = mysqli_query($connexion, $req);
         if (!$res) {
             throw new Exception("Database query failed: " . mysqli_error($connexion));
@@ -507,7 +522,7 @@ function getHomePageEvent(){
     // fonction pour récupérer les GAP/GAV à venir
     function getGapInfo(){
         global $connexion;
-        $req = "SELECT * FROM GAP_actucalend WHERE datefininfo_us >= DATE_FORMAT(CURDATE(), '%y%m%d') ORDER BY datefininfo_us ASC";
+        $req = "SELECT * FROM GAP_actucalend WHERE datedebinfo_us >= DATE_FORMAT(CURDATE(), '%y%m%d') ORDER BY datedebinfo_us ASC";
         $res = mysqli_query($connexion, $req);
         if (!$res) {
             throw new Exception("Database query failed: " . mysqli_error($connexion));

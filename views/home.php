@@ -43,10 +43,10 @@ if($_SESSION['login']) {
                         <img src=<?=htmlspecialchars($event["image1a"])?> alt="" class="w-full sm:w-[600px] h-40 sm:h-70 object-cover rounded-lg rounded-r-none">
                         <?php endif; ?>
                         <?php if($event["textetoutinformation"]): ?>
-                        <p class="text-base sm:text-lg"><?=htmlspecialchars_decode($event["textetoutinformation"]) ?></p>
+                        <div class="text-base sm:text-lg"><?=htmlspecialchars_decode($event["textetoutinformation"]) ?></div>
                         <?php endif; ?>
                         <?php if($event["texteinformation1"]): ?>
-                        <p class="text-base sm:text-lg"><?=htmlspecialchars_decode($event["texteinformation1"]) ?></p>
+                        <div class="text-base sm:text-lg"><?=htmlspecialchars_decode($event["texteinformation1"]) ?></div>
                         <?php endif; ?>
                     </div>
 

@@ -89,7 +89,7 @@
                             </h1>
                             <div class="card-content flex flex-col items-stretch gap-4 w-full">
                                 <!-- on affiche la description de l'activité -->
-                                <div class="text-base sm:text-lg flex flex-col gap-1"><?= html_entity_decode($activite['description']) ?></div>
+                                <div class="text-base! sm:text-lg flex flex-col gap-1"><?= html_entity_decode($activite['description']) ?></div>
                                 <!-- on vérifie si un utilisateur est connecté, si oui on affiche la div suivante -->
                                 <?php if (isset($_SESSION['login'])) : ?>
                                     <div class="flex flex-col gap-5">

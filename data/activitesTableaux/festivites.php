@@ -22,7 +22,7 @@ $activiteInfo = [
         "activites" => [
             [
                 "titre" => "Rassemblements festifs",
-                "description" => "<p class='text-lg'>Tout au long de la saison, plusieurs rassemblements festifs sont organisés dans une ambiance conviviale et joyeuse. Ces moments privilégiés sont l’occasion parfaite de se retrouver, de partager de bons moments et de créer des souvenirs inoubliables dans la bonne humeur.</p>
+                "description" => "<p>Tout au long de la saison, plusieurs rassemblements festifs sont organisés dans une ambiance conviviale et joyeuse. Ces moments privilégiés sont l’occasion parfaite de se retrouver, de partager de bons moments et de créer des souvenirs inoubliables dans la bonne humeur.</p>
                 <ul class='list-disc pl-5'>
                     <li>Galette fin janvier</li>
                     <li>Repas festifs et/ou à thème en principe en mars</li>

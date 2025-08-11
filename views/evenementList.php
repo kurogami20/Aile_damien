@@ -1,21 +1,21 @@
 <?php
 
 if($_SESSION['login']) {
-      // Tableau de traduction des jours et mois en français
-      $jours = array('Sunday'=>'Dimanche','Monday'=>'Lundi','Tuesday'=>'Mardi','Wednesday'=>'Mercredi','Thursday'=>'Jeudi','Friday'=>'Vendredi','Saturday'=>'Samedi');
-      $mois = array('January'=>'janvier','February'=>'février','March'=>'mars','April'=>'avril','May'=>'mai','June'=>'juin','July'=>'juillet','August'=>'août','September'=>'septembre','October'=>'octobre','November'=>'novembre','December'=>'décembre');
+//     //   Tableau de traduction des jours et mois en français
+//       $jours = array('Sunday'=>'Dimanche','Monday'=>'Lundi','Tuesday'=>'Mardi','Wednesday'=>'Mercredi','Thursday'=>'Jeudi','Friday'=>'Vendredi','Saturday'=>'Samedi');
+//       $mois = array('January'=>'janvier','February'=>'février','March'=>'mars','April'=>'avril','May'=>'mai','June'=>'juin','July'=>'juillet','August'=>'août','September'=>'septembre','October'=>'octobre','November'=>'novembre','December'=>'décembre');
   
-      // Création de la date
-      function createDate($date) {
-          global $jours, $mois;
-           $date = date_create(htmlspecialchars($date, ENT_QUOTES | ENT_SUBSTITUTE));
-           $jour_en = date_format($date, 'l');
-           $mois_en = date_format($date, 'F');
-           $jour_fr = isset($jours[$jour_en]) ? $jours[$jour_en] : $jour_en;
-           $mois_fr = isset($mois[$mois_en]) ? $mois[$mois_en] : $mois_en;
-           $date_fr = $jour_fr . ' ' . date_format($date, 'd') . ' ' . $mois_fr;
-           return $date_fr;
-      }
+//     //   Création de la date
+//       function createDate($date) {
+//           global $jours, $mois;
+//            $date = date_create(htmlspecialchars($date, ENT_QUOTES | ENT_SUBSTITUTE));
+//            $jour_en = date_format($date, 'l');
+//            $mois_en = date_format($date, 'F');
+//            $jour_fr = isset($jours[$jour_en]) ? $jours[$jour_en] : $jour_en;
+//            $mois_fr = isset($mois[$mois_en]) ? $mois[$mois_en] : $mois_en;
+//            $date_fr = $jour_fr . ' ' . date_format($date, 'd') . ' ' . $mois_fr;
+//            return $date_fr;
+//       }
 ?>
 
 <!-- html pour adhérents -->
@@ -28,18 +28,18 @@ if($_SESSION['login']) {
             <?php foreach ($array as $event): ?>
             <article class="flex flex-col gap-4 sm:gap-5  ">
                 <h1 class="title text-lg sm:text-2xl font-bold flex flex-col sm:flex-row justify-between">
-                    <?= htmlspecialchars($event["titre"], ENT_QUOTES | ENT_SUBSTITUTE,"UTF-8") ?>
-                <span class=" font-normal text-base sm:text-xl"><?= createDate($event["date_debut"]) ?></span>  
+                    <?= htmlspecialchars($event["titreinformation"]) ?>
+                <span class=" font-normal text-base sm:text-xl"><?= $event["dateinformation"] ?></span>  
                 </h1>
-                <?php if($event["sous_titre"]):?>
-                <h2 class=" font-normal text-base sm:text-xl "><?= htmlspecialchars($event["sous_titre"], ENT_QUOTES | ENT_SUBSTITUTE,"UTF-8") ?></h2>
+                <?php if($event["soustitreinformation"]):?>
+                <h2 class=" font-normal text-base sm:text-xl "><?= htmlspecialchars($event["soustitreinformation"]) ?></h2>
                 <?php endif ?>
                 <div class="content flex flex-col sm:flex-row gap-4 sm:gap-5 border-t-2 border-[#ffbe46] rounded-l-lg justify-between">
                     <div class="flex flex-col sm:flex-row gap-4 sm:gap-5 ">
                         <img src=<?=htmlspecialchars($event["image1"])?> alt="" class="w-full sm:w-[600px] h-40 sm:h-70 object-cover rounded-lg rounded-r-none ">
-                        <p class="text-base sm:text-lg"><?=htmlspecialchars($event["texte"], ENT_QUOTES | ENT_SUBSTITUTE,"UTF-8") ?></p>
+                        <div class="text-base sm:text-lg"><?=htmlspecialchars_decode($event["textetoutinformation"]) ?></div>
                     </div>
-                   <?php if($event["plusInfo"]){?> 
+                   <?php if($event["info2"]){?> 
                     
                 <a href="http://dam31270.free.fr/index.php?page=detailEvenement&id=<?= $event['id'] ?>" class="self-end w-fit h-fit text-black bg-white hover:underline border border-2 border-[#ffbe46] font-medium rounded-lg text-xs sm:text-sm px-3 sm:px-5 py-2.5 me-2 mb-2">En savoir plus</a>
                
@@ -55,7 +55,7 @@ if($_SESSION['login']) {
 
 </section>
 <script>
-    console.log(<?= json_encode(getHomePageEvent()) ?>);
+    console.log(<?= json_encode(getUpcomingEvents()) ?>);
 </script>
    
 <?php } ?>

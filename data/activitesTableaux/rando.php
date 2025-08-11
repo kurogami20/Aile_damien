@@ -44,22 +44,22 @@ $activiteInfo = [
       "activites" => [ 
         [
             "titre" => "Marche à la Ramée",
-            "description" => "<p class='text-lg'>Marche à la Ramée les mardi et vendredi par Maïté Siau, de mi-septembre à mi-juin à 9h et de mi-juin à mi-septembre à 8h30. </p> <p class='text-lg'>Rassemblement côté manège.</p>",
+            "description" => "<p>Marche à la Ramée les mardi et vendredi par Maïté Siau, de mi-septembre à mi-juin à 9h et de mi-juin à mi-septembre à 8h30. </p> <p>Rassemblement côté manège.</p>",
             "animateur" => ''
         ],
         [
             "titre" => "Marche Nordique",
-            "description" => "<p class='text-lg'>Tous les mardis à 8h, site de Bidot, parking du centre aéré de Frouzins, chemin Sauveur. Animateur Ignacio Lujan.</p><p class='text-lg'>  Mardi et vendredi à 9h et 8h30 à partir du mardi 17 juin autour du lac de la Ramée, parking principal (manège). animateur Jean-Claude Perez.</p> <p class='text-lg'>Tous les jeudis à 8h, départ salle Paucheville à Frouzins. animateur Brice Ledos.</p>",
+            "description" => "<p>Tous les mardis à 8h, site de Bidot, parking du centre aéré de Frouzins, chemin Sauveur. Animateur Ignacio Lujan.</p><p>  Mardi et vendredi à 9h et 8h30 à partir du mardi 17 juin autour du lac de la Ramée, parking principal (manège). animateur Jean-Claude Perez.</p> <p>Tous les jeudis à 8h, départ salle Paucheville à Frouzins. animateur Brice Ledos.</p>",
             "animateur" => ''
         ],
         [
             "titre" => "Marche Promenade",
-            "description" => "<p class='text-lg'>Marche promenade le jeudi matin à 9h (prévenir de votre présence).</p><p class='text-lg'> Bord du canal St Martory et parc Rachety. RdV devant le parking rue du Couserans (au Vivier) à Cugnaux.</p>",
+            "description" => "<p>Marche promenade le jeudi matin à 9h (prévenir de votre présence).</p><p> Bord du canal St Martory et parc Rachety. RdV devant le parking rue du Couserans (au Vivier) à Cugnaux.</p>",
             "animateur" => ''
         ],
         [
             "titre" => "Marche Rapide",
-            "description" => "<p class='text-lg'>Marche rapide, le jeudi à 9h au parc de La Ramée à Toulouse.</p> <p class='text-lg'>RdV parking du manège.</p>",
+            "description" => "<p>Marche rapide, le jeudi à 9h au parc de La Ramée à Toulouse.</p> <p>RdV parking du manège.</p>",
             // tableau des animateurs dans le cas où ils ne sont pas définis dans la base de données
             "animateur" => [[
                             "anim_nom"=> "Boyer",
@@ -77,15 +77,15 @@ $activiteInfo = [
         "activites"=> [
             [
                 "titre" => "Randonnées",
-                "description" => "<p class='text-lg'>Les randonnées prévues avec la Brun'AILE sont faciles et accessibles à tous, animées par plusieurs animateurs.</p><p class='text-lg'> Les lundi, jeudi et vendredi : randonnées à la journée ou à la demi-journée.</p> <p class='text-lg'>RdV 15 mn avant le départ, parking du Cast'Aile à Cugnaux.</p><p class='text-lg'> Infos supplémentaire ou de dernière minute via « randoaile », « montagneaile » ou « véloaile » sur votre messagerie (contact : Pascal Rigot, Claude Jollivet, Alain Edin). Pensez à consulter la Boîte vocale : 09 72 30 08 25 pour confirmation.</p>"
+                "description" => "<p>Les randonnées prévues avec la Brun'AILE sont faciles et accessibles à tous, animées par plusieurs animateurs.</p><p> Les lundi, jeudi et vendredi : randonnées à la journée ou à la demi-journée.</p> <p>RdV 15 mn avant le départ, parking du Cast'Aile à Cugnaux.</p><p> Infos supplémentaire ou de dernière minute via « randoaile », « montagneaile » ou « véloaile » sur votre messagerie (contact : Pascal Rigot, Claude Jollivet, Alain Edin). Pensez à consulter la Boîte vocale : 09 72 30 08 25 pour confirmation.</p>"
             ],
             [
                 "titre" => "Randos Montagne",
-                "description" => "<p class='text-lg'>La randonnée montagne exclut la haute montagne nécessitant des équipements spéciaux (corde, piolet, crampons).</p><p class='text-lg'> Activité encadrée par des animateurs brevetés. Sorties généralement le vendredi. Consulter le calendrier des randonnées.</p>"
+                "description" => "<p>La randonnée montagne exclut la haute montagne nécessitant des équipements spéciaux (corde, piolet, crampons).</p><p> Activité encadrée par des animateurs brevetés. Sorties généralement le vendredi. Consulter le calendrier des randonnées.</p>"
             ],
             [
                 "titre" => "Randos Raquettes",
-                "description" => "<p class='text-lg' class='red'>Les randonnées raquettes nécessitent une licence FFRS pour des raisons d'assurance.</p> <p class='text-lg'>Activité encadrée par des animateurs brevetés, généralement proposée le vendredi selon l'enneigement.</p> <p class='text-lg'>Consulter le calendrier des randonnées.</p>",
+                "description" => "<p class='text-lg' class='red'>Les randonnées raquettes nécessitent une licence FFRS pour des raisons d'assurance.</p> <p>Activité encadrée par des animateurs brevetés, généralement proposée le vendredi selon l'enneigement.</p> <p>Consulter le calendrier des randonnées.</p>",
                 "animateur" => [
                         [
                             "anim_nom" => "Rigot",
