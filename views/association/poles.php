@@ -42,62 +42,60 @@
 
 <!-- partie contenu de la page-->
     <!-- le contenu de chaque élément est généré via un fichier php de données, le fichier php est défini ici './utils/routerActiviteIndex.php' -->
-    <section class="flex flex-col p-4 px-40 h-[100%] gap-20 items-center relative">
+    <section class="flex flex-col sm:p-4 sm:px-40 h-[100%] gap-20 items-center relative">
         <!-- affichage du titre de la page -->
-        <h2 class="text-5xl text-center capitalize font-bold z-3">pôles d'activités</h2>
+        <h2 class="text-3xl sm:text-5xl text-center capitalize font-bold z-3">pôles d'activités</h2>
         <!-- affichage de l'illustration de la page -->
         <img class="w-[40%] fixed z-1" src="" alt="">
         <!-- on boucle sur les informations des activités pour afficher chaque section -->
         <?php foreach ($poles as $pole) : ?>
-            <section class="flex flex-col gap-15 w-full z-3 odd:items-start even:items-end odd:self-start even:self-end odd:text-left even:text-right">
+            <section class="flex flex-col gap-15 w-full z-3 items-center sm:odd:items-start sm:even:items-end sm:odd:self-start sm:even:self-end sm:odd:text-left sm:even:text-right">
                 <div class="flex flex-col gap-10">
-                        <article class="card border  border-[#ffbe46] rounded-full shadow-sm bg-white p-[9rem] items-center  flex flex-col gap-3 justify-center  w-[800px]">
-                            <!-- on affiche le nom du pôle-->
-                             <!-- ici il est possible de mettre h1 car le contenu est dans un article -->
-                            <h1 class="title text-2xl font-bold" id="<?= htmlspecialchars($pole['nompole']) ?>">
-                                <?= htmlspecialchars($pole['nompole']) ?>
-                            </h1>
-                            <div class="card-content flex flex-col items-stretch gap-4">
-                                <!-- on affiche la description du pôle -->
-                                <div class="text-lg flex flex-col gap-3"><?= html_entity_decode($pole['texte1']) ?></div>
-                                <?php if (!empty($pole['texte2'])) : ?>
-                                    <div class="text-lg flex flex-col gap-1"><?= html_entity_decode($pole['texte2']) ?></div>
-                                <?php endif; ?>
-                                <!-- on vérifie si un utilisateur est connecté, si oui on affiche la div suivante -->
-                              <?php if (isset($pole['libelle_lien1'])){?>
-                                <div class="flex flex-col gap-2">
-                                    <a href="<?= htmlspecialchars($pole['lien1']) ?>" class="text-[#ffbe45] hover:underline text-lg font-semibold">
-                                        <?= htmlspecialchars($pole['libelle_lien1']) ?>
-                                    </a>
-                                </div>
-                                <?php } ?>
-                                <?php if (isset($pole['libelle_lien2'])){?>
-                                <div class="flex flex-col gap-2">
-                                    <a href="<?= htmlspecialchars($pole['lien2']) ?>" class="text-[#ffbe45] hover:underline text-lg font-semibold">
-                                        <?= htmlspecialchars($pole['libelle_lien2']) ?>
-                                    </a>
-                                </div>
-                                <?php } ?>
-                                <?php if (isset($pole['libelle_lien3'])){?>
-                                <div class="flex flex-col gap-2">
-                                    <a href="<?= htmlspecialchars($pole['lien3']) ?>" class="text-[#ffbe45] hover:underline text-lg font-semibold">
-                                        <?= htmlspecialchars($pole['libelle_lien3']) ?>
-                                    </a>
-                                </div>
-                                <?php } ?>
-                                <?php if ($pole['mail1']){?>
-                                <p>Mail direct: <a href="mailto:<?= htmlspecialchars($pole['mail1'])?>"><?= htmlspecialchars($pole['mail1'])?></a> </p>     
-                                <?php } ?>
-                                <?php if ($pole['mail2']){?>
-                                <p>Mail direct: <a href="mailto:<?= htmlspecialchars($pole['mail2'])?>"><?= htmlspecialchars($pole['mail2'])?></a> </p>     
-                                <?php } ?>
-                                <?php if ($pole['mail3']){?>
-                                <p>Mail direct: <a href="mailto:<?= htmlspecialchars($pole['mail3'])?>"><?= htmlspecialchars($pole['mail3'])?></a> </p>     
-                                <?php } ?>
-
-
+                    <article class="card border  border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 items-center  flex flex-col gap-3 justify-center  w-full">
+                        <!-- on affiche le nom du pôle-->
+                        <!-- ici il est possible de mettre h1 car le contenu est dans un article -->
+                        <h1 class="title text-lg sm:text-2xl font-bold" id="<?= htmlspecialchars($pole['nompole']) ?>">
+                            <?= htmlspecialchars($pole['nompole']) ?>
+                        </h1>
+                        <div class="card-content flex flex-col items-stretch gap-4">
+                            <!-- on affiche la description du pôle -->
+                            <div class="text-base sm:text-lg flex flex-col gap-3"><?= html_entity_decode($pole['texte1']) ?></div>
+                            <?php if (!empty($pole['texte2'])) : ?>
+                                <div class="text-base sm:text-lg flex flex-col gap-1"><?= html_entity_decode($pole['texte2']) ?></div>
+                            <?php endif; ?>
+                            <!-- on vérifie si un utilisateur est connecté, si oui on affiche la div suivante -->
+                            <?php if (isset($pole['libelle_lien1'])){?>
+                            <div class="flex flex-col gap-2">
+                                <a href="<?= htmlspecialchars($pole['lien1']) ?>" class="text-[#ffbe45] hover:underline text-base sm:text-lg font-semibold">
+                                    <?= htmlspecialchars($pole['libelle_lien1']) ?>
+                                </a>
                             </div>
-                        </article>
+                            <?php } ?>
+                            <?php if (isset($pole['libelle_lien2'])){?>
+                            <div class="flex flex-col gap-2">
+                                <a href="<?= htmlspecialchars($pole['lien2']) ?>" class="text-[#ffbe45] hover:underline text-base sm:text-lg font-semibold">
+                                    <?= htmlspecialchars($pole['libelle_lien2']) ?>
+                                </a>
+                            </div>
+                            <?php } ?>
+                            <?php if (isset($pole['libelle_lien3'])){?>
+                            <div class="flex flex-col gap-2">
+                                <a href="<?= htmlspecialchars($pole['lien3']) ?>" class="text-[#ffbe45] hover:underline text-base sm:text-lg font-semibold">
+                                    <?= htmlspecialchars($pole['libelle_lien3']) ?>
+                                </a>
+                            </div>
+                            <?php } ?>
+                            <?php if ($pole['mail1']){?>
+                            <p class="text-base sm:text-lg">Mail direct: <a href="mailto:<?= htmlspecialchars($pole['mail1'])?>"><?= htmlspecialchars($pole['mail1'])?></a> </p>     
+                            <?php } ?>
+                            <?php if ($pole['mail2']){?>
+                            <p class="text-base sm:text-lg">Mail direct: <a href="mailto:<?= htmlspecialchars($pole['mail2'])?>"><?= htmlspecialchars($pole['mail2'])?></a> </p>     
+                            <?php } ?>
+                            <?php if ($pole['mail3']){?>
+                            <p class="text-base sm:text-lg">Mail direct: <a href="mailto:<?= htmlspecialchars($pole['mail3'])?>"><?= htmlspecialchars($pole['mail3'])?></a> </p>     
+                            <?php } ?>
+                        </div>
+                    </article>
                     
                 </div>
             </section>

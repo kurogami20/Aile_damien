@@ -328,46 +328,99 @@ require 'dataBase.php';
 
 //*à la une
 
-    function getHomePageEvent(){
-        global $connexion;
-        $connexion->set_charset("utf8");
-        $req = "SELECT n.id, n.id_EVEN, e.* 
-                FROM New_accueil_choix n 
-                JOIN new_EVEN e ON n.id_EVEN > 0 AND e.id = n.id_EVEN 
-                WHERE e.date_debut >= CURDATE()
-                ";
-               
-        $req2 = "SELECT n.id,  g.* 
-                 FROM New_accueil_choix n 
-                 JOIN new_GAP_GAV g ON n.id_GAP > 0 AND g.id = n.id_GAP
-                 WHERE g.date_debut >= CURDATE()"; 
-                 
-        $res = mysqli_query($connexion, $req);
-        if (!$res) {
-            throw new Exception("Database query failed: " . mysqli_error($connexion));
-        }
-        $res2 = mysqli_query($connexion, $req2);
-        if (!$res2) {
-            throw new Exception("Database query failed: " . mysqli_error($connexion));
-        }
-        if (!$res && !$res2) {
-            throw new Exception("Database query failed: " . mysqli_error($connexion));
-        } else {
-            $events = [];
-            while ($row = mysqli_fetch_assoc($res)) {
-                $events[] = $row;
-            }
-            while ($row2 = mysqli_fetch_assoc($res2)) {
-                $events[] = $row2;
-            }
-            // Tri des événements par date de début
-            usort($events, function($a, $b) {
-                return strtotime($a["date_debut"]) - strtotime($b["date_debut"]);
-            });
-            return $events;
-        }
-    }
+    // function getHomePageNewEvent(){
+        //     global $connexion;
+        //     $connexion->set_charset("utf8");
+        //     $req = "SELECT n.id, n.id_EVEN, e.* 
+        //             FROM New_accueil_choix n 
+        //             JOIN new_EVEN e ON n.id_EVEN > 0 AND e.id = n.id_EVEN 
+        //             WHERE e.date_debut >= CURDATE()
+        //             ";
+                
+        //     $req2 = "SELECT n.id,  g.* 
+        //              FROM New_accueil_choix n 
+        //              JOIN new_GAP_GAV g ON n.id_GAP > 0 AND g.id = n.id_GAP
+        //              WHERE g.date_debut >= CURDATE()"; 
+                    
+        //     $res = mysqli_query($connexion, $req);
+        //     if (!$res) {
+        //         throw new Exception("Database query failed: " . mysqli_error($connexion));
+        //     }
+        //     $res2 = mysqli_query($connexion, $req2);
+        //     if (!$res2) {
+        //         throw new Exception("Database query failed: " . mysqli_error($connexion));
+        //     }
+        //     if (!$res && !$res2) {
+        //         throw new Exception("Database query failed: " . mysqli_error($connexion));
+        //     } else {
+        //         $events = [];
+        //         while ($row = mysqli_fetch_assoc($res)) {
+        //             $events[] = $row;
+        //         }
+        //         while ($row2 = mysqli_fetch_assoc($res2)) {
+        //             $events[] = $row2;
+        //         }
+        //         // Tri des événements par date de début
+        //         usort($events, function($a, $b) {
+        //             return strtotime($a["date_debut"]) - strtotime($b["date_debut"]);
+        //         });
+        //         return $events;
+        //     }
+    // }
+function getHomePageEvent(){
+    global $connexion;
+    $req = "SELECT * FROM accueil_choix";
+    $res = mysqli_query($connexion, $req);
+    if (!$res) {
+        throw new Exception("Database query failed: " . mysqli_error($connexion));
+    } else {
+        $row = mysqli_fetch_assoc($res);
+        
+        $refTable = [1, 2, 3, 4, 5, 6, 7, 8,9,10];
 
+        $laUne = [];
+
+        foreach ($refTable as $index) {
+            if (isset($row['reference' . $index]) && $row['reference' . $index] !== '' && isset($row['titreinformation' . $index]) && $row['titreinformation' . $index] !== '') {
+                $id = $row['reference' . $index];
+                $title = $row['titreinformation' . $index];
+                // Use prepared statement for EVEN_actucalend
+                $req2 = "SELECT * FROM EVEN_actucalend WHERE reference = ? AND titreinformation = ?";
+                $stmt2 = mysqli_prepare($connexion, $req2);
+                if ($stmt2 === false) {
+                    throw new Exception("Failed to prepare SQL statement for EVEN_actucalend.");
+                }
+                mysqli_stmt_bind_param($stmt2, "is", $id, $title);
+                mysqli_stmt_execute($stmt2);
+                $res2 = mysqli_stmt_get_result($stmt2);
+        
+                if ($res2 && mysqli_num_rows($res2) > 0) {
+                    $laUne[] = mysqli_fetch_assoc($res2);
+                    mysqli_stmt_close($stmt2);
+                } else {
+                    mysqli_stmt_close($stmt2);
+                    // Use prepared statement for GAP_actucalend
+                    $req3 = "SELECT * FROM GAP_actucalend WHERE reference = ? AND titreinformation = ?";
+                    $stmt3 = mysqli_prepare($connexion, $req3);
+                    if ($stmt3 === false) {
+                        throw new Exception("Failed to prepare SQL statement for GAP_actucalend.");
+                    }
+                    mysqli_stmt_bind_param($stmt3, "is", $id, $title);
+                    mysqli_stmt_execute($stmt3);
+                    $res3 = mysqli_stmt_get_result($stmt3);
+                    if ($res3 && mysqli_num_rows($res3) > 0) {
+                        $laUne[] = mysqli_fetch_assoc($res3);
+                        mysqli_stmt_close($stmt3);
+                    } else {
+                        mysqli_stmt_close($stmt3);
+                        throw new Exception("Database query failed: " . mysqli_error($connexion));
+                    }
+                }
+            }
+        }
+        return $laUne;
+    }
+}
 
 //*    
 
@@ -392,10 +445,28 @@ require 'dataBase.php';
 
 // *page pour détail évènement
 
+    // function getEventDetails($eventId) {
+    //     global $connexion;
+    //     $connexion->set_charset("utf8");
+    //     $req = "SELECT n.*, a.* FROM new_EVEN n JOIN animateur a ON n.id_animateur = a.anim_id WHERE n.id = ?";
+    //     $stmt = mysqli_prepare($connexion, $req);
+    //     if ($stmt === false) {
+    //         throw new Exception("Failed to prepare SQL statement.");
+    //     }
+    //     mysqli_stmt_bind_param($stmt, "i", $eventId);
+    //     mysqli_stmt_execute($stmt);
+    //     $res = mysqli_stmt_get_result($stmt);
+    //     if (!$res) {
+    //         throw new Exception("Database query failed: " . mysqli_error($connexion));
+    //     } else {
+    //         return mysqli_fetch_assoc($res);
+    //     }
+    // }
+    
     function getEventDetails($eventId) {
         global $connexion;
         $connexion->set_charset("utf8");
-        $req = "SELECT n.*, a.* FROM new_EVEN n JOIN animateur a ON n.id_animateur = a.anim_id WHERE n.id = ?";
+        $req = "SELECT * FROM EVEN_actucalend WHERE id = ?";
         $stmt = mysqli_prepare($connexion, $req);
         if ($stmt === false) {
             throw new Exception("Failed to prepare SQL statement.");

@@ -30,7 +30,7 @@
             return $date_fr;
        }
    
-       $imgTab = ['image1', 'image2']
+       $imgTab2 = ['image1', 'image2']
    ?>
    
   
@@ -41,7 +41,7 @@
     <p class="text-justify text-lg font-bold"><?= htmlspecialchars_decode($sortie['dateinformation']) ?></p>
     <section class="flex gap-4  w-full justify-center">
         <?php foreach ($imgTab as $index) : ?>
-        <?php if (!empty($sortie['image' . $index])) : ?>
+        <?php if ($sortie['image' . $index]) : ?>
         <img class="w-1/2" src="<?= htmlspecialchars($sortie['image' . $index]) ?>" alt="Image <?= $index ?>">
         <?php endif; ?>
         <?php endforeach; ?>
@@ -99,7 +99,7 @@
        <h2 class="text-5xl text-center capitalize font-bold z-3 flex flex-col gap-3"><?= htmlspecialchars($newGAPDetails['titre']) ?> <span class="font-normal text-2xl"> <?= htmlspecialchars($newGAPDetails['sous_titre']) ?></span></h2>
        <p class="text-justify text-lg font-bold">Le <?=  createDate($newGAPDetails['date_debut']) ?></p>
        <section class="flex gap-4 w-full justify-center">
-           <?php foreach ($imgTab as $index) : ?>
+           <?php foreach ($imgTab2 as $index) : ?>
            <?php if (!empty($newGAPDetails[$index])) : ?>
            <img class="w-[600px] h-[300px] object-cover" src="<?= htmlspecialchars($newGAPDetails[$index]) ?>" alt="Image <?= $index ?>">
            <?php endif; ?>

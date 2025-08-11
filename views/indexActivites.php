@@ -18,8 +18,8 @@
 <!-- partie menu secondaire (sur le côté) -->
     <!-- bouton d'ouverture -->
      <?php if ($titrePage !== "Festivités"){?>
-    <div class="text-center fixed z-9">
-    <button class="text-xl border border-[#ffbe45] border-2 w-fit  p-2 rounded-full cursor-pointer " type="button" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
+    <div class="text-center max-sm:mt-[42px] fixed z-9">
+    <button class="text-sm sm:text-xl border border-[#ffbe45] border-2 w-fit  p-2 rounded-full cursor-pointer bg-[#fff6ed] " type="button" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
     <!-- <i class="fa-solid fa-bars text-[#ffbe45] "></i> --> Menu activités
     </button>
     </div>
@@ -62,41 +62,41 @@
 
 <!-- partie contenu de la page-->
     <!-- le contenu de chaque élément est généré via un fichier php de données, le fichier php est défini ici './utils/routerActiviteIndex.php' -->
-    <section class="flex flex-col sm:p-4 px-40 h-[100%] gap-20 items-center relative">
+    <section class="flex flex-col sm:p-4 sm:px-40 h-[100%] gap-20 items-center relative">
         <!-- affichage du titre de la page -->
-        <h2 class="text-5xl text-center capitalize font-bold z-3"><?= $titrePage ?></h2>
+        <h2 class="text-3xl sm:text-5xl text-center capitalize font-bold z-3"><?= $titrePage ?></h2>
         <!-- affichage de l'illustration de la page -->
         <img class="w-[30rem] top-[50vh]  fixed z-1" src="<?= $illustrationActivite ?>" alt="">
         <!-- on boucle sur les informations des activités pour afficher chaque section -->
         <?php foreach ($activiteInfo as $info) : ?>
-            <section class="flex flex-col gap-15 w-full z-3">
+            <section class="flex flex-col gap-15 w-full z-3 ">
                 <!-- affichage du titre de la section -->
-                <h3 class="text-3xl capitalize font-bold" id="<?= htmlspecialchars($info['titre']) ?>">
+                <h3 class="text-2xl sm:text-3xl capitalize font-bold" id="<?= htmlspecialchars($info['titre']) ?>">
                     <?= htmlspecialchars($info['titre']) ?>
                 </h3>
                 <div class="flex flex-col gap-10">
                     <!-- on boucle sur les activités de chaque section pour afficher chaque activité dans un article -->
                     <?php foreach ($info['activites'] as $activite) : ?>
                         <?php if ($titrePage !== "Festivités"){?>
-                        <article class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 justify-center w-[800px] odd:items-start even:items-end odd:self-start even:self-end odd:text-left even:text-right">
+                        <article class="card border border-[#ffbe46]  rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 justify-center w-fit sm:w-[800px]  sm:odd:items-start sm:even:items-end sm:odd:self-start sm:even:self-end sm:odd:text-left sm:even:text-right">
                         <?php } else { ?>
-                        <article class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 justify-center w-full ">
+                        <article class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 justify-center w-fit sm:w-[800px] ">
                             <?php } ?>
                             <!-- on affiche le nom de l'activité -->
-                             <!-- ici il est possible de mettre h1 car le contenu est dans un article -->
-                            <h1 class="title text-2xl font-bold" id="<?= htmlspecialchars($activite['titre']) ?>">
+                            <!-- ici il est possible de mettre h1 car le contenu est dans un article -->
+                            <h1 class="title text-xl sm:text-2xl font-bold" id="<?= htmlspecialchars($activite['titre']) ?>">
                                 <?= htmlspecialchars($activite['titre']) ?>
                             </h1>
                             <div class="card-content flex flex-col items-stretch gap-4 w-full">
                                 <!-- on affiche la description de l'activité -->
-                                <div class="text-lg flex flex-col gap-1"><?= html_entity_decode($activite['description']) ?></div>
+                                <div class="text-base sm:text-lg flex flex-col gap-1"><?= html_entity_decode($activite['description']) ?></div>
                                 <!-- on vérifie si un utilisateur est connecté, si oui on affiche la div suivante -->
                                 <?php if (isset($_SESSION['login'])) : ?>
                                     <div class="flex flex-col gap-5">
                                         <?php if($salleEtHeure) {?>
                                         <?php $horaireSalle = getHourAndRoomForActivity($activiteIdForPlanning) ?>    
                                         <div>
-                                            <h3 class="text-xl font-semibold">Planning</h3>
+                                            <h3 class=" text-lg sm:text-xl  font-semibold">Planning</h3>
                                             <table class="text-sm text-gray-500 w-full">
                                                 <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                                                     <tr>
@@ -140,14 +140,14 @@
                                                 <?php } ?>
                                             </table>
                                             <?php if ($horaireSalle['date_reprise'] && $horaireSalle['date_fin'] > date('Y-m-d')) { ?>
-                                            <p class="text-sm text-gray-500 mt-2">Date de reprise : <?= htmlspecialchars($horaireSalle['date_reprise']) ?></p>
+                                            <p class="text-base sm:text-lg text-gray-500 mt-2">Date de reprise : <?= htmlspecialchars($horaireSalle['date_reprise']) ?></p>
                                             <?php } ?>
                                         </div>
                                         <?php } ?>
                                         <?php if ($titrePage !== "Festivités"){?>
                                         <details >
                                             <summary class="cursor-pointer list-none">
-                                                <h3 class="text-xl font-semibold"><i class="fa-solid fa-angle-down"></i> Les animateurs/rices</h3>
+                                                <h3 class="sm:text-xl text-lg font-semibold"><i class="fa-solid fa-angle-down"></i> Les animateurs/rices</h3>
                                             </summary>
                                             <!-- on vérifie si des animateurs sont défini dans un tableau du fichier d'information php des activité-->
                                             <?php if (is_array($activite['animateur'])) : ?>
@@ -165,7 +165,6 @@
                                                         <?php foreach ($activite['animateur'] as $anim) : ?>
                                                             <!-- on vérifie si les informations de l'animateur sont définies et non vides -->
                                                             <?php if (!empty($anim['anim_nom']) && !empty($anim['anim_prenom']) && (!empty($anim['anim_telmob']) || !empty($anim['anim_telfixe']))) : ?>
-                                                                <!-- on affiche les informations de l'animateur dans un tableau -->
                                                                 <tr class="bg-white border-b border-gray-200">
                                                                     <td class="px-6 py-4"><?= htmlspecialchars($anim['anim_nom']) ?></td>
                                                                     <td class="px-6 py-4"><?= htmlspecialchars($anim['anim_prenom']) ?></td>
