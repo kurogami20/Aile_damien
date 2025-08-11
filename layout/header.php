@@ -47,38 +47,38 @@
                     echo ' <li class="group capitalize text-black text-2xl d hover:underline! hover:text-[#9E6600]! max-sm:border-b-2 max-sm:border-[#ffbe45] max-sm:pb-5 max-sm:flex max-sm:justify-between"><a href="index.php?page=evenements" class="capitalize text-black  hover:underline! hover:text-[#9E6600]!">évènements</a></li>';
                 
                 }?>
-            <li class="group capitalize text-black text-2xl d hover:underline! hover:text-[#9E6600]! max-sm:border-b-2 max-sm:border-[#ffbe45] max-sm:pb-5 max-sm:flex max-sm:justify-between">
-                Art <i class="fa-solid fa-angle-down text-black sm:hidden"></i>
-                <ul class="flex flex-col gap-6 pl-5 shadow-lg rounded-lg p-10 bg-white absolute max-h-0 opacity-0 scale-y-75 overflow-hidden transform transition-all duration-[1000ms] ease-in-out origin-top group-hover:max-h-[1000px] group-hover:opacity-100 group-hover:scale-y-100">
+             <li class="sm:group capitalize text-black text-2xl d sm:hover:underline! sm:hover:text-[#9E6600]! border-b-2 border-[#ffbe45] pb-5 flex justify-between flex-col gap-2" onclick="if (window.innerWidth < 640) { this.querySelector('ul').classList.toggle('flex!'); }">
+              <span class="flex justify-between">art<i class="fa-solid fa-angle-down text-black sm:hidden self-right"></i></span>  
+                <ul class=" hidden sm:flex flex-col gap-6 sm:pl-5 sm:shadow-lg sm:rounded-lg p-5 sm:p-10 bg-white sm:absolute sm:max-h-0 sm:opacity-0 sm:scale-y-75 sm:overflow-hidden transform transition-all duration-[1000ms] ease-in-out origin-top sm:group-hover:max-h-[1000px] sm:group-hover:opacity-100 sm:group-hover:scale-y-100">
                     <li><a href="index.php?page=art&categorie=art_plastique" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">Art plastique</a></li>
                     <li><a href="index.php?page=art&categorie=art_performatifs" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">Art performatifs</a></li>
                 </ul>
             </li>
-            <li class="group capitalize text-black text-2xl d hover:underline! hover:text-[#9E6600]! max-sm:border-b-2 max-sm:border-[#ffbe45] max-sm:pb-5 max-sm:flex max-sm:justify-between">
-                sport <i class="fa-solid fa-angle-down text-black sm:hidden"></i>
-                <ul class="flex flex-col gap-6 pl-5 shadow-lg rounded-lg p-10 bg-white absolute max-h-0 opacity-0 scale-y-75 overflow-hidden transform transition-all duration-[1000ms] ease-in-out origin-top group-hover:max-h-[1000px] group-hover:opacity-100 group-hover:scale-y-100">
+            <li class="sm:group capitalize text-black text-2xl d sm:hover:underline! sm:hover:text-[#9E6600]! border-b-2 border-[#ffbe45] pb-5 flex justify-between flex-col gap-2" onclick="if (window.innerWidth < 640) { this.querySelector('ul').classList.toggle('flex!'); }">
+              <span class="flex justify-between">sport <i class="fa-solid fa-angle-down text-black sm:hidden self-right"></i></span>  
+                <ul class=" hidden sm:flex flex-col gap-6 sm:pl-5 sm:shadow-lg sm:rounded-lg p-5 sm:p-10 bg-white sm:absolute sm:max-h-0 sm:opacity-0 sm:scale-y-75 sm:overflow-hidden transform transition-all duration-[1000ms] ease-in-out origin-top sm:group-hover:max-h-[1000px] sm:group-hover:opacity-100 sm:group-hover:scale-y-100">
                     <li><a href="index.php?page=sport&categorie=rando" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">rando et marche</a></li>
                     <li><a href="index.php?page=sport&categorie=velo" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">vélo</a></li>
                     <li><a href="index.php?page=sport&categorie=ski" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">ski de fond</a></li>
                 </ul>
             </li>
-            <li class="group capitalize text-black text-2xl d hover:underline! hover:text-[#9E6600]! max-sm:border-b-2 max-sm:border-[#ffbe45] max-sm:pb-5 max-sm:flex max-sm:justify-between">
-                ensemble <i class="fa-solid fa-angle-down text-black sm:hidden"></i>
-                <ul class="flex flex-col gap-6 pl-5 shadow-lg rounded-lg p-10 bg-white absolute max-h-0 opacity-0 scale-y-75 overflow-hidden transform transition-all duration-[1000ms] ease-in-out origin-top group-hover:max-h-[1000px] group-hover:opacity-100 group-hover:scale-y-100">
+            <li class="sm:group capitalize text-black text-2xl d sm:hover:underline! sm:hover:text-[#9E6600]! border-b-2 border-[#ffbe45] pb-5 flex justify-between flex-col gap-2" onclick="if (window.innerWidth < 640) { this.querySelector('ul').classList.toggle('flex!'); }">
+              <span class="flex justify-between">ensemble <i class="fa-solid fa-angle-down text-black sm:hidden self-right"></i></span>  
+                <ul class=" hidden sm:flex flex-col gap-6 sm:pl-5 sm:shadow-lg sm:rounded-lg p-5 sm:p-10 bg-white sm:absolute sm:max-h-0 sm:opacity-0 sm:scale-y-75 sm:overflow-hidden transform transition-all duration-[1000ms] ease-in-out origin-top sm:group-hover:max-h-[1000px] sm:group-hover:opacity-100 sm:group-hover:scale-y-100">
                     <li><a href="index.php?page=ensemble&categorie=tourisme" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">Tourisme</a></li>
                     <li><a href="index.php?page=ensemble&categorie=festivites" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">Festivités</a></li>
                 </ul>
             </li>
-            <li class="group capitalize text-black text-2xl d hover:underline! hover:text-[#9E6600]! max-sm:border-b-2 max-sm:border-[#ffbe45] max-sm:pb-5 max-sm:flex max-sm:justify-between">
-                Apprendre <i class="fa-solid fa-angle-down text-black sm:hidden"></i>
-                <ul class="flex flex-col gap-6 pl-5 shadow-lg rounded-lg p-10 bg-white absolute max-h-0 opacity-0 scale-y-75 overflow-hidden transform transition-all duration-[1000ms] ease-in-out origin-top group-hover:max-h-[1000px] group-hover:opacity-100 group-hover:scale-y-100">
+            <li class="sm:group capitalize text-black text-2xl d sm:hover:underline! sm:hover:text-[#9E6600]! border-b-2 border-[#ffbe45] pb-5 flex justify-between flex-col gap-2" onclick="if (window.innerWidth < 640) { this.querySelector('ul').classList.toggle('flex!'); }">
+              <span class="flex justify-between">apprendre <i class="fa-solid fa-angle-down text-black sm:hidden self-right"></i></span>  
+                <ul class=" hidden sm:flex flex-col gap-6 sm:pl-5 sm:shadow-lg sm:rounded-lg p-5 sm:p-10 bg-white sm:absolute sm:max-h-0 sm:opacity-0 sm:scale-y-75 sm:overflow-hidden transform transition-all duration-[1000ms] ease-in-out origin-top sm:group-hover:max-h-[1000px] sm:group-hover:opacity-100 sm:group-hover:scale-y-100">
                     <li><a href="index.php?page=apprendre&categorie=numerique" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">Numérique</a></li>
                     <li><a href="index.php?page=apprendre&categorie=langues" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">Langues</a></li>
                 </ul>
             </li>
-            <li class="group capitalize text-black text-2xl d hover:underline! hover:text-[#9E6600]! max-sm:border-b-2 max-sm:border-[#ffbe45] max-sm:pb-5 max-sm:flex max-sm:justify-between">
-                détente <i class="fa-solid fa-angle-down text-black sm:hidden"></i>
-                <ul class="flex flex-col gap-6 pl-5 shadow-lg rounded-lg p-10 bg-white absolute max-h-0 opacity-0 scale-y-75 overflow-hidden transform transition-all duration-[1000ms] ease-in-out origin-top group-hover:max-h-[1000px] group-hover:opacity-100 group-hover:scale-y-100 ">
+            <li class="sm:group capitalize text-black text-2xl d sm:hover:underline! sm:hover:text-[#9E6600]! border-b-2 border-[#ffbe45] pb-5 flex justify-between flex-col gap-2" onclick="if (window.innerWidth < 640) { this.querySelector('ul').classList.toggle('flex!'); }">
+              <span class="flex justify-between">détente <i class="fa-solid fa-angle-down text-black sm:hidden self-right"></i></span>  
+                <ul class=" hidden sm:flex flex-col gap-6 sm:pl-5 sm:shadow-lg sm:rounded-lg p-5 sm:p-10 bg-white sm:absolute sm:max-h-0 sm:opacity-0 sm:scale-y-75 sm:overflow-hidden transform transition-all duration-[1000ms] ease-in-out origin-top sm:group-hover:max-h-[1000px] sm:group-hover:opacity-100 sm:group-hover:scale-y-100">
                     <li><a href="index.php?page=detente&categorie=bien_etre" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">Bien-être</a></li>
                     <li><a href="index.php?page=detente&categorie=jeux" class="capitalize text-black text-lg hover:underline! hover:text-[#9E6600]!">jeux de société</a></li>
                 </ul>
