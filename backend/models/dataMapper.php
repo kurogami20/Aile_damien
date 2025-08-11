@@ -465,7 +465,7 @@ function getHomePageEvent(){
     
     function getEventDetails($eventId) {
         global $connexion;
-        $connexion->set_charset("utf8");
+        // $connexion->set_charset("utf8");
         $req = "SELECT * FROM EVEN_actucalend WHERE id = ?";
         $stmt = mysqli_prepare($connexion, $req);
         if ($stmt === false) {
