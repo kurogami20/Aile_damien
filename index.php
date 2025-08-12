@@ -7,7 +7,7 @@ require 'layout/header.php';
 ?>
     <body >
 
-        <div class="h-full m-15 max-[500px]:m-5 max-[411px]:m-[1rem] relative">
+        <div class="h-full min-[1480px]:m-15 xl:m-10 m-[1rem] relative">
         <?php 
 
             if (isset($_SESSION['timeout']) && $_SESSION['timeout'] + 10 * 60 * 60 < time()) {

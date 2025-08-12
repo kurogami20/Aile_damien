@@ -62,7 +62,7 @@
 
 <!-- partie contenu de la page-->
     <!-- le contenu de chaque élément est généré via un fichier php de données, le fichier php est défini ici './utils/routerActiviteIndex.php' -->
-    <section class="flex flex-col sm:p-4 sm:px-40 h-[100%] gap-20 items-center relative">
+    <section class="flex flex-col p-4 min-[1480px]:px-40 min-[1200px]:px-20 px-2 h-[100%] gap-20 items-center relative">
    
         <!-- affichage du titre de la page -->
         <h2 class="text-3xl sm:text-5xl text-center capitalize font-bold z-3"><?= $titrePage ?></h2>
@@ -79,9 +79,9 @@
                     <!-- on boucle sur les activités de chaque section pour afficher chaque activité dans un article -->
                     <?php foreach ($info['activites'] as $activite) : ?>
                         <?php if ($titrePage !== "Festivités"){?>
-                        <article class="card border border-[#ffbe46]  rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 justify-center w-full sm:w-[800px]  sm:odd:items-start sm:even:items-end sm:odd:self-start sm:even:self-end sm:odd:text-left sm:even:text-right">
+                        <article class="card border border-[#ffbe46]  rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 justify-center w-full min-[850px]:w-[800px]  sm:odd:items-start sm:even:items-end sm:odd:self-start sm:even:self-end sm:odd:text-left sm:even:text-right">
                         <?php } else { ?>
-                        <article class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 justify-center w-full sm:w-[800px] ">
+                        <article class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 justify-center w-full min-[850px]:w-[800px] ">
                        
                             <?php } ?>
                             <!-- on affiche le nom de l'activité -->

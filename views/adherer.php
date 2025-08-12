@@ -1,4 +1,4 @@
-<section class="flex flex-col p-4 px-40 h-[100%] gap-20 items-center">
+<section class="flex flex-col p-4 min-[1480px]:px-40 min-[1200px]:px-20 px-2 h-[100%] gap-20 items-center">
     <h2 class="text-5xl text-center capitalize font-bold ">Adhérer</h2>
     <section class=" p-10 flex flex-col items-center justify-center gap-10 border border-[#ffbe46] rounded-lg shadow-sm   bg-white  ">
         <p class="text-lg text-center ">

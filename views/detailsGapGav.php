@@ -35,7 +35,7 @@
    
   
 <?php if ($sortie) { ?>
-<section class="flex flex-col p-4 px-40 h-[100%] gap-20 items-center relative">
+<section class="flex flex-col p-4 min-[1480px]:px-40 min-[1200px]:px-20 px-2 h-[100%] gap-20 items-center relative">
     <!-- affichage du titre de la page -->
     <h2 class="text-5xl text-center capitalize font-bold z-3 flex flex-col gap-3"><?= htmlspecialchars($sortie['titreinformation']) ?> <span class="font-normal text-2xl"> <?= htmlspecialchars($sortie['soustitreinformation']) ?></span></h2>
     <p class="text-justify text-lg font-bold"><?= htmlspecialchars_decode($sortie['dateinformation']) ?></p>

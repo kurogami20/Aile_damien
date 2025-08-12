@@ -40,7 +40,7 @@ $activiteInfo = [
     [
         // titre de la section/activité
         "titre" => "Groupe d'Activités Patrimoine - GAP",
-        "description" =>" <p class='text-lg' >Le GAP (Groupe d'Activités Patrimoine) est constitué de bénévoles organisant et animant des sorties à la 1/2 journée, des sorties à la journée, des séjours ayant pour but de faire connaitre notre patrimoine français.</p>
+        "description" =>" <p >Le GAP (Groupe d'Activités Patrimoine) est constitué de bénévoles organisant et animant des sorties à la 1/2 journée, des sorties à la journée, des séjours ayant pour but de faire connaitre notre patrimoine français.</p>
         <p> <span class='font-bold text-red!'> INFORMATIONS IMPORTANTES de la part des Animateurs du GAP
         Sorties, voyages en France, conférences</span><br>
         Après la pandémie, restaurateurs, offices de tourisme, guides conférenciers ont révisé leurs prestations nettement à la hausse. Aujourd'hui, nous faisons face à une hausse très importante du prix du gas-oil. Tout ceci se répercute sur le prix que nous vous demandons lors de nos sorties et malgré des négociations serrées avec nos différents intervenants, nous ne pouvons que nous incliner face à une situation qui échappe à tous.

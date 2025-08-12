@@ -30,7 +30,7 @@ elseif($_POST['user'] == getenv('MEMBER_LOGIN') && $_POST['password'] == getenv(
 
 ?>
 
-<section class="flex flex-col gap-15 items-center justify-between ">
+<section class="flex flex-col p-4 min-[1480px]:px-40 min-[1200px]:px-20 px-2 gap-15 items-center justify-between ">
     <h2 class="text-5xl text-center capitalize font-bold">Connexion adhérent</h2>
 <?php if(isset($_POST['user']) || isset($_POST['password'])) { if (!isset($_SESSION['login'])) {
     

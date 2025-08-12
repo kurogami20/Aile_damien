@@ -19,7 +19,7 @@ if($_SESSION['login']) {
 ?>
 
 <!-- html pour adhérents -->
-<section class="flex flex-col gap-4 p-4 sm:px-40 px-2">
+<section class="flex flex-col gap-4 p-4 min-[1480px]:px-40 min-[1200px]:px-20 px-2">
     <h2 class="text-3xl sm:text-5xl text-center capitalize font-bold z-3">évènements</h2>
     <section class="flex flex-col gap-8 sm:gap-15 w-full">
         <?php require_once './backend/models/dataMapper.php'?>

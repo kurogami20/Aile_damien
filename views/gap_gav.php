@@ -8,18 +8,18 @@
    $allGap = getGapInfo();
 
 ?>
-
 <!-- partie menu secondaire (sur le côté) -->
     <!-- bouton d'ouverture -->
-    <div class="text-center fixed z-9">
-    <button class="text-xl border border-[#ffbe45] border-2 w-fit  p-2 rounded-full cursor-pointer " type="button" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
+    <?php if ($titrePage !== "Festivités"){?>
+    <div class="text-center max-sm:mt-[42px] fixed z-9">
+    <button class="text-sm sm:text-xl border border-[#ffbe45] border-2 w-fit  p-2 rounded-full cursor-pointer bg-[#fff6ed] " type="button" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
     <!-- <i class="fa-solid fa-bars text-[#ffbe45] "></i> --> Menu tourisme
     </button>
     </div>
-
+   
     <!-- menu sur le côté -->
     <div id="drawer-navigation" class=" fixed top-0 mt-[152px] h-screen   z-40 w-64 p-4  transition-transform -translate-x-full bg-white " tabindex="-1" aria-labelledby="drawer-navigation-label">
-            <h5 id="drawer-navigation-label" class="text-base font-semibold text-black uppercase ">Menu tourisme</h5>
+            <h5 id="drawer-navigation-label" class="text-base font-semibold text-black uppercase ">Activités</h5>
             <button type="button" data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 absolute top-2.5 end-2.5 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" >
                 <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                 <span class="sr-only">Close menu</span>
@@ -34,47 +34,47 @@
                     </a>
                     <!-- on vérifie si un type a plusieurs activité -->
                     <?php if (isset($type['activites']) && !empty($type['activites']))  {?>
-                    <ul class="hidden group-hover:block border-l-2 border-[#ffbe45] ">
-                        <!-- si un type a plusieurs activité, on boucle sur les activités de chaque type pour créer le sous-menu -->
-                        <?php foreach ($type['activites'] as $activite) : ?>
-                        <li>
-                            <a href="#<?= htmlspecialchars($activite) ?>" class="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-[#FFBE45]/40  group">
-                                <span class="ms-5"><?= htmlspecialchars($activite) ?></span>
-                            </a>
-                        </li>
-                        <?php endforeach; ?>
-                    </ul>
+                        <ul class="max-h-0 opacity-0 scale-y-75 overflow-hidden transform transition-all duration-[2000ms] ease-in-out origin-top group-hover:max-h-[1000px] group-hover:opacity-100 group-hover:scale-y-100 border-l-2 border-[#ffbe45]">
+                            <?php foreach ($type['activites'] as $activite) : ?>
+                            <li>
+                                <a href="#<?= htmlspecialchars($activite) ?>" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-[#FFBE45]/40 group">
+                                    <span class="ms-5"><?= htmlspecialchars($activite) ?></span>
+                                </a>
+                            </li>
+                            <?php endforeach; ?>
+                        </ul>
+
                     <?php } ?>
                 </li>
                 <?php endforeach; ?>
             </ul>
         </div>
     </div>
+    <?php } ?>
 <!-- fin de la partie menu secondaire (sur le côté) -->
-
 
 <!-- partie contenu de la page-->
     <!-- le contenu de chaque élément est généré via un fichier php de données, le fichier php est défini ici './utils/routerActiviteIndex.php' -->
-    <section class="flex flex-col p-4 px-40 h-[100%] gap-20 items-center relative">
+    <section class="flex flex-col p-4 min-[1480px]:px-40 min-[1200px]:px-20 px-2 h-[100%] gap-20 items-center relative">
         <!-- affichage du titre de la page -->
-        <h2 class="text-5xl text-center capitalize font-bold z-3"><?= $titrePage ?></h2>
+        <h2 class="text-3xl sm:text-5xl text-center capitalize font-bold z-3"><?= $titrePage ?></h2>
         <!-- affichage de l'illustration de la page -->
         <img class="w-[30rem] top-[50vh]  fixed z-1" src="<?= $illustrationActivite ?>" alt="">
         <!-- on boucle sur les informations des activités pour afficher chaque section -->
         <?php foreach ($activiteInfo as $info) : ?>
             <section class="flex flex-col gap-15 w-full z-3">
                 <!-- affichage du titre de la section -->
-                <h3 class="text-3xl capitalize font-bold" id="<?= htmlspecialchars($info['titre']) ?>">
+                <h3 class="text-2xl sm:text-3xl capitalize font-bold" id="<?= htmlspecialchars($info['titre']) ?>">
                     <?= htmlspecialchars($info['titre']) ?>
                 </h3>
-                <div class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 justify-center"><?= html_entity_decode($info['description']) ?></div>
+                <div class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 justify-center text-base"><?= html_entity_decode($info['description']) ?></div>
                 <div class="flex flex-col gap-10">
                     <!-- on boucle sur les activités de chaque section pour afficher chaque activité dans un article -->
                     <?php foreach ($info['activites'] as $activite) : ?>
                         <?php if ($activite['titre'] === "Calendrier"){?>
                         <article class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 justify-center w-full odd:items-start even:items-end odd:self-start even:self-end odd:text-left even:text-right">
                         <?php } else { ?>
-                            <article class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 justify-center w-[950px] odd:items-start even:items-end odd:self-start even:self-end odd:text-left even:text-right">
+                            <article class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 justify-center w-full min-[850px]:w-[950px] odd:items-start even:items-end odd:self-start even:self-end odd:text-left even:text-right">
                         <?php } ?>
                             <!-- on affiche le nom de l'activité -->
                              <!-- ici il est possible de mettre h1 car le contenu est dans un article -->
@@ -84,193 +84,192 @@
                             <div class="card-content flex flex-col items-stretch gap-4 w-full">
                                 <!-- on affiche la description de l'activité -->
                                 <?php if (isset($activite['description']) && !empty($activite['description'])) : ?>
-                                <div class="text-lg flex flex-col gap-1"><?= html_entity_decode($activite['description']) ?></div>
+                                <div class="text-base! sm:text-lg flex flex-col gap-1"><?= html_entity_decode($activite['description']) ?></div>
                                 <?php endif; ?>
                                 <!-- on vérifie si un utilisateur est connecté, si oui on affiche la div suivante -->
-                            
-                                        <table class="text-sm text-gray-500 w-full">
-                                            <thead class="text-xs text-gray-700 uppercase bg-gray-50">
-                                                <tr>
-                                                    <th scope="col" class="px-6 py-3">Date</th>
-                                                    <th scope="col" class="px-6 py-3">Description</th>
-                                                    <th scope="col" class="px-6 py-3">Contact</th>
-                                                    <?php if ($activite['titre'] === "Calendrier"){?>
-                                                    <th scope="col" class="px-6 py-3">Catégorie</th>
-                                                    <?php } ?>
-                                                    <th scope="col" class="px-6 py-3">En savoir plus</th>
-                                                </tr>
-                                            </thead>
+                                <div class="relative overflow-x-auto">
+                                    <table class="text-sm text-gray-500 w-full">
+                                        <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                                            <tr>
+                                                <th scope="col" class="px-6 py-3">Date</th>
+                                                <th scope="col" class="px-6 py-3">Description</th>
+                                                <th scope="col" class="px-6 py-3">Contact</th>
+                                                <?php if ($activite['titre'] === "Calendrier"){?>
+                                                <th scope="col" class="px-6 py-3">Catégorie</th>
+                                                <?php } ?>
+                                                <th scope="col" class="px-6 py-3">En savoir plus</th>
+                                            </tr>
+                                        </thead>
                                         <?php if ($activite['titre'] === "Calendrier"){?>
-                                            <tbody>
-                                                <?php if (isset($allGap) && !empty($allGap)) : ?>
-                                                    <?php foreach ($allGap as $gap) : ?>
-                                              
-                                                            <tr class="bg-white border-b border-gray-200">
-                                                                <td class="px-6 py-4"><?= htmlspecialchars($gap['dateinformation']) ?> </td>
-                                                                <td class="px-6 py-4"><?= htmlspecialchars($gap['titreinformation']) ?>-<?= htmlspecialchars($gap['soustitreinformation']) ?></td>
-                                                                <td class="px-6 py-4"><?= htmlspecialchars($gap['contactinformation']) ?></td>
-                                                                <td class="px-6 py-4"><?php if ($gap['activite']==="sej"){?>
-                                                                Séjour
-                                                                <?php } elseif ($gap['activite']==="jour"){?>
-                                                                Sortie journée
-                                                                <?php } elseif ($gap['activite']==="dim"){?>
-                                                                Sortie du dimanche
-                                                                <?php } elseif ($gap['activite']==="ven"){?>
-                                                                Sortie demi-journée
-                                                                <?php } elseif ($gap['activite']==="conf"){?>
-                                                                Conférences
-                                                                <?php }?></td>
-                                                            <td class="px-6 py-4"> <a class="underline " href="http://dam31270.free.fr/index.php?page=detailsTourisme&id=<?= htmlspecialchars($gap['id']) ?>">En savoir plus</a></td>
-                                                        </tr>
-                                         
-                                                    <?php endforeach; ?>
-                                                <?php else: ?>
-                                                    <tr class="bg-white border-b border-gray-200">
-                                                        <td colspan="5" class="px-6 py-4 text-center">Aucune information disponible</td>
-                                                    </tr>
-                                                </tbody> 
-                                        <?php endif; ?>
-                                            
-                                        <?php } elseif ($activite['titre'] === "Sorties demi-journée"){ ?>
-                                            <tbody>
-                                                <?php if (isset($allGap) && !empty($allGap)) : ?>
-                                                    <?php  $hasInfo = false; foreach ($allGap as $gap) : ?>
-                                                        <?php if ($gap['activite'] === "ven") : ?>
-                                                            <?php $hasInfo = true; ?>
-                                                        <tr class="bg-white border-b border-gray-200">
-                                                            <td class="px-6 py-4"><?= htmlspecialchars($gap['dateinformation']) ?> </td>
-                                                            <td class="px-6 py-4"><?= htmlspecialchars($gap['titreinformation']) ?>-<?= htmlspecialchars($gap['soustitreinformation']) ?></td>
-                                                            <td class="px-6 py-4"><?= htmlspecialchars($gap['contactinformation']) ?></td>
-                                                            
-                                                            <td class="px-6 py-4"> <a class="underline " href="http://dam31270.free.fr/index.php?page=detailsTourisme&id=<?= htmlspecialchars($gap['id']) ?>">En savoir plus</a></td>
-                                                        </tr>
-                                                            
-                                                        <?php endif; ?>
-                                                    <?php endforeach; ?>
-                                                    <?php if (!$hasInfo) : ?>
-                                                        <tr class="bg-white border-b border-gray-200">
-                                                            <td colspan="5" class="px-6 py-4 text-center">Pas de sortie prévue</td>
-                                                        </tr> <?php endif; ?>
-                                                <?php endif; ?>
-                                            </tbody> 
-                                        <?php } elseif ($activite['titre'] === "Sorties journée"){ ?>
-                                            <tbody>
+                                        <tbody>
                                             <?php if (isset($allGap) && !empty($allGap)) : ?>
-                                                <?php  $hasInfo = false; foreach ($allGap as $gap) : ?>
-                                                    <?php if ($gap['activite'] === "jour") : ?>
-                                                    <?php $hasInfo = true; ?>
-                                                        <tr class="bg-white border-b border-gray-200">
-                                                        <td class="px-6 py-4"><?= htmlspecialchars($gap['dateinformation']) ?> </td>
-                                                        <td class="px-6 py-4"><?= htmlspecialchars($gap['titreinformation']) ?>-<?= htmlspecialchars($gap['soustitreinformation']) ?></td>
-                                                        <td class="px-6 py-4"><?= htmlspecialchars($gap['contactinformation']) ?></td>
-                                                       
-                                                        <td class="px-6 py-4"> <a class="underline " href="http://dam31270.free.fr/index.php?page=detailsTourisme&id=<?= htmlspecialchars($gap['id']) ?>">En savoir plus</a></td>
-                                                    </tr>
-                                                  
-                                                        
-                                                    <?php endif; ?>
+                                            <?php foreach ($allGap as $gap) : ?>
+
+                                            <tr class="bg-white border-b border-gray-200">
+                                                <td class="px-6 py-4"><?= htmlspecialchars($gap['dateinformation']) ?> </td>
+                                                <td class="sm:px-6 py-4"><?= htmlspecialchars($gap['titreinformation']) ?>-<?= htmlspecialchars($gap['soustitreinformation']) ?></td>
+                                                <td class="sm:px-6 py-4"><?= htmlspecialchars($gap['contactinformation']) ?></td>
+                                                <td class="px-6 py-4"><?php if ($gap['activite']==="sej"){?>
+                                                Séjour
+                                                <?php } elseif ($gap['activite']==="jour"){?>
+                                                Sortie journée
+                                                <?php } elseif ($gap['activite']==="dim"){?>
+                                                Sortie du dimanche
+                                                <?php } elseif ($gap['activite']==="ven"){?>
+                                                Sortie demi-journée
+                                                <?php } elseif ($gap['activite']==="conf"){?>
+                                                Conférences
+                                                <?php }?></td>
+                                                <td class="px-6 py-4"> <a class="underline " href="http://dam31270.free.fr/index.php?page=detailsTourisme&id=<?= htmlspecialchars($gap['id']) ?>">En savoir plus</a></td>
+                                                </tr>
+
                                                 <?php endforeach; ?>
-                                                            <?php if (!$hasInfo) : ?>
-                                                        <tr class="bg-white border-b border-gray-200">
-                                                            <td colspan="5" class="px-6 py-4 text-center">Pas de sortie prévue</td>
-                                                        </tr> <?php endif; ?>
+                                                <?php else: ?>
+                                            <tr class="bg-white border-b border-gray-200">
+                                                <td colspan="5" class="px-6 py-4 text-center">Aucune information disponible</td>
+                                            </tr>
+                                        </tbody> 
+                                        <?php endif; ?>
+
+                                        <?php } elseif ($activite['titre'] === "Sorties demi-journée"){ ?>
+                                        <tbody>
+                                            <?php if (isset($allGap) && !empty($allGap)) : ?>
+                                            <?php  $hasInfo = false; foreach ($allGap as $gap) : ?>
+                                            <?php if ($gap['activite'] === "ven") : ?>
+                                            <?php $hasInfo = true; ?>
+                                                <tr class="bg-white border-b border-gray-200">
+                                                <td class="px-6 py-4"><?= htmlspecialchars($gap['dateinformation']) ?> </td>
+                                                <td class="sm:px-6 py-4"><?= htmlspecialchars($gap['titreinformation']) ?>-<?= htmlspecialchars($gap['soustitreinformation']) ?></td>
+                                                <td class="sm:px-6 py-4"><?= htmlspecialchars($gap['contactinformation']) ?></td>
+
+                                                <td class="px-6 py-4"> <a class="underline " href="http://dam31270.free.fr/index.php?page=detailsTourisme&id=<?= htmlspecialchars($gap['id']) ?>">En savoir plus</a></td>
+                                            </tr>
+
+                                            <?php endif; ?>
+                                            <?php endforeach; ?>
+                                            <?php if (!$hasInfo) : ?>
+                                            <tr class="bg-white border-b border-gray-200">
+                                                <td colspan="5" class="px-6 py-4 text-center">Pas de sortie prévue</td>
+                                            </tr> <?php endif; ?>
+                                            <?php endif; ?>
+                                        </tbody> 
+                                        <?php } elseif ($activite['titre'] === "Sorties journée"){ ?>
+                                        <tbody>
+                                            <?php if (isset($allGap) && !empty($allGap)) : ?>
+                                            <?php  $hasInfo = false; foreach ($allGap as $gap) : ?>
+                                            <?php if ($gap['activite'] === "jour") : ?>
+                                            <?php $hasInfo = true; ?>
+                                            <tr class="bg-white border-b border-gray-200">
+                                                <td class="px-6 py-4"><?= htmlspecialchars($gap['dateinformation']) ?> </td>
+                                                <td class="sm:px-6 py-4"><?= htmlspecialchars($gap['titreinformation']) ?>-<?= htmlspecialchars($gap['soustitreinformation']) ?></td>
+                                            <td class="sm:px-6 py-4"><?= htmlspecialchars($gap['contactinformation']) ?></td>
+
+                                            <td class="px-6 py-4"> <a class="underline " href="http://dam31270.free.fr/index.php?page=detailsTourisme&id=<?= htmlspecialchars($gap['id']) ?>">En savoir plus</a></td>
+                                            </tr>
+
+
+                                            <?php endif; ?>
+                                            <?php endforeach; ?>
+                                            <?php if (!$hasInfo) : ?>
+                                            <tr class="bg-white border-b border-gray-200">
+                                                <td colspan="5" class="px-6 py-4 text-center">Pas de sortie prévue</td>
+                                            </tr> <?php endif; ?>
                                             <?php endif; ?>
                                         </tbody> 
                                         <?php } elseif ($activite['titre'] === "Sorties du dimanche"){ ?>
-                                            <tbody>
+                                        <tbody>
                                             <?php if (isset($allGap) && !empty($allGap)) : ?>
-                                                <?php  $hasInfo = false; foreach ($allGap as $gap) : ?>
-                                                    <?php if ($gap['activite'] === "dim") : ?>
-                                                    <?php $hasInfo = true; ?>
-                                                        <tr class="bg-white border-b border-gray-200">
-                                                        <td class="px-6 py-4"><?= htmlspecialchars($gap['dateinformation']) ?> </td>
-                                                        <td class="px-6 py-4"><?= htmlspecialchars($gap['titreinformation']) ?>-<?= htmlspecialchars($gap['soustitreinformation']) ?></td>
-                                                        <td class="px-6 py-4"><?= htmlspecialchars($gap['contactinformation']) ?></td>
-                                                       
-                                                        <td class="px-6 py-4"> <a class="underline " href="http://dam31270.free.fr/index.php?page=detailsTourisme&id=<?= htmlspecialchars($gap['id']) ?>">En savoir plus</a></td>
-                                                    </tr>
-                                                  
-                                                        
-                                                    <?php endif; ?>
-                                                <?php endforeach; ?>
-                                                            <?php if (!$hasInfo) : ?>
-                                                        <tr class="bg-white border-b border-gray-200">
-                                                            <td colspan="5" class="px-6 py-4 text-center">Pas de sortie prévue</td>
-                                                        </tr> <?php endif; ?>
+                                            <?php  $hasInfo = false; foreach ($allGap as $gap) : ?>
+                                            <?php if ($gap['activite'] === "dim") : ?>
+                                            <?php $hasInfo = true; ?>
+                                            <tr class="bg-white border-b border-gray-200">
+                                                <td class="px-6 py-4"><?= htmlspecialchars($gap['dateinformation']) ?> </td>
+                                                <td class="sm:px-6 py-4"><?= htmlspecialchars($gap['titreinformation']) ?>-<?= htmlspecialchars($gap['soustitreinformation']) ?></td>
+                                                <td class="sm:px-6 py-4"><?= htmlspecialchars($gap['contactinformation']) ?></td>
+
+                                                <td class="px-6 py-4"> <a class="underline " href="http://dam31270.free.fr/index.php?page=detailsTourisme&id=<?= htmlspecialchars($gap['id']) ?>">En savoir plus</a></td>
+                                            </tr>
+
+
+                                            <?php endif; ?>
+                                            <?php endforeach; ?>
+                                            <?php if (!$hasInfo) : ?>
+                                            <tr class="bg-white border-b border-gray-200">
+                                                <td colspan="5" class="px-6 py-4 text-center">Pas de sortie prévue</td>
+                                            </tr> <?php endif; ?>
                                             <?php endif; ?>
                                         </tbody> 
                                         <?php } elseif ($activite['titre'] === "Conférences"){ ?>
-                                            <tbody>
-                                            <?php if (isset($allGap) && !empty($allGap)) : ?>
-                                                <?php $hasInfo = false; foreach ($allGap as $gap) : ?>
-                                                    <?php if ($gap['activite'] === "conf") : ?>
-                                                        <?php $hasInfo = true; ?>
-                                                        <tr class="bg-white border-b border-gray-200">
-                                                            <td class="px-6 py-4"><?= htmlspecialchars($gap['dateinformation']) ?> </td>
-                                                            <td class="px-6 py-4"><?= htmlspecialchars($gap['titreinformation']) ?>-<?= htmlspecialchars($gap['soustitreinformation']) ?></td>
-                                                            <td class="px-6 py-4"><?= htmlspecialchars($gap['contactinformation']) ?></td>
-                                                            <td class="px-6 py-4"> <a class="underline " href="http://dam31270.free.fr/index.php?page=detailsTourisme&id=<?= htmlspecialchars($gap['id']) ?>">En savoir plus</a></td>
-                                                        </tr>
-                                                    <?php endif; ?>
-                                                <?php endforeach; ?>
-                                                <?php if (!$hasInfo) : ?>
-                                                    <tr class="bg-white border-b border-gray-200">
-                                                        <td colspan="5" class="px-6 py-4 text-center">Pas de sortie prévue</td>
-                                                    </tr>
-                                                <?php endif; ?>
-                                                       
-                                            <?php endif; ?>
+                                        <tbody>
+                                        <?php if (isset($allGap) && !empty($allGap)) : ?>
+                                        <?php $hasInfo = false; foreach ($allGap as $gap) : ?>
+                                        <?php if ($gap['activite'] === "conf") : ?>
+                                        <?php $hasInfo = true; ?>
+                                        <tr class="bg-white border-b border-gray-200">
+                                            <td class="px-6 py-4"><?= htmlspecialchars($gap['dateinformation']) ?> </td>
+                                            <td class="sm:px-6 py-4"><?= htmlspecialchars($gap['titreinformation']) ?>-<?= htmlspecialchars($gap['soustitreinformation']) ?></td>
+                                            <td class="sm:px-6 py-4"><?= htmlspecialchars($gap['contactinformation']) ?></td>
+                                            <td class="px-6 py-4"> <a class="underline " href="http://dam31270.free.fr/index.php?page=detailsTourisme&id=<?= htmlspecialchars($gap['id']) ?>">En savoir plus</a></td>
+                                        </tr>
+                                        <?php endif; ?>
+                                        <?php endforeach; ?>
+                                        <?php if (!$hasInfo) : ?>
+                                        <tr class="bg-white border-b border-gray-200">
+                                            <td colspan="5" class="px-6 py-4 text-center">Pas de sortie prévue</td>
+                                        </tr>
+                                        <?php endif; ?>
+
+                                        <?php endif; ?>
                                         </tbody> 
                                         <?php } elseif ($activite['titre'] === "Séjours"){ ?>
-                                            <tbody>
-                                            <?php if (isset($allGap) && !empty($allGap)) : ?>
-                                                <?php  $hasInfo = false; foreach ($allGap as $gap) : ?>
-                                                    <?php if ($gap['activite'] === "sej") : ?>
-                                                    <?php $hasInfo = true; ?>
-                                                        <tr class="bg-white border-b border-gray-200">
-                                                        <td class="px-6 py-4"><?= htmlspecialchars($gap['dateinformation']) ?> </td>
-                                                        <td class="px-6 py-4"><?= htmlspecialchars($gap['titreinformation']) ?>-<?= htmlspecialchars($gap['soustitreinformation']) ?></td>
-                                                        <td class="px-6 py-4"><?= htmlspecialchars($gap['contactinformation']) ?></td>
-                                                       
-                                                        <td class="px-6 py-4"> <a class="underline " href="http://dam31270.free.fr/index.php?page=detailsTourisme&id=<?= htmlspecialchars($gap['id']) ?>">En savoir plus</a></td>
-                                                    </tr>
-                                                    
-                                                        
-                                                    <?php endif; ?>
-                                                <?php endforeach; ?>
-                                                            <?php if (!$hasInfo) : ?>
-                                                        <tr class="bg-white border-b border-gray-200">
-                                                            <td colspan="5" class="px-6 py-4 text-center">Pas de sortie prévue</td>
-                                                        </tr> <?php endif; ?>
-                                            <?php endif; ?>
+                                        <tbody>
+                                        <?php if (isset($allGap) && !empty($allGap)) : ?>
+                                        <?php  $hasInfo = false; foreach ($allGap as $gap) : ?>
+                                        <?php if ($gap['activite'] === "sej") : ?>
+                                        <?php $hasInfo = true; ?>
+                                            <tr class="bg-white border-b border-gray-200">
+                                                <td class="px-6 py-4"><?= htmlspecialchars($gap['dateinformation']) ?> </td>
+                                                <td class="sm:px-6 py-4"><?= htmlspecialchars($gap['titreinformation']) ?>-<?= htmlspecialchars($gap['soustitreinformation']) ?></td>
+                                                <td class="sm:px-6 py-4"><?= htmlspecialchars($gap['contactinformation']) ?></td>
+
+                                                <td class="px-6 py-4"> <a class="underline " href="http://dam31270.free.fr/index.php?page=detailsTourisme&id=<?= htmlspecialchars($gap['id']) ?>">En savoir plus</a></td>
+                                            </tr>
+
+
+                                        <?php endif; ?>
+                                        <?php endforeach; ?>
+                                        <?php if (!$hasInfo) : ?>
+                                            <tr class="bg-white border-b border-gray-200">
+                                                <td colspan="5" class="px-6 py-4 text-center">Pas de sortie prévue</td>
+                                            </tr> <?php endif; ?>
+                                        <?php endif; ?>
                                         </tbody> 
                                         <?php } elseif ($activite['titre'] === "Prochain voyage"){ ?>
-                                            <tbody>
-                                            <?php if (isset($allGap) && !empty($allGap)) : ?>
-                                                <?php  $hasInfo = false;  foreach ($allGap as $gap) : ?>
-                                                    <?php if ($gap['activite'] === "voy") : ?>
-                                                    <?php $hasInfo = true; ?>
-                                                        <tr class="bg-white border-b border-gray-200">
-                                                        <td class="px-6 py-4"><?= htmlspecialchars($gap['dateinformation']) ?> </td>
-                                                        <td class="px-6 py-4"><?= htmlspecialchars($gap['titreinformation']) ?>-<?= htmlspecialchars($gap['soustitreinformation']) ?></td>
-                                                        <td class="px-6 py-4"><?= htmlspecialchars($gap['contactinformation']) ?></td>
-                                                       
-                                                        <td class="px-6 py-4"> <a class="underline " href="http://dam31270.free.fr/index.php?page=detailsTourisme&id=<?= htmlspecialchars($gap['id']) ?>">En savoir plus</a></td>
-                                                    </tr>
-                                                    
-                                                        
-                                                    <?php endif; ?>
-                                                <?php endforeach; ?>
-                                                            <?php if (!$hasInfo) : ?>
-                                                        <tr class="bg-white border-b border-gray-200">
-                                                            <td colspan="5" class="px-6 py-4 text-center">Pas de voyage prévu</td>
-                                                        </tr> <?php endif; ?>
-                                            <?php endif; ?>
-                                        </tbody> 
-                                            <?php } ?>  
-                                        </table>
-                        
+                                        <tbody>
+                                        <?php if (isset($allGap) && !empty($allGap)) : ?>
+                                        <?php  $hasInfo = false;  foreach ($allGap as $gap) : ?>
+                                        <?php if ($gap['activite'] === "voy") : ?>
+                                        <?php $hasInfo = true; ?>
+                                            <tr class="bg-white border-b border-gray-200">
+                                                <td class="px-6 py-4"><?= htmlspecialchars($gap['dateinformation']) ?> </td>
+                                                <td class="sm:px-6 py-4"><?= htmlspecialchars($gap['titreinformation']) ?>-<?= htmlspecialchars($gap['soustitreinformation']) ?></td>
+                                                <td class="sm:px-6 py-4"><?= htmlspecialchars($gap['contactinformation']) ?></td>
 
+                                                <td class="px-6 py-4"> <a class="underline " href="http://dam31270.free.fr/index.php?page=detailsTourisme&id=<?= htmlspecialchars($gap['id']) ?>">En savoir plus</a></td>
+                                            </tr>
+
+
+                                        <?php endif; ?>
+                                        <?php endforeach; ?>
+                                        <?php if (!$hasInfo) : ?>
+                                            <tr class="bg-white border-b border-gray-200">
+                                                <td colspan="5" class="px-6 py-4 text-center">Pas de voyage prévu</td>
+                                            </tr> <?php endif; ?>
+                                        <?php endif; ?>
+                                        </tbody> 
+                                        <?php } ?>  
+                                    </table>
+                                </div>   
                             </div>
                         </article>
                     <?php endforeach; ?>

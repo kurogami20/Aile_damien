@@ -15,7 +15,7 @@ $eventDetails = getEventDetails($entId);
 $multiInfoTab = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 ?>
 
-<section class="flex flex-col p-4 px-40 h-[100%] gap-20 items-center relative">
+<section class="flex flex-col p-4 min-[1480px]:px-40 min-[1200px]:px-20 px-2 h-[100%] gap-20 items-center relative">
     <!-- affichage du titre de la page -->
     <h2 class="text-5xl text-center capitalize font-bold z-3 flex flex-col gap-3"><?= htmlspecialchars($eventDetails['titreinformation']) ?> <span class="font-normal text-2xl"> <?= htmlspecialchars($eventDetails['soustitreinformation']) ?></span></h2>
     <p class="text-justify text-lg font-bold">Le <?=  $eventDetails['dateinformation'] ?></p>
