@@ -39,10 +39,10 @@
     <!-- affichage du titre de la page -->
     <h2 class="text-5xl text-center capitalize font-bold z-3 flex flex-col gap-3"><?= htmlspecialchars($sortie['titreinformation']) ?> <span class="font-normal text-2xl"> <?= htmlspecialchars($sortie['soustitreinformation']) ?></span></h2>
     <p class="text-justify text-lg font-bold"><?= htmlspecialchars_decode($sortie['dateinformation']) ?></p>
-    <section class="flex gap-4  w-full justify-center">
+    <section class="flex gap-10 flex-wrap w-full justify-center">
         <?php foreach ($imgTab as $index) : ?>
         <?php if ($sortie['image' . $index]) : ?>
-        <img class="w-1/2" src="<?= htmlspecialchars($sortie['image' . $index]) ?>" alt="Image <?= $index ?>">
+        <img class="w-90 h-90" src="<?= 'https://aile31.fr/'.htmlspecialchars($sortie["repertoire"]).'/images/'.htmlspecialchars($sortie['image' . $index]) ?>" alt="Image <?= $index ?>">
         <?php endif; ?>
         <?php endforeach; ?>
     </section>

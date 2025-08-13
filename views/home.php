@@ -37,10 +37,10 @@ if($_SESSION['login']) {
                 <div class="content flex flex-col min-[1200px]:flex-row gap-4 sm:gap-5 border-t-2 border-[#ffbe46] rounded-l-lg justify-between">
                     <div class="flex flex-col min-[1200px]:flex-row gap-4 sm:gap-5">
                         <?php if($event["image1"]): ?>
-                        <img src=<?=htmlspecialchars($event["image1"])?> alt="" class="w-full min-[1200px]:w-[600px] h-40 sm:h-70 object-cover rounded-lg rounded-r-none">
+                        <img src=<?='https://aile31.fr/'.htmlspecialchars($event["repertoire"]).'/images/'.htmlspecialchars($event["image1"])?> alt="" class="w-full min-[1200px]:w-[600px] h-40 sm:h-70 object-cover rounded-lg rounded-r-none">
                         <?php endif; ?>
                         <?php if($event["image1a"]): ?>
-                        <img src=<?=htmlspecialchars($event["image1a"])?> alt="" class="w-full min-[1200px]:w-[600px] h-40 sm:h-70 object-cover rounded-lg rounded-r-none">
+                        <img src=<?='https://aile31.fr/'.htmlspecialchars($event["repertoire"]).'/images/'.htmlspecialchars($event["image1a"])?> alt="" class="w-full min-[1200px]:w-[600px] h-40 sm:h-70 object-cover rounded-lg rounded-r-none">
                         <?php endif; ?>
                         <?php if($event["textetoutinformation"]): ?>
                         <div class="text-base sm:text-lg"><?=htmlspecialchars_decode($event["textetoutinformation"]) ?></div>

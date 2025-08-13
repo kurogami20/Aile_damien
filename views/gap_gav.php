@@ -18,7 +18,7 @@
     </div>
    
     <!-- menu sur le côté -->
-    <div id="drawer-navigation" class=" fixed top-0 mt-[152px] h-screen   z-40 w-64 p-4  transition-transform -translate-x-full bg-white " tabindex="-1" aria-labelledby="drawer-navigation-label">
+    <div id="drawer-navigation" class=" fixed top-0 mt-[103px] min-[1480px]:mt-[154px]  h-screen   z-40 w-64 p-4  transition-transform -translate-x-full bg-white " tabindex="-1" aria-labelledby="drawer-navigation-label">
             <h5 id="drawer-navigation-label" class="text-base font-semibold text-black uppercase ">Activités</h5>
             <button type="button" data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 absolute top-2.5 end-2.5 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" >
                 <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
@@ -34,7 +34,7 @@
                     </a>
                     <!-- on vérifie si un type a plusieurs activité -->
                     <?php if (isset($type['activites']) && !empty($type['activites']))  {?>
-                        <ul class="max-h-0 opacity-0 scale-y-75 overflow-hidden transform transition-all duration-[2000ms] ease-in-out origin-top group-hover:max-h-[1000px] group-hover:opacity-100 group-hover:scale-y-100 border-l-2 border-[#ffbe45]">
+                        <ul class="  min-[1200px]:max-h-0 min-[1200px]:opacity-0 min-[1200px]:scale-y-75 min-[1200px]:overflow-hidden transform transition-all duration-[2000ms] ease-in-out origin-top min-[1200px]:group-hover:max-h-[1000px] min-[1200px]:group-hover:opacity-100 min-[1200px]:group-hover:scale-y-100 border-l-2 border-[#ffbe45]">
                             <?php foreach ($type['activites'] as $activite) : ?>
                             <li>
                                 <a href="#<?= htmlspecialchars($activite) ?>" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-[#FFBE45]/40 group">
@@ -67,14 +67,14 @@
                 <h3 class="text-2xl sm:text-3xl capitalize font-bold" id="<?= htmlspecialchars($info['titre']) ?>">
                     <?= htmlspecialchars($info['titre']) ?>
                 </h3>
-                <div class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 justify-center text-base"><?= html_entity_decode($info['description']) ?></div>
+                <div class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 sm:justify-center text-base sm:h-full h-150 overflow-scroll"><?= html_entity_decode($info['description']) ?></div>
                 <div class="flex flex-col gap-10">
                     <!-- on boucle sur les activités de chaque section pour afficher chaque activité dans un article -->
                     <?php foreach ($info['activites'] as $activite) : ?>
                         <?php if ($activite['titre'] === "Calendrier"){?>
-                        <article class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 justify-center w-full odd:items-start even:items-end odd:self-start even:self-end odd:text-left even:text-right">
+                        <article class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 justify-center w-full min-[1000px]:odd:items-start  min-[1000px]:even:items-end  min-[1000px]:odd:self-start  min-[1000px]:even:self-end  min-[1000px]:odd:text-left  min-[1000px]:even:text-right">
                         <?php } else { ?>
-                            <article class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 justify-center w-full min-[850px]:w-[950px] odd:items-start even:items-end odd:self-start even:self-end odd:text-left even:text-right">
+                            <article class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 justify-center w-full min-[850px]:w-[950px]  min-[1000px]:odd:items-start  min-[1000px]:even:items-end  min-[1000px]:odd:self-start  min-[1000px]:even:self-end  min-[1000px]:odd:text-left  min-[1000px]:even:text-right">
                         <?php } ?>
                             <!-- on affiche le nom de l'activité -->
                              <!-- ici il est possible de mettre h1 car le contenu est dans un article -->
