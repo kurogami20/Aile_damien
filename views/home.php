@@ -77,7 +77,7 @@ if($_SESSION['login']) {
     ?>
 <!-- html pour visiteur -->
 
-<section class="flex flex-col p-4 sm:px-40 px-2">
+<section class="flex flex-col p-4 min-[1480px]:px-40 min-[1200px]:px-20 px-2 h-[100%] gap-20 items-center relative">
     <section class="p-4 sm:p-10 flex flex-col items-center justify-center gap-6 sm:gap-10 border border-[#ffbe46] rounded-lg shadow-sm bg-white">
         <p class="text-base sm:text-lg text-center">
         Bienvenue sur le site de l’association AILE. Depuis 2001, AILE réunit dans un esprit de bénévolat et de convivialité les habitants de Cugnaux, Frouzins, Seysses et Villeneuve-Tolosane autour d’activités de loisirs collectifs. La diversité de nos loisirs séduit petits et grands : sport, culture, détente ou ateliers créatifs, il y en a pour tous les goûts !
@@ -88,12 +88,12 @@ if($_SESSION['login']) {
 
     <section class="flex flex-col items-center justify-between gap-10 sm:gap-20 mt-10 sm:mt-20">
         <h2 class="text-3xl sm:text-5xl text-center capitalize font-bold">Nos activités</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-30">
+        <div class="grid grid-cols-1 min-[1480px]:grid-cols-2 gap-6 sm:gap-30 w-full">
             <?php
                 require_once 'data/activities.php';
                 foreach ($activities as $activity): ?>
-            <article class="flex flex-col sm:flex-row border border-[#ffbe46] rounded-lg shadow-sm bg-white h-auto sm:h-100 w-full sm:w-150">
-                <div class="w-full sm:w-[48%] h-40 sm:h-100">
+            <article class="flex flex-col min-[800px]:flex-row border border-[#ffbe46] rounded-lg shadow-sm bg-white h-auto min-[800px]:h-100 w-full min-[1480px]:w-150">
+                <div class="w-full min-[800px]:w-[48%] h-40 min-[800px]:h-100">
                     <img class="object-cover w-full h-full rounded-t-lg sm:rounded-none sm:rounded-s-lg" src="<?= htmlspecialchars($activity['image']) ?>" alt="">
                 </div>
                 <div class="flex flex-col justify-between p-4 leading-normal">

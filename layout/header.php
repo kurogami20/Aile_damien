@@ -19,21 +19,22 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 </head>
-<header class=" border-b-3 border-[#ffbe46]  item-center px-8 py-4  flex-row justify-between sticky top-0 z-99 w-[100%] items-center bg-[#fff6ed] " >
+<header class=" border-b-3 border-[#ffbe46]  item-center px-8 py-4  flex-row justify-between sticky top-0 z-99 w-[100%] items-center bg-[#fff6ed]  h-fit" >
   
    
 
-<nav class="  relative"> 
+<nav class="  relative min-[1480px]:h-full max-h-185 overflow-y-auto overflow-x-hidden"> 
  <div class="flex flex-wrap justify-between items-center  "> 
        <a href="index.php?page=accueil" class="flex items-center gap-5"><img src="../assets/img/logo.webp" alt="" class=" w-17 h-17  min-[1480px]:w-30 min-[1480px]:h-30 object-cover rounded-full">  <h1 class="text-4xl capitalize w-max">A.I.L.E.</h1></a>
 
-    <button data-collapse-toggle="mega-menu-full" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-black  min-[1741px]:hidden transform transition-all duration-[1000ms] ease-in-out" aria-controls="mega-menu-full" aria-expanded="false" onclick="classList.toggle('rotate-90')">
+    <button data-collapse-toggle="mega-menu-full" data-modal-target="default-modal" data-modal-toggle="default-modal" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-black  min-[1741px]:hidden transform transition-all duration-[1000ms] ease-in-out" aria-controls="mega-menu-full" aria-expanded="false" onclick="classList.toggle('rotate-90')">
         <span class="sr-only">Open main menu</span>
         <svg class="w-10 h-10" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
         </svg>
     </button>
-    <div id="mega-menu-full" class="items-center justify-between hidden py-[2rem] w-full  min-[1741px]:flex min-[1741px]:w-auto min-[1480px]:order-1">
+    <div id="default-modal" class="w-full ">
+    <div id="mega-menu-full" class="items-center justify-between hidden py-[2rem] w-full  min-[1741px]:flex min-[1741px]:w-auto min-[1480px]:order-1 ">
         <ul class="flex flex-col min-[1480px]:mt-4  min-[1480px]:flex-row min-[1480px]:mt-0 min-[1480px]:space-x-8 rtl:space-x-reverse gap-5 min-[1480px]:gap-10 ">
             <li class="group capitalize text-black text-2xl d min-[1480px]:hover:underline! min-[1480px]:hover:text-[#9E6600]! border-b-2 border-[#ffbe45] min-[1480px]:border-none pb-5 flex justify-between flex-col gap-2" onclick="if (window.innerWidth < 1480) { this.querySelector('ul').classList.toggle('flex!'); }">
               <span class="flex justify-between gap-1 items-baseline">l'association <i class="fa-solid fa-angle-down text-black min-[1480px]:hidden self-right"></i></span>  
@@ -99,6 +100,21 @@
         
         </ul>
     </div>
+    </div>
             </div>
+        
+
+<!-- Modal toggle -->
+<!-- <button data-modal-target="default-modal" data-modal-toggle="default-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+  Toggle modal
+</button> -->
+
+<!-- Main modal -->
+<!-- <div id="default-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative p-4 w-full max-w-2xl max-h-full">
+      srtsrdtg
+    </div>
+</div> -->
+
 </nav>
 </header> 

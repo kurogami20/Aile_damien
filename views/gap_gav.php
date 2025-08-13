@@ -67,7 +67,7 @@
                 <h3 class="text-2xl sm:text-3xl capitalize font-bold" id="<?= htmlspecialchars($info['titre']) ?>">
                     <?= htmlspecialchars($info['titre']) ?>
                 </h3>
-                <div class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 sm:justify-center text-base sm:h-full h-150 overflow-scroll"><?= html_entity_decode($info['description']) ?></div>
+                <div class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 sm:justify-center text-base sm:h-full max-h-150 overflow-scroll"><?= html_entity_decode($info['description']) ?></div>
                 <div class="flex flex-col gap-10">
                     <!-- on boucle sur les activités de chaque section pour afficher chaque activité dans un article -->
                     <?php foreach ($info['activites'] as $activite) : ?>

@@ -5,7 +5,7 @@ require_once 'backend/models/dataMapper.php';
 
 <section class="flex flex-col p-4 min-[1480px]:px-40 min-[1200px]:px-20 px-2 h-[100%] gap-20 items-center">
 <h2 class="text-3xl sm:text-5xl text-center capitalize font-bold ">Qui sommes nous ?</h2>
-    <section class=" p-10 flex flex-col items-center justify-center gap-10 border border-[#ffbe46] rounded-lg shadow-sm   bg-white  ">
+    <section class=" p-10 flex flex-col items-center sm:justify-center gap-10 border border-[#ffbe46] rounded-lg shadow-sm  sm:h-full max-h-150 overflow-scroll bg-white  ">
         <p class="text-base sm:text-lg text-center ">
         L’association AILE (Association Intercommunale de Loisirs et d’Échanges) a pour vocation de favoriser l’organisation et le développement d’activités de loisirs collectifs à destination de ses adhérents. Elle propose un cadre dynamique et chaleureux permettant à chacun de s’investir dans des activités variées, qu’elles soient culturelles, sportives, artistiques ou de détente, en lien avec les envies des participants.
         <br> <br>
@@ -14,14 +14,14 @@ require_once 'backend/models/dataMapper.php';
         Créée en 2001, AILE n’a cessé de croître et de se renouveler au fil des années. Pour la saison 2024/2025, elle compte 803 adhérents, preuve de son attractivité et de son rôle central dans la vie associative intercommunale.
         </p>
     </section>
-    <section class=" flex flex-wrap justify-between gap-10 ">
-        <article class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 h-fit">
+    <section class=" flex min-[1800px]:flex-wrap min-[1800px]:flex-row w-full flex-col justify-between gap-10 h">
+        <article class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 h-fit min-[1800px]:w-fit! w-full! min-[850px]:w-[950px]">
                 <h1 class="title text-lg sm:text-2xl font-bold">Le bureau</h1>
                 <div class="card-content">
-                    <div class="relative ">
-                        <table class=" text-sm text-left rtl:text-right text-gray-500 w-full">
+                    <div class="relative overflow-x-auto overflow-y-auto max-h-199">
+                        <table class=" text-base text-left rtl:text-right text-gray-500 w-full">
                             <caption class="p-5 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white ">
-                                 <p class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
+                                 <p class="mt-1 text-base font-normal text-gray-500 dark:text-gray-400">
                                     Les membres du bureau sont élus par l'assemblée générale de l'association. Ils sont responsables de la gestion quotidienne de l'association et de la mise en œuvre des décisions prises lors des assemblées générales.
                                  </p>
                             </caption>
@@ -84,13 +84,13 @@ require_once 'backend/models/dataMapper.php';
                     
                 </div>
         </article>
-        <article class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 max-sm:w-full">
+        <article class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex max-h-full flex-col gap-3 max-sm:w-full">
                 <h1 class="title text-lg sm:text-2xl font-bold">Le conseil de discipline</h1>
                 <div class="card-content">
-                <div class="relative ">
-                        <table class=" text-sm text-left rtl:text-right text-gray-500 w-full">
+                <div class="relative overflow-x-auto overflow-y-auto max-h-199">
+                        <table class=" text-base text-left rtl:text-right text-gray-500 w-full">
                             <caption class="p-5 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white ">
-                                 <p class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
+                                 <p class="mt-1 text-base font-normal text-gray-500 dark:text-gray-400">
                                     Les membres du bureau sont élus par l'assemblée générale de l'association. Ils sont responsables de la gestion quotidienne de l'association et de la mise en œuvre des décisions prises lors des assemblées générales.
                                  </p>
                             </caption>
@@ -142,10 +142,10 @@ require_once 'backend/models/dataMapper.php';
         <article class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 grow-5">
                 <h1 class="title text-lg sm:text-2xl font-bold">Le conseil d'administration</h1>
                 <div class="card-content">
-                 <div class="relative ">
-                        <table class=" text-sm text-left rtl:text-right text-gray-500 w-full">
+                 <div class="relative overflow-x-auto overflow-y-auto max-h-199 "> 
+                        <table class=" text-base text-left rtl:text-right text-gray-500 w-full">
                             <caption class="p-5 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white ">
-                                 <p class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
+                                 <p class="mt-1 text-base font-normal text-gray-500 dark:text-gray-400">
                                     Les membres du bureau sont élus par l'assemblée générale de l'association. Ils sont responsables de la gestion quotidienne de l'association et de la mise en œuvre des décisions prises lors des assemblées générales.
                                  </p>
                             </caption>
