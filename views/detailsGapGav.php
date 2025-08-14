@@ -56,7 +56,7 @@
     <section class="flex min-[1000px]:flex-row min-[1000px]:items-start gap-4 w-full flex-col items-center">
         <article class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 grow-5 w-full">
         <h1 class="text-xl sm:text-2xl font-bold">Informations complémentaires</h1>
-        <ul class="list-disc pl-5 flex flex-col gap-3">
+        <ul class="list-disc sm:pl-5 flex flex-col gap-3">
             <?php if (!empty($sortie['lieuinformation'])) : ?>
             <li class="flex gap-2"> <span class="font-bold">Lieu : </span> <?= htmlspecialchars_decode($sortie['lieuinformation']) ?></li>
             <?php endif; ?>

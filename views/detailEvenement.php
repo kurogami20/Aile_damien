@@ -14,21 +14,23 @@ $eventDetails = getEventDetails($entId);
 
 $multiInfoTab = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 ?>
+<!-- Début de la partie contenu de la page -->
+
 
 <section class="flex flex-col p-4 min-[1480px]:px-40 min-[1200px]:px-20 px-2 h-[100%] gap-10 sm:gap-20 items-center relative">
     <!-- affichage du titre de la page -->
     <h2 class="text-3xl sm:text-5xl text-center capitalize font-bold z-3 flex flex-col gap-5"><?= htmlspecialchars($eventDetails['titreinformation']) ?> <span class="font-normal text-xl sm:text-2xl"> <?= htmlspecialchars($eventDetails['soustitreinformation']) ?></span></h2>
-    <p class="text-justify text-lg sm:text-xl font-bold">Le <?=  $eventDetails['dateinformation'] ?></p>
-    <section class="flex gap-4 w-full justify-center">
+    <p class="text-justify text-lg sm:text-xl font-bold"><?= htmlspecialchars_decode($eventDetails['dateinformation']) ?></p>
+    <section class="flex gap-10 flex-wrap w-full justify-center">
         <?php foreach ($multiInfoTab as $index) : ?>
-        <?php if (!empty($eventDetails["image" . $index])) : ?>
-        <img class=" w-60 h-60 sm:w-90 sm:h-90 object-cover" src="<?= htmlspecialchars($eventDetails["image" . $index]) ?>" alt="Image <?= $index ?>">
+        <?php if ($eventDetails['image' . $index]) : ?>
+        <img class=" w-60 h-60 sm:w-90 sm:h-90 object-cover" src="<?= 'https://aile31.fr/'.htmlspecialchars($eventDetails["repertoire"]).'/images/'.htmlspecialchars($eventDetails['image' . $index]) ?>" alt="Image <?= $index ?>">
         <?php endif; ?>
         <?php endforeach; ?>
     </section>
     <section>
         <article class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 grow-5 text-base sm:text-lg">
-    
+       
         <p><?= htmlspecialchars_decode($eventDetails["textetoutinformation"]) ?></p>
         <?php if (!empty($eventDetails["textecomplinformation"])): ?>
         <p><?= htmlspecialchars_decode($eventDetails["textecomplinformation"]) ?></p>
@@ -36,13 +38,12 @@ $multiInfoTab = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
         <?php if (!empty($eventDetails["textedivers"])): ?>
         <p><?= htmlspecialchars_decode($eventDetails["textedivers"]) ?></p>
         <?php endif; ?>
-        
         </article>
     </section>
-    <section class="flex gap-4 w-full">
-        <article class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 grow-5">
+    <section class="flex min-[1000px]:flex-row min-[1000px]:items-start gap-4 w-full flex-col items-center">
+        <article class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 grow-5 w-full">
         <h1 class="text-xl sm:text-2xl font-bold">Informations complémentaires</h1>
-        <ul class="list-disc pl-5 flex flex-col gap-3">
+        <ul class="list-disc sm:pl-5 flex flex-col gap-3">
             <?php if (!empty($eventDetails['lieuinformation'])) : ?>
             <li class="flex gap-2"> <span class="font-bold">Lieu : </span> <?= htmlspecialchars_decode($eventDetails['lieuinformation']) ?></li>
             <?php endif; ?>
@@ -53,17 +54,17 @@ $multiInfoTab = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
             <li class="flex gap-2"><span class="font-bold">Mail : </span> <a class="text-blue-500 underline" href="mailto:<?= htmlspecialchars_decode($eventDetails['mailinformation']) ?>"><?= htmlspecialchars_decode($eventDetails['mailinformation']) ?></a></li>
             <?php endif; ?>
             <?php if (!empty($eventDetails['lieuinscription']) && !empty($eventDetails['dateinscriptionclair'])) : ?>
-            <li class="flex gap-2"> <span class="font-bold">Inscription :</span> <?= htmlspecialchars_decode($eventDetails['lieuinscription']) ?>, le <?=  createDate($eventDetails['dateinscriptionclair']) ?></li>
+            <li class="flex gap-2"> <span class="font-bold">Inscription :</span> <?= htmlspecialchars_decode($eventDetails['lieuinscription']) ?>, le <?= htmlspecialchars_decode($eventDetails['dateinscriptionclair']) ?></li>
             <?php endif; ?>
             <?php if (!empty($eventDetails['dateinformation'])) : ?>
-            <li class="flex gap-2"><span class="font-bold">Date :</span> <?=  $eventDetails['dateinformation'] ?></li>
+            <li class="flex gap-2"><span class="font-bold">Date :</span> <?= htmlspecialchars_decode($eventDetails['dateinformation']) ?></li>
             <?php endif; ?>
             <?php if (!empty($eventDetails['participation'])) : ?>
             <li class="flex gap-2"><span class="font-bold">Participation :</span> <?= htmlspecialchars_decode($eventDetails['participation']) ?></li>
             <?php endif; ?>
         </ul>
         </article>
-        <article class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 grow-5 h-fit">
+        <article class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 grow-5 h-fit w-full">
             <h1 class="text-xl sm:text-2xl font-bold">Lien(s) utile(s)</h1>
             <ul class="list-disc pl-5">
                 <?php $lien= false; foreach ($multiInfoTab as $index) : ?>
