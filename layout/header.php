@@ -33,7 +33,7 @@
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
         </svg>
     </button>
-    <div id="default-modal" class="w-full ">
+    <div id="default-modal" class="min-[1741px]:w-fit w-full  ">
     <div id="mega-menu-full" class="items-center justify-between hidden py-[2rem] w-full  min-[1741px]:flex min-[1741px]:w-auto min-[1480px]:order-1 ">
         <ul class="flex flex-col min-[1480px]:mt-4  min-[1480px]:flex-row min-[1480px]:mt-0 min-[1480px]:space-x-8 rtl:space-x-reverse gap-5 min-[1480px]:gap-10 ">
             <li class="group capitalize text-black text-2xl d min-[1480px]:hover:underline! min-[1480px]:hover:text-[#9E6600]! border-b-2 border-[#ffbe45] min-[1480px]:border-none pb-5 flex justify-between flex-col gap-2" onclick="if (window.innerWidth < 1480) { this.querySelector('ul').classList.toggle('flex!'); }">

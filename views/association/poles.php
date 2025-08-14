@@ -12,16 +12,16 @@
 
 <!-- partie menu secondaire (sur le côté) -->
     <!-- bouton d'ouverture -->
-    <div class="text-center fixed z-9">
-    <button class="text-xl border border-[#ffbe45] border-2 w-fit  p-2 rounded-full cursor-pointer " type="button" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
+    <div class="text-center max-sm:mt-[42px] fixed z-9">
+    <button class="text-sm sm:text-xl border border-[#ffbe45] border-2 w-fit  p-2 rounded-full cursor-pointer bg-[#fff6ed]" type="button" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
     <!-- <i class="fa-solid fa-bars text-[#ffbe45] "></i> --> Menu des pôles
     </button>
     </div>
 
     <!-- menu sur le côté -->
-    <div id="drawer-navigation" class=" fixed top-0 mt-[152px] h-screen   z-40 w-64 p-4  transition-transform -translate-x-full bg-white " tabindex="-1" aria-labelledby="drawer-navigation-label">
+    <div id="drawer-navigation" class="  fixed top-0 mt-[103px] min-[1480px]:mt-[154px]  h-screen   z-40 w-64 p-4  transition-transform -translate-x-full bg-white " tabindex="-1" aria-labelledby="drawer-navigation-label">
             <h5 id="drawer-navigation-label" class="text-base font-semibold text-black uppercase ">Pôles d'activités</h5>
-            <button type="button" data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 absolute top-2.5 end-2.5 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" >
+            <button type="button" data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 absolute top-2.5 end-2.5 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white">
                 <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                 <span class="sr-only">Close menu</span>
             </button>
@@ -49,9 +49,9 @@
         <img class="w-[40%] fixed z-1" src="" alt="">
         <!-- on boucle sur les informations des activités pour afficher chaque section -->
         <?php foreach ($poles as $pole) : ?>
-            <section class="flex flex-col gap-15 w-full z-3 items-center sm:odd:items-start sm:even:items-end sm:odd:self-start sm:even:self-end sm:odd:text-left sm:even:text-right">
-                <div class="flex flex-col gap-10">
-                    <article class="card border  border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 items-center  flex flex-col gap-3 justify-center  w-full">
+            <section class="flex flex-col gap-15 w-full z-3 items-center ">
+                <div class="flex w-full flex-col gap-10">
+                    <article class="card border  border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 items-center  flex flex-col gap-3 sm:justify-center  w-full sm:h-full max-h-150 overflow-scroll">
                         <!-- on affiche le nom du pôle-->
                         <!-- ici il est possible de mettre h1 car le contenu est dans un article -->
                         <h1 class="title text-lg sm:text-2xl font-bold" id="<?= htmlspecialchars($pole['nompole']) ?>">

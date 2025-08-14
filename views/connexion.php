@@ -36,7 +36,7 @@ elseif($_POST['user'] == getenv('MEMBER_LOGIN') && $_POST['password'] == getenv(
     
     echo'<div role="alert" class="alert alert-error w-fit"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><span>Identifiants incorrects</span></div>';
 }} ?>
-    <form action="/index.php?page=connexion" method="post" class="flex flex-col gap-4 w-full mx-auto  border border-[#ffbe46] rounded-lg shadow-sm  bg-white p-5 min-[1480px]:p-10 sm:items-stretch items-center">
+    <form action="/index.php?page=connexion" method="post" class="flex flex-col gap-4 w-full sm:max-w-170 mx-auto  border border-[#ffbe46] rounded-lg shadow-sm  bg-white p-5 min-[1480px]:p-10 sm:items-stretch items-center">
     
        <h3 class="text-2xl sm:text-3xl capitalize font-bold mb-5">Identifiez vous</h3>
         <div class="form-control w-full"> 

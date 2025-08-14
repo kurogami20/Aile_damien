@@ -15,19 +15,19 @@ $eventDetails = getEventDetails($entId);
 $multiInfoTab = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 ?>
 
-<section class="flex flex-col p-4 min-[1480px]:px-40 min-[1200px]:px-20 px-2 h-[100%] gap-20 items-center relative">
+<section class="flex flex-col p-4 min-[1480px]:px-40 min-[1200px]:px-20 px-2 h-[100%] gap-10 sm:gap-20 items-center relative">
     <!-- affichage du titre de la page -->
-    <h2 class="text-5xl text-center capitalize font-bold z-3 flex flex-col gap-3"><?= htmlspecialchars($eventDetails['titreinformation']) ?> <span class="font-normal text-2xl"> <?= htmlspecialchars($eventDetails['soustitreinformation']) ?></span></h2>
-    <p class="text-justify text-lg font-bold">Le <?=  $eventDetails['dateinformation'] ?></p>
+    <h2 class="text-3xl sm:text-5xl text-center capitalize font-bold z-3 flex flex-col gap-5"><?= htmlspecialchars($eventDetails['titreinformation']) ?> <span class="font-normal text-xl sm:text-2xl"> <?= htmlspecialchars($eventDetails['soustitreinformation']) ?></span></h2>
+    <p class="text-justify text-lg sm:text-xl font-bold">Le <?=  $eventDetails['dateinformation'] ?></p>
     <section class="flex gap-4 w-full justify-center">
         <?php foreach ($multiInfoTab as $index) : ?>
         <?php if (!empty($eventDetails["image" . $index])) : ?>
-        <img class="w-[600px] h-[300px] object-cover" src="<?= htmlspecialchars($eventDetails["image" . $index]) ?>" alt="Image <?= $index ?>">
+        <img class=" w-60 h-60 sm:w-90 sm:h-90 object-cover" src="<?= htmlspecialchars($eventDetails["image" . $index]) ?>" alt="Image <?= $index ?>">
         <?php endif; ?>
         <?php endforeach; ?>
     </section>
     <section>
-        <article class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 grow-5">
+        <article class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 grow-5 text-base sm:text-lg">
     
         <p><?= htmlspecialchars_decode($eventDetails["textetoutinformation"]) ?></p>
         <?php if (!empty($eventDetails["textecomplinformation"])): ?>
@@ -41,7 +41,7 @@ $multiInfoTab = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
     </section>
     <section class="flex gap-4 w-full">
         <article class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 grow-5">
-        <h1 class="text-2xl font-bold">Informations complémentaires</h1>
+        <h1 class="text-xl sm:text-2xl font-bold">Informations complémentaires</h1>
         <ul class="list-disc pl-5 flex flex-col gap-3">
             <?php if (!empty($eventDetails['lieuinformation'])) : ?>
             <li class="flex gap-2"> <span class="font-bold">Lieu : </span> <?= htmlspecialchars_decode($eventDetails['lieuinformation']) ?></li>
@@ -64,7 +64,7 @@ $multiInfoTab = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
         </ul>
         </article>
         <article class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 grow-5 h-fit">
-            <h1 class="text-2xl font-bold">Lien(s) utile(s)</h1>
+            <h1 class="text-xl sm:text-2xl font-bold">Lien(s) utile(s)</h1>
             <ul class="list-disc pl-5">
                 <?php $lien= false; foreach ($multiInfoTab as $index) : ?>
                 <?php if (!empty($eventDetails['lien' . $index])&& !empty($eventDetails['info' . $index])) : ?>
