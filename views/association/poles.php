@@ -51,7 +51,7 @@
         <?php foreach ($poles as $pole) : ?>
             <section class="flex flex-col gap-15 w-full z-3 items-center ">
                 <div class="flex w-full flex-col gap-10">
-                    <article class="card border  border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 items-center  flex flex-col gap-3 sm:justify-center  w-full sm:h-full max-h-150 overflow-scroll">
+                    <article class="card border  border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 items-center  flex flex-col gap-3   w-full sm:h-full max-h-150 overflow-scroll">
                         <!-- on affiche le nom du pôle-->
                         <!-- ici il est possible de mettre h1 car le contenu est dans un article -->
                         <h1 class="title text-lg sm:text-2xl font-bold" id="<?= htmlspecialchars($pole['nompole']) ?>">

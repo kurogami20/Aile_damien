@@ -95,6 +95,97 @@
                                 <!-- on vérifie si un utilisateur est connecté, si oui on affiche la div suivante -->
                                 <?php if (isset($_SESSION['login'])) : ?>
                                     <div class="flex flex-col gap-5">
+                                        <!-- planning pour les randonnées -->
+                                        <?php if (htmlspecialchars($activite['titre'])==="Randonnées" || htmlspecialchars($activite['titre'])==="Randos Raquettes" || htmlspecialchars($activite['titre'])==="Randos Montagne") {?>
+                                            <div>
+                                            <h3 class=" text-lg sm:text-xl  font-semibold">Planning</h3>
+                                            <div class="relative overflow-x-auto">
+                                                <table class="text-sm text-gray-500 w-full">
+                                                    <caption class="p-5 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white ">
+                                                        <p class="mt-1 text-base font-normal text-gray-500 dark:text-gray-400">
+                                                        En fonction de la disponibilité des animateurs, des randonnées peuvent être ajoutées ou modifiées.
+                                                        Information par messagerie « montagneaile ou randoaile » et boite vocale au 09 72 30 08 25.
+                                                        </p>
+                                                        <?php if ($activite['titre'] === "Randonnées") { ?>
+                                                        <p class="mt-1 text-base font-normal text-gray-500 dark:text-gray-400">
+                                                           Définition des niveaux: N1: - de 300m   N2: de 300 à 600m   N3: + de 600m
+                                                            B: Brun'Aile 
+                                                        </p>
+                                                        <?php } ?>
+                                                    </caption>
+                                                    <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                                                        <tr>
+                                                            <th scope="col" class="sm:px-6 px-2 py-3">Jour</th>
+                                                            <th scope="col" class="sm:px-6 px-2 py-3">Heure</th>
+                                                            <th scope="col" class="sm:px-6 px-2 py-3">Lieu</th>
+                                                            <th scope="col" class="sm:px-6 px-2 py-3">Animateur</th>
+                                                            <th scope="col" class="sm:px-6 px-2 py-3">Kilomètres</th>
+                                                            <?php if ($activite['titre'] === "Randonnées") { ?>
+                                                            <th scope="col" class="sm:px-6 px-2 py-3">Niveau</th>
+                                                            <?php } ?>
+
+                                                        </tr>
+                                                    </thead>
+                                                    
+                                                    <tbody>
+                                                    <?php if ($activite['titre'] === "Randonnées") { ?>
+                                                        <?php if (randoPlanning()) { ?>
+                                                        <?php foreach (randoPlanning() as $horaire) : ?>
+                                                            <tr class="bg-white border-b border-gray-200">
+                                                                <td class="sm:px-6 px-2 py-4"><?= htmlspecialchars($horaire['daterando_clair']) ?></td>
+                                                                <td class="sm:px-6 px-2 py-4"><?= htmlspecialchars($horaire['heurerando']) ?></td>
+                                                                <td class="sm:px-6 px-2 py-4"><?= htmlspecialchars($horaire['lieurando']) ?></td>
+                                                                <td class="sm:px-6 px-2 py-4"><?= htmlspecialchars($horaire['animateurrando']) ?></td>
+                                                                <td class="sm:px-6 px-2 py-4"><?= htmlspecialchars($horaire['kmrando']) ?></td>
+                                                                <td class="sm:px-6 px-2 py-4"><?= htmlspecialchars($horaire['niveaurando']) ?></td>
+                                                            </tr>
+                                                        <?php endforeach; ?>
+                                                        <?php } else { ?>
+                                                            <tr class="bg-white border-b border-gray-200">
+                                                                <td colspan="6" class="sm:px-6 px-2 py-4 text-center">Pas de randonnée prévue</td>
+                                                            </tr>
+                                                        <?php } ?>
+                                                        <?php } elseif (htmlspecialchars($activite['titre']) === "Randos Raquettes") { ?>
+                                                        <?php if (randoMontagnePlanning()) { ?>
+                                                        <?php foreach (randoMontagnePlanning() as $horaire) : ?>
+                                                            <tr class="bg-white border-b border-gray-200">
+                                                                <td class="sm:px-6 px-2 py-4"><?= htmlspecialchars($horaire['daterando_clair']) ?></td>
+                                                                <td class="sm:px-6 px-2 py-4"><?= htmlspecialchars($horaire['heurerando']) ?></td>
+                                                                <td class="sm:px-6 px-2 py-4"><?= htmlspecialchars($horaire['lieurando']) ?></td>
+                                                                <td class="sm:px-6 px-2 py-4"><?= htmlspecialchars($horaire['animateurrando']) ?></td>
+                                                                <td class="sm:px-6 px-2 py-4"><?= htmlspecialchars($horaire['kmrando']) ?></td>
+                                                                
+                                                            </tr>
+                                                        <?php endforeach; ?>
+                                                        <?php } else { ?>
+                                                            <tr class="bg-white border-b border-gray-200">
+                                                                <td colspan="6" class="sm:px-6 px-2 py-4 text-center">Pas de randonnée prévue</td>
+                                                            </tr>
+                                                        <?php } ?>
+                                                        <?php } elseif (htmlspecialchars($activite['titre']) === "Randos Montagne") { ?>
+                                                            <?php if (randoMontagnePlanning()) { ?>
+                                                        <?php foreach (randoMontagnePlanning() as $horaire) : ?>
+                                                            <tr class="bg-white border-b border-gray-200">
+                                                                <td class="sm:px-6 px-2 py-4"><?= htmlspecialchars($horaire['daterando_clair']) ?></td>
+                                                                <td class="sm:px-6 px-2 py-4"><?= htmlspecialchars($horaire['heurerando']) ?></td>
+                                                                <td class="sm:px-6 px-2 py-4"><?= htmlspecialchars($horaire['lieurando']) ?></td>
+                                                                <td class="sm:px-6 px-2 py-4"><?= htmlspecialchars($horaire['animateurrando']) ?></td>
+                                                                <td class="sm:px-6 px-2 py-4"><?= htmlspecialchars($horaire['kmrando']) ?></td>
+                                                                
+                                                            </tr>
+                                                        <?php endforeach; ?>
+                                                        <?php } else { ?>
+                                                            <tr class="bg-white border-b border-gray-200">
+                                                                <td colspan="6" class="sm:px-6 px-2 py-4 text-center">Pas de randonnée prévue</td>
+                                                            </tr>
+                                                        <?php } ?>
+                                                        <?php } ?>
+                                                    </tbody>
+                                                    
+                                                </table>
+                                        </div>
+                                        <?php } ?>    
+
                                         <?php if($salleEtHeure) {?>
                                         <?php $horaireSalle = getHourAndRoomForActivity($activiteIdForPlanning) ?>    
                                         <div>

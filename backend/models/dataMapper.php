@@ -326,7 +326,48 @@ require 'dataBase.php';
     }
 //*    
 
-//*à la une
+// * planning rando
+    function randoPlanning(){
+        global $connexion;
+        $req = "SELECT * FROM activite_rando WHERE daterando_us >= DATE_FORMAT(CURDATE(), '%y%m%d') AND niveaurando != 'M' AND niveaurando != 'MR' ORDER BY daterando_us DESC";
+       $res = mysqli_query($connexion, $req);
+       if (!$res) {
+           throw new Exception("Database query failed: " . mysqli_error($connexion));
+       }
+       $planning = [];
+       while ($row = mysqli_fetch_assoc($res)) {
+           $planning[] = $row;
+       }
+       return $planning;
+    }
+
+    function randoMontagnePlanning(){
+        global $connexion;
+        $req = "SELECT * FROM activite_rando WHERE daterando_us >= DATE_FORMAT(CURDATE(), '%y%m%d') AND niveaurando = 'M'  ORDER BY daterando_us DESC";
+       $res = mysqli_query($connexion, $req);
+       if (!$res) {
+           throw new Exception("Database query failed: " . mysqli_error($connexion));
+       }
+       $planning = [];
+       while ($row = mysqli_fetch_assoc($res)) {
+           $planning[] = $row;
+       }
+       return $planning;
+    }
+    function randoRaquettePlanning(){
+        global $connexion;
+        $req = "SELECT * FROM activite_rando WHERE daterando_us >= DATE_FORMAT(CURDATE(), '%y%m%d') AND niveaurando = 'MR'  ORDER BY daterando_us DESC";
+       $res = mysqli_query($connexion, $req);
+       if (!$res) {
+           throw new Exception("Database query failed: " . mysqli_error($connexion));
+       }
+       $planning = [];
+       while ($row = mysqli_fetch_assoc($res)) {
+           $planning[] = $row;
+       }
+       return $planning;
+    }
+// *
 
     // function getHomePageNewEvent(){
         //     global $connexion;
@@ -367,7 +408,7 @@ require 'dataBase.php';
         //         return $events;
         //     }
     // }
-function getHomePageEvent(){
+    function getHomePageEvent(){
     global $connexion;
     $req = "SELECT * FROM accueil_choix";
     $res = mysqli_query($connexion, $req);
@@ -420,7 +461,7 @@ function getHomePageEvent(){
         }
         return $laUne;
     }
-}
+    }
 
 //*    
 

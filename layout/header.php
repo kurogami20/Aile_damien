@@ -23,7 +23,7 @@
   
    
 
-<nav class="  relative min-[1480px]:h-full max-h-185 overflow-y-auto overflow-x-hidden"> 
+<nav class="   min-[1480px]:h-full max-h-185 overflow-y-auto overflow-x-hidden"> 
  <div class="flex flex-wrap justify-between items-center  "> 
        <a href="index.php?page=accueil" class="flex items-center gap-5"><img src="../assets/img/logo.webp" alt="" class=" w-17 h-17  min-[1480px]:w-30 min-[1480px]:h-30 object-cover rounded-full">  <h1 class="text-4xl capitalize w-max">A.I.L.E.</h1></a>
 
