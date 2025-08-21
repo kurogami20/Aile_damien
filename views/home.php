@@ -99,7 +99,11 @@ if($_SESSION['login']) {
                 <div class="flex flex-col justify-between p-4 leading-normal">
                     <h1 class="mb-2 text-lg sm:text-2xl font-bold tracking-tight text-gray-900"><?= htmlspecialchars($activity['title'])?></h1>
                     <p class="mb-3 font-normal text-gray-700 text-base sm:text-lg"><?= htmlspecialchars($activity['description'])?></p>
-                    <button type="button" class="cursor-pointer self-end w-fit h-fit text-black bg-white hover:underline border border-2 border-[#ffbe46] font-medium rounded-lg text-xs sm:text-sm px-3 sm:px-5 py-2.5 me-2 mb-2">En savoir plus</button>
+                    <span class="flex flex-wrap gap-2 sm:gap-4">
+                    <?php foreach ($activity['type'] as $type): ?>
+                       <a href="<?= htmlspecialchars($type[1]) ?>"><button type="button" class="cursor-pointer self-end w-fit h-fit text-black bg-white hover:underline border border-2 border-[#ffbe46] font-medium rounded-lg text-xs sm:text-sm px-3 sm:px-5 py-2.5 me-2 mb-2"><?= htmlspecialchars($type[0]) ?></button></a>
+                    <?php endforeach; ?>
+                    </span>
                 </div>
             </article>    
             <?php endforeach; ?>
@@ -111,7 +115,7 @@ if($_SESSION['login']) {
             <h3 class="text-xl sm:text-3xl mb-1">Vous n'êtes pas adhérents ?</h3>
             <p class="text-base sm:text-lg">Vous pouvez adhérer à l'association en remplissant le formulaire d'adhésion.</p>
             <a href="/index.php?page=adherer">
-                <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xs sm:text-sm px-3 sm:px-5 py-2.5 me-2 mb-2">Adhérer</button>
+                <button type="button" class="cursor-pointer self-end w-fit h-fit text-black bg-white hover:underline border border-2 border-[#ffbe46] font-medium rounded-lg text-xs sm:text-sm px-3 sm:px-5 py-2.5 me-2 mb-2">Adhérer</button>
             </a>
         </div>
     </section>
