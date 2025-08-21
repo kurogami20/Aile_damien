@@ -1,0 +1,14 @@
+<IfDefine Free>
+php56 1
+ErrorDocument 404 /404.php
+# SET CSP HEADER  
+
+SetEnv LOGIN_DB nom d'utilisateur de la base de donnée
+SetEnv PASSWORD_DB mot de passe
+
+SetEnv MEMBER_LOGIN  nom du login pour les membres
+SetEnv MEMBER_PASSWD  mot de passe
+
+-> exemple: 
+SetEnv LOGIN_DB michel34
+SetEnv PASSWORD_DB ?QJHQ57454kjdhf.
