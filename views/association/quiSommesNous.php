@@ -5,7 +5,7 @@ require_once 'backend/models/dataMapper.php';
 
 <section class="flex flex-col p-4 min-[1480px]:px-40 min-[1200px]:px-20 px-2 h-[100%] gap-20 items-center">
 <h2 class="text-3xl sm:text-5xl text-center capitalize font-bold ">Qui sommes nous ?</h2>
-    <section class=" p-10 flex flex-col items-center sm:justify-center gap-10 border border-[#ffbe46] rounded-lg shadow-sm  sm:h-full max-h-150 overflow-scroll bg-white  ">
+    <section class=" p-10 flex flex-col items-center sm:justify-center gap-10 border border-[#ffbe46] rounded-lg shadow-sm  sm:h-full max-h-150 overflow-auto bg-white  ">
         <p class="text-base sm:text-lg text-center ">
         L’association AILE (Association Intercommunale de Loisirs et d’Échanges) a pour vocation de favoriser l’organisation et le développement d’activités de loisirs collectifs à destination de ses adhérents. Elle propose un cadre dynamique et chaleureux permettant à chacun de s’investir dans des activités variées, qu’elles soient culturelles, sportives, artistiques ou de détente, en lien avec les envies des participants.
         <br> <br>

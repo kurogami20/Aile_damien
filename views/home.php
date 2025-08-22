@@ -17,8 +17,20 @@ if($_SESSION['login']) {
          return $date_fr;
     }
 ?>
+<!-- boutons de gestion pour les admin -->
 
+<?php if (($_SESSION['login'] == 'LOGIN0' OR $_SESSION['login'] == 'LOGIN1'  OR $_SESSION['login'] == 'LOGIN20') ) { ?>
+<div class="text-center max-sm:mt-[42px] fixed z-9 right-3 flex flex-col gap-5 items-end">
+    <button class="text-sm sm:text-xl border border-[#ffbe45] border-2 w-fit  p-2 rounded-full cursor-pointer bg-[#fff6ed] " type="button" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
+    Administration site
+    </button>
+    <button class="text-sm sm:text-xl border border-[#ffbe45] border-2 w-fit  p-2 rounded-full cursor-pointer bg-[#fff6ed] " type="button" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
+    Base adhérents
+    </button>
+    </div>
+<?php } ?>
 <!-- html pour adhérents -->
+ 
 <section class="flex flex-col gap-4 p-4 min-[1480px]:px-40 min-[1200px]:px-20 px-2">
     <h2 class="text-3xl sm:text-5xl text-center capitalize font-bold z-3">à la une</h2>
     <section class="flex flex-col gap-8 sm:gap-15 w-full ">
@@ -82,8 +94,7 @@ if($_SESSION['login']) {
         <p class="text-base sm:text-lg text-center">
         Bienvenue sur le site de l’association AILE. Depuis 2001, AILE réunit dans un esprit de bénévolat et de convivialité les habitants de Cugnaux, Frouzins, Seysses et Villeneuve-Tolosane autour d’activités de loisirs collectifs. La diversité de nos loisirs séduit petits et grands : sport, culture, détente ou ateliers créatifs, il y en a pour tous les goûts !
         </p>
-        <button type="button" class="cursor-pointer w-fit h-fit text-black bg-white hover:underline border border-2 border-[#ffbe46] font-medium rounded-lg text-xs sm:text-sm px-3 sm:px-5 py-2.5 me-2 mb-2">En savoir plus
-        </button>
+     <a href="/index.php?page=qui_sommes_nous">   <button type="button" class="cursor-pointer w-fit h-fit text-black bg-white hover:underline border border-2 border-[#ffbe46] font-medium rounded-lg text-xs sm:text-sm px-3 sm:px-5 py-2.5 me-2 mb-2">Découvrir l'association</button></a>
     </section>
 
     <section class="flex flex-col items-center justify-between gap-10 sm:gap-20 mt-10 sm:mt-20">
@@ -110,7 +121,7 @@ if($_SESSION['login']) {
         </div>
     </section>
 
-    <section class="mt-10 sm:mt-20 p-4 sm:p-10 flex flex-col items-center justify-center gap-6 sm:gap-10 border border-[#ffbe46] rounded-lg shadow-sm bg-white">
+    <section class="mt-10 sm:mt-20 p-4 sm:p-10 flex flex-col items-center justify-center gap-6 sm:gap-10 border border-[#ffbe46] rounded-lg shadow-sm bg-white                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ">
         <div class="flex flex-col items-center gap-3 sm:gap-5">
             <h3 class="text-xl sm:text-3xl mb-1">Vous n'êtes pas adhérents ?</h3>
             <p class="text-base sm:text-lg">Vous pouvez adhérer à l'association en remplissant le formulaire d'adhésion.</p>
