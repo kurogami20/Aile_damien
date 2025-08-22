@@ -369,6 +369,7 @@ require 'dataBase.php';
     }
 // *
 
+// * page d'accueil
     // function getHomePageNewEvent(){
         //     global $connexion;
         //     $connexion->set_charset("utf8");
@@ -612,4 +613,24 @@ require 'dataBase.php';
         }
     }
 
+//*
+
+
+//*  adresses
+    function getAddresses($salleNom){
+        global $connexion;
+        $req = "SELECT * FROM salle WHERE salle_nom = ?";
+        $stmt = mysqli_prepare($connexion, $req);
+        if ($stmt === false) {
+            throw new Exception("Failed to prepare SQL statement.");
+        }
+        mysqli_stmt_bind_param($stmt, "s", $salleNom);
+        mysqli_stmt_execute($stmt);
+        $res = mysqli_stmt_get_result($stmt);
+        if (!$res) {
+            throw new Exception("Database query failed: " . mysqli_error($connexion));
+        } else {
+            return mysqli_fetch_assoc($res);
+        }
+    }
 //*

@@ -32,6 +32,8 @@
                     <a href="#<?= htmlspecialchars($type['type']) ?>" class="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-[#FFBE45]/40  ">
                     <span class="ms-3 capitalize"><?= htmlspecialchars($type['type']) ?> </span>
                     </a>
+                    <!-- on  verifie si l'utilisateur est connecté -->
+                    <?php if (isset($_SESSION['user']) && !empty($_SESSION['user'])) : ?>
                     <!-- on vérifie si un type a plusieurs activité -->
                     <?php if (isset($type['activites']) && !empty($type['activites']))  {?>
                         <ul class="  min-[1200px]:max-h-0 min-[1200px]:opacity-0 min-[1200px]:scale-y-75 min-[1200px]:overflow-hidden transform transition-all duration-[2000ms] ease-in-out origin-top min-[1200px]:group-hover:max-h-[1000px] min-[1200px]:group-hover:opacity-100 min-[1200px]:group-hover:scale-y-100 border-l-2 border-[#ffbe45]">
@@ -45,6 +47,7 @@
                         </ul>
 
                     <?php } ?>
+                    <?php endif; ?>
                 </li>
                 <?php endforeach; ?>
             </ul>
@@ -68,6 +71,8 @@
                     <?= htmlspecialchars($info['titre']) ?>
                 </h3>
                 <div class="card border border-[#ffbe46] rounded-lg shadow-sm bg-white p-10 flex flex-col gap-3 sm:justify-center text-base sm:h-full max-h-150 overflow-scroll"><?= html_entity_decode($info['description']) ?></div>
+                 <!-- on vérifie si un utilisateur est connecté, si oui on affiche la div suivante -->
+                 <?php if (isset($_SESSION['user']) && !empty($_SESSION['user'])) : ?>
                 <div class="flex flex-col gap-10">
                     <!-- on boucle sur les activités de chaque section pour afficher chaque activité dans un article -->
                     <?php foreach ($info['activites'] as $activite) : ?>
@@ -86,7 +91,7 @@
                                 <?php if (isset($activite['description']) && !empty($activite['description'])) : ?>
                                 <div class="text-base! sm:text-lg flex flex-col gap-1"><?= html_entity_decode($activite['description']) ?></div>
                                 <?php endif; ?>
-                                <!-- on vérifie si un utilisateur est connecté, si oui on affiche la div suivante -->
+                               
                                 <div class="relative overflow-x-auto">
                                     <table class="text-sm text-gray-500 w-full">
                                         <thead class="text-xs text-gray-700 uppercase bg-gray-50">
@@ -270,10 +275,12 @@
                                         <?php } ?>  
                                     </table>
                                 </div>   
+                                
                             </div>
                         </article>
                     <?php endforeach; ?>
                 </div>
+                <?php endif; ?>
             </section>
         <?php endforeach; ?>
     </section>

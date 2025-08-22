@@ -13,6 +13,22 @@
     $globalIndex = 0;
     $planningIndex = 0;
 
+    // on recherche les adresses des salles
+    function adresses ($nomSalle){
+         getAddresses($nomSalle);
+            $nom= getAddresses($nomSalle)["salle_nom"];
+            $adresse = getAddresses($nomSalle)["salle_adresse"];
+            $ville = getAddresses($nomSalle)["salle_ville"];
+            $codePostal = getAddresses($nomSalle)["salle_cp"];
+            // $addressee = $nom . ' ' . $adresse . ', ' . $codePostal . ' ' . $ville;
+            $addressee =  $adresse . ', ' . $codePostal . ' ' . $ville;
+            $query = urlencode($addressee);
+            $addresseComplete = 'https://www.google.com/maps/search/?api=1&query=' . $query;
+            // on vérifie si l'adresse est vide, si oui on retourne une chaîne vide
+        //  return  $addresseComplete;
+        return $addresseComplete;
+    };
+
 ?>
 
 <!-- partie menu secondaire (sur le côté) -->
@@ -199,26 +215,30 @@
                                                             <th scope="col" class="sm:px-6 px-2 py-3">Salle</th>
                                                         </tr>
                                                     </thead>
+                                                    <!-- on vérifie si le planning est écrit en dur dans le tableau -->
                                                     <?php if(is_array($activite['planning'])){?>
                                                     <tbody>
                                                         <?php foreach ($activite['planning'] as $horaire) : ?>
                                                             <tr class="bg-white border-b border-gray-200">
                                                                 <td class="sm:px-6 px-2 py-4"><?= htmlspecialchars($horaire['activite_jour']) ?></td>
                                                                 <td class="sm:px-6 px-2 py-4"><?= htmlspecialchars($horaire['activite_horaire']) ?></td>
-                                                                <td class="sm:px-6 px-2 py-4"><?= htmlspecialchars($horaire['salle_nom']) ?></td>
+                                                                <td class="sm:px-6 px-2 py-4"><a class="underline cursor-pointer " href="<?= htmlspecialchars(adresses($horaire['salle_nom'])) ?>" target="_blank" rel="noopener noreferrer"><?= htmlspecialchars($horaire['salle_nom']) ?></a></td>
                                                             </tr>
                                                         <?php endforeach; ?>
                                                     </tbody>
+                                                    <!-- sinon on récupère les donnée depuis la base de donnée -->
                                                     <?php } else { ?>
                                                     <tbody>
-                                                    
+                                                    <!-- on vérifie si les données arrivent sous la forme d'un tableau -->
+                                                     <!-- si les donnée sont sous la forme d'un tableau on boucle dessus avec foreach -->
+                                                      <!-- $planningIndex permet de changer de planning en fonction de l'activité qui est affiché -->
                                                         <?php if (is_array($horaireSalle[$planningIndex]) && isset($horaireSalle[$planningIndex][0]) && is_array($horaireSalle[$planningIndex][0])) { ?>
                                                         <?php foreach ($horaireSalle[$planningIndex] as $horaire) : ?>
                                                             <?php if(!empty($horaire['activite_jour']) && !empty($horaire['activite_horaire']) && !empty($horaire['salle_nom'])) { ?>
                                                                 <tr class="bg-white border-b border-gray-200">
                                                                     <td class="sm:px-6 px-2 py-4"><?= htmlspecialchars($horaire['activite_jour']) ?></td>
                                                                     <td class="sm:px-6 px-2 py-4"><?= htmlspecialchars($horaire['activite_horaire']) ?></td>
-                                                                    <td class="sm:px-6 px-2 py-4"><?= htmlspecialchars($horaire['salle_nom']) ?></td>
+                                                                    <td class="sm:px-6 px-2 py-4"><a class="underline cursor-pointer " href="<?= htmlspecialchars(adresses($horaire['salle_nom'])) ?>" target="_blank" rel="noopener noreferrer"><?= htmlspecialchars($horaire['salle_nom']) ?></a></td>
                                                                 </tr>
                                                             <?php } ?>
                                                         <?php endforeach; ?>
@@ -226,9 +246,10 @@
                                                             <tr class="bg-white border-b border-gray-200">
                                                                 <td class="sm:px-6 px-2 py-4"><?= htmlspecialchars($horaireSalle[$planningIndex]['activite_jour']) ?></td>
                                                                 <td class="sm:px-6 px-2 py-4"><?= htmlspecialchars($horaireSalle[$planningIndex]['activite_horaire']) ?></td>
-                                                                <td class="sm:px-6 px-2 py-4"><?= htmlspecialchars($horaireSalle[$planningIndex]['salle_nom']) ?></td>
+                                                                <td class="sm:px-6 px-2 py-4"><a class="underline cursor-pointer " href="<?= htmlspecialchars(adresses($horaireSalle[$planningIndex]['salle_nom'])) ?>" target="_blank" rel="noopener noreferrer"><?= htmlspecialchars($horaireSalle[$planningIndex]['salle_nom']) ?></a></td>
                                                             </tr>
                                                                 <?php } ?>
+                                                        <!-- on augmente $planningIndex de 1 pour passer au planning d'activité suivant -->
                                                         <?php $planningIndex++; ?>
                                                     </tbody>
                                                     <?php } ?>
@@ -361,4 +382,6 @@
 });
 
 console.log(<?= json_encode($horaireSalle) ?>);
+console.log(<?= json_encode(adresses("Salle de la Convivialité")) ?>);
+console.log(<?= json_encode(adresses("Utopia Tournefeuille")) ?>);
 </script>
